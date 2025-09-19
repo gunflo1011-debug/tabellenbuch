@@ -177,3 +177,57 @@ footer a{color:var(--primary-2)}
 .suggestion-item:hover, .suggestion-item[aria-selected="true"]{background:#f3f4f6}
 .suggestion-title{font-weight:600}
 .suggestion-path{font-size:.8rem; color:var(--muted)}
+
+
+
+/* === Gleichungen: Profi-Typografie & MathJax Fixes === */
+:root {
+  --tb-leading: 1.7;
+  --tb-card-leading: 1.65;
+  --tb-list-gap: .25rem;
+}
+
+.content, .tb-container { line-height: var(--tb-leading); }
+
+.card { line-height: var(--tb-card-leading); }
+
+.card p { margin: .4rem 0 .8rem; }
+
+.card ul, .card ol {
+  margin: .35rem 0 .75rem;
+  padding-left: 1.25rem;
+}
+
+.card ol li, .card ul li { margin: var(--tb-list-gap) 0; }
+
+/* Prevent awkward wraps around inline math & keep punctuation attached */
+mjx-container[display="inline"] {
+  display: inline-block !important;
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin: 0 .05rem;
+}
+
+/* Display equations: balanced spacing */
+mjx-container[display="true"] {
+  display: block;
+  margin: .6rem 0 .8rem;
+}
+
+/* Tighter spacing for lists containing math */
+li mjx-container[display="inline"] { margin: 0 .15rem; }
+
+/* Avoid single markers or dots sitting alone due to width changes */
+.card ol { list-style-position: outside; }
+.card ul { list-style-position: outside; }
+
+/* Improve readability on wide screens */
+@media (min-width: 1024px) {
+  .tb-container { font-size: 1.04rem; }
+}
+
+/* Small helpers if needed */
+.nowrap { white-space: nowrap; }
+.kbd, code.kbd {
+  background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px;
+}
