@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Quartische Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Quartische Gleichungen – biquadratisch (t‑Substitution), Faktorisieren, Herleitung & Beweis." />
+  <meta name="description" content="Quartische Gleichungen – biquadratische Spezialfälle, Faktorisieren in Quadrate, Ferrari als Exkurs, plus viele Beispiele." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -44,76 +44,93 @@
 
   <main id="mainContent" class="content">
     <div class="tb-container">
-      <!-- Titelblock -->
       <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Quartische Gleichungen</h1>
       </div>
-      <p class="muted">Quartische Gleichungen – biquadratisch (t‑Substitution), Faktorisieren, Herleitung & Beweis.</p>
+      <p class="muted">Quartische Gleichungen – biquadratische Spezialfälle, Faktorisieren in Quadrate, Ferrari als Exkurs, plus viele Beispiele.</p>
 
-      <!-- Toolbar (identisch aufgebaut) -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+      <!-- Toolbar -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
         <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a>
-        <a class="btn" href="#methoden">Methoden</a>
-        <a class="btn" href="#beispiel">Beispiel</a>
-        <a class="btn" href="#herleitung">Herleitung</a>
-        <a class="btn" href="#beweis">Beweis</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
-      
       <section class="card" id="definition">
-        <h2>1. Definition & Form</h2>
-        <p><strong>Quartische Gleichungen</strong>: \(ax^4+bx^3+cx^2+dx+e=0\), \(a\neq0\).</p>
+        <h2>1. Definition</h2>
+        <p>Allgemeine Form \(ax^4+bx^3+cx^2+dx+e=0\), \(a\neq0\). Vier Lösungen in \(\mathbb{C}\).</p>
       </section>
-
       <section class="card" id="methoden">
         <h2>2. Methoden</h2>
         <ul>
-          <li><strong>Biquadratisch</strong>: \(ax^4+cx^2+e=0\) ⇒ Substitution \(t=x^2\).</li>
+          <li><strong>Biquadratisch</strong> (nur gerade Potenzen): Substitution \(t=x^2\).</li>
           <li><strong>Faktorisieren</strong> als Produkt zweier Quadrate \((ux^2+vx+w)(rx^2+sx+t)\).</li>
-          <li><em>Fortgeschritten:</em> Ferrari‑Methode für den allgemeinen Fall.</li>
+          <li><em>Exkurs:</em> Ferrari‑Methode (allgemeiner Fall).</li>
         </ul>
       </section>
-
-      <section class="card" id="beispiel">
-        <h2>3. Beispiel</h2>
-        <p>\(x^4-5x^2+4=0\) (biquadratisch) ⇒ \(t^2-5t+4=0\) ⇒ \(t=1,4\) ⇒ \(x=\pm1,\pm2\).</p>
-      </section>
-
-      <section class="card" id="herleitung">
-        <h2>4. Herleitung (Biquadratische Substitution)</h2>
-        <p>Ohne ungerade Potenzen lässt sich \(x^4\) durch \(t^2\) und \(x^2\) durch \(t\) ersetzen. Die Rücksubstitution \(x=\pm\sqrt{t}\) liefert die Lösungen.</p>
-      </section>
-
-      <section class="card" id="beweis">
-        <h2>5. Kurzer Beweis</h2>
-        <p>Die Substitution ist bijektiv auf der Definitionsmenge \(t=x^2\ge0\). Die Rücksubstitution prüft alle Kandidaten (inkl. Vorzeichen) – damit bleiben die Lösungen äquivalent.</p>
-      </section>
-
-      
-      <section class="card" id="weiter">
-        <h2>6. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
-            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-            <p>Definition & Regeln</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>Grad 1 – Basis</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html">
-            <h3><i class="fa-solid fa-cube"></i> Kubische Gleichungen</h3>
-            <p>Grad 3</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
-            <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
-            <p>Grad ≥ 5</p>
-          </a>
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <div class="grid-2">
+          <div><h3>Biquadratisch</h3><p>\(x^4-5x^2+4=0\Rightarrow t^2-5t+4=0\Rightarrow x=\pm1,\pm2\).</p></div>
+          <div><h3>Faktorisieren</h3><p>\(x^4-2x^3-7x^2+8x+12=(x^2-5x+6)(x^2+3x-2)\).</p></div>
         </div>
       </section>
+      <section class="card" id="strategie">
+        <h2>4. Schritt‑für‑Schritt (Biquadratisch)</h2>
+        <ol>
+          <li>\(t=x^2\) setzen und Quadratik in \(t\) lösen.</li>
+          <li>Rücksubstitution \(x=\pm\sqrt{t}\).</li>
+          <li>Nur reelle \(t\ge0\) liefern reelle \(x\).</li>
+        </ol>
+      </section>
+      <section class="card" id="herleitung">
+        <h2>5. Herleitung (Substitution)</h2>
+        <p>Durch die Substitution wird der Grad halbiert. Die Rücksubstitution bildet alle Vorzeichenfälle ab.</p>
+      </section>
+      <section class="card" id="beweis">
+        <h2>6. Beweis‑Skizze</h2>
+        <p>Die Substitution ist auf \(t=x^2\ge0\) wohldefiniert; Rücksubstitution erzeugt äquivalente Lösungen.</p>
+      </section>
+      <section class="card" id="fehler">
+        <h2>7. Typische Fehler</h2>
+        <ul>
+          <li>Vergessen der \(\pm\)‑Fälle bei \(x=\pm\sqrt{t}\).</li>
+          <li>Unzulässige \(t<0\) als reelle Lösungen übernehmen.</li>
+        </ul>
+      </section>
+      <section class="card" id="uebungen">
+        <h2>8. Übungen</h2>
+        <ol>
+          <li>\(x^4-13x^2+36=0\)</li>
+          <li>\(x^4-8x^2+16=0\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungen</summary>
+          1) \(x=\pm2,\pm3\). 2) \((x^2-4)^2=0\Rightarrow x=\pm2\) (doppelte Nullstellen).
+        </details>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>9. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem;">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+      <p>Definition & Regeln</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+      <p>Grad 1 – Basis</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html">
+      <h3><i class="fa-solid fa-cube"></i> Kubische Gleichungen</h3>
+      <p>Grad 3</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
+      <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
+      <p>Grad ≥ 5</p>
+    </a>
+        </div>
+      </section>
+    
     </div>
   </main>
 

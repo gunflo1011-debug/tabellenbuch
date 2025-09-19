@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Kubische Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kubische Gleichungen – rationale Nullstellen, Faktorisieren, Herleitung & Beweis." />
+  <meta name="description" content="Kubische Gleichungen – rationale Nullstellen, Faktorisierung und Beispiele. Cardano als Exkurs." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -44,76 +44,100 @@
 
   <main id="mainContent" class="content">
     <div class="tb-container">
-      <!-- Titelblock -->
       <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Kubische Gleichungen</h1>
       </div>
-      <p class="muted">Kubische Gleichungen – rationale Nullstellen, Faktorisieren, Herleitung & Beweis.</p>
+      <p class="muted">Kubische Gleichungen – rationale Nullstellen, Faktorisierung und Beispiele. Cardano als Exkurs.</p>
 
-      <!-- Toolbar (identisch aufgebaut) -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+      <!-- Toolbar -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
         <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a>
-        <a class="btn" href="#methoden">Methoden</a>
-        <a class="btn" href="#beispiel">Beispiel</a>
-        <a class="btn" href="#herleitung">Herleitung</a>
-        <a class="btn" href="#beweis">Beweis</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
-      
       <section class="card" id="definition">
-        <h2>1. Definition & Form</h2>
-        <p><strong>Kubische Gleichungen</strong>: \(ax^3+bx^2+cx+d=0\), \(a\neq0\).</p>
+        <h2>1. Definition</h2>
+        <p>Allgemeine Form \(ax^3+bx^2+cx+d=0\) mit \(a\neq0\). Es gibt stets drei (ggf. komplexe) Lösungen.</p>
       </section>
-
       <section class="card" id="methoden">
         <h2>2. Methoden</h2>
         <ul>
-          <li><strong>Rationale Nullstellen</strong> (Teilbarkeitsregel \(p\mid d\), \(q\mid a\)), testen (z.&nbsp;B. Horner).</li>
-          <li><strong>Faktorisieren</strong> zu \((x-r)(ux^2+vx+w)\), dann Quadratik lösen.</li>
-          <li><em>Fortgeschritten:</em> Cardano für die allgemeine Kubik.</li>
+          <li><strong>Rationale Nullstellen</strong> (Kandidaten \(p/q\) mit \(p\mid d,\;q\mid a\)).</li>
+          <li><strong>Horner/Polynomdivision</strong> → Reduktion auf Quadratik.</li>
+          <li><em>Exkurs:</em> Cardano‑Formel (fortgeschritten).</li>
         </ul>
       </section>
-
-      <section class="card" id="beispiel">
-        <h2>3. Beispiel</h2>
-        <p>\(x^3-4x^2-7x+10=0\) ⇒ Nullstelle \(x=5\). Division ⇒ \(x^2+x-2\) ⇒ \(x=1,-2\).</p>
-      </section>
-
-      <section class="card" id="herleitung">
-        <h2>4. Herleitung (Faktorisierungsidee)</h2>
-        <p>Ist \(r\) Nullstelle, so gilt \(x-r\) als Faktor. Polynomdivision reduziert den Grad und führt auf eine Quadratgleichung.</p>
-      </section>
-
-      <section class="card" id="beweis">
-        <h2>5. Kurzer Beweis</h2>
-        <p>Die Korrektheit folgt aus dem <em>Restekriterium</em> und der Eindeutigkeit der Polynomdivision. Die anschließende Quadratik wird mit äquivalenten Umformungen gelöst.</p>
-      </section>
-
-      
-      <section class="card" id="weiter">
-        <h2>6. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
-            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-            <p>Definition & Regeln</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>Grad 1 – Basis</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
-            <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-            <p>Grad 2</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/quartische-gleichungen.html">
-            <h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
-            <p>Grad 4</p>
-          </a>
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <div class="grid-2">
+          <div>
+            <h3>Mit rationaler Nullstelle</h3>
+            <p>\(x^3-4x^2-7x+10=0\Rightarrow x=5\). Teilen ⇒ \(x^2+x-2\) ⇒ \(x=1,-2\).</p>
+          </div>
+          <div>
+            <h3>Mehrere rationale</h3>
+            <p>\(x^3-6x^2+11x-6=0\Rightarrow (x-1)(x-2)(x-3)=0\).</p>
+          </div>
         </div>
       </section>
+      <section class="card" id="strategie">
+        <h2>4. Schritt‑für‑Schritt</h2>
+        <ol>
+          <li>Kandidatenliste \(\{\pm1,\pm2,\dots\}\) gemäß Teilbarkeit bilden.</li>
+          <li>Werte einsetzen (oder Horner) bis eine Nullstelle gefunden ist.</li>
+          <li>Faktor abspalten, Quadratik lösen.</li>
+          <li>Gesamtlösungsmenge notieren.</li>
+        </ol>
+      </section>
+      <section class="card" id="herleitung">
+        <h2>5. Herleitung (Restekriterium)</h2>
+        <p>\(x=r\) ist Nullstelle \(\Leftrightarrow\) Rest bei Division durch \(x-r\) ist 0. So entsteht der Linearfaktor.</p>
+      </section>
+      <section class="card" id="beweis">
+        <h2>6. Beweis‑Skizze</h2>
+        <p>Die Polynomdivision ist eindeutig; die Rückführung auf eine Quadratik verwendet nur erlaubte Umformungen.</p>
+      </section>
+      <section class="card" id="fehler">
+        <h2>7. Typische Fehler</h2>
+        <ul>
+          <li>Kandidaten vergessen (z.&nbsp;B. Brüche \(\tfrac{p}{q}\)).</li>
+          <li>Vorzeichenfehler beim Horner‑Schema.</li>
+        </ul>
+      </section>
+      <section class="card" id="uebungen">
+        <h2>8. Übungen</h2>
+        <ol>
+          <li>\(2x^3-3x^2-8x+12=0\)</li>
+          <li>\(x^3+x^2-4x-4=0\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungen</summary>
+          1) \(x\in\{-2,2,\tfrac{3}{2}\}\). 2) \((x+1)(x^2-4)=0\Rightarrow x=-1,\pm2\).
+        </details>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>9. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem;">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+      <p>Definition & Regeln</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+      <p>Grad 1 – Basis</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
+      <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
+      <p>Grad 2</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/quartische-gleichungen.html">
+      <h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
+      <p>Grad 4</p>
+    </a>
+        </div>
+      </section>
+    
     </div>
   </main>
 

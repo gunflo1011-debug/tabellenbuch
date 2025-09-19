@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Gleichungen höherer Ordnung – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Polynomgleichungen Grad ≥ 5 – Strategien, Herleitung, Beweis, Beispiel." />
+  <meta name="description" content="Polynomgleichungen ab Grad 5 – systematische Strategien ohne allgemeine Radikallösung (Abel–Ruffini)." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -44,77 +44,90 @@
 
   <main id="mainContent" class="content">
     <div class="tb-container">
-      <!-- Titelblock -->
       <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Gleichungen höherer Ordnung (n ≥ 5)</h1>
       </div>
-      <p class="muted">Polynomgleichungen Grad ≥ 5 – Strategien, Herleitung, Beweis, Beispiel.</p>
+      <p class="muted">Polynomgleichungen ab Grad 5 – systematische Strategien ohne allgemeine Radikallösung (Abel–Ruffini).</p>
 
-      <!-- Toolbar (identisch aufgebaut) -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+      <!-- Toolbar -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
         <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a>
-        <a class="btn" href="#methoden">Methoden</a>
-        <a class="btn" href="#beispiel">Beispiel</a>
-        <a class="btn" href="#herleitung">Herleitung</a>
-        <a class="btn" href="#beweis">Beweis</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
-      
       <section class="card" id="definition">
-        <h2>1. Definition & Form</h2>
-        <p><strong>Höhere Ordnung</strong>: \(a_n x^n+\dots+a_0=0\) mit \(n\ge5\).</p>
+        <h2>1. Definition</h2>
+        <p>\(a_n x^n+\cdots+a_0=0\) mit \(n\ge5\). Nach dem Fundamentalsatz der Algebra existieren \(n\) komplexe Lösungen.</p>
       </section>
-
       <section class="card" id="methoden">
         <h2>2. Methoden</h2>
         <ul>
-          <li><strong>Faktorisieren</strong> (gemeinsame Faktoren, Gruppen, Substitutionen).</li>
-          <li><strong>Rationale Nullstellen</strong> testen, dann Grad reduzieren.</li>
-          <li><strong>Numerik</strong> (z.&nbsp;B. Newton) und Graphanalyse.</li>
-          <li><em>Hinweis:</em> Abel–Ruffini ⇒ keine allgemeine Radikallösung.</li>
+          <li>Strukturerkennung: gemeinsame Faktoren, Gruppenfaktorisierung, Substitution.</li>
+          <li>Rationale Nullstellen testen und schrittweise reduzieren.</li>
+          <li>Numerische Verfahren (Newton), unterstützt durch Graphanalyse.</li>
         </ul>
       </section>
-
-      <section class="card" id="beispiel">
-        <h2>3. Beispiel</h2>
-        <p>\(x^5-3x^4-7x^3+21x^2+20x-60=0\) ⇒ Faktor \((x-3)\) ⇒ biquadratische Restgleichung.</p>
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <p>\(x^5-3x^4-7x^3+21x^2+20x-60=0\Rightarrow (x-3)(x^4-7x^2-20)=0\) ⇒ biquadratisch lösen.</p>
       </section>
-
+      <section class="card" id="strategie">
+        <h2>4. Schritt‑für‑Schritt</h2>
+        <ol>
+          <li>Auf offensichtliche Faktoren prüfen (\(x\), \(x\pm1\), etc.).</li>
+          <li>Kandidatenliste \(p/q\) testen.</li>
+          <li>Jeden gefundenen Faktor abspalten, weiter vereinfachen.</li>
+          <li>Übrig bleibende quadratische/kubische Teile mit bekannten Methoden lösen.</li>
+        </ol>
+      </section>
       <section class="card" id="herleitung">
-        <h2>4. Herleitung (Reduktion)</h2>
-        <p>Eine gefundene Nullstelle liefert durch Polynomdivision einen Faktor. Iteratives Reduzieren führt zu Quadraten/Kubiken.</p>
+        <h2>5. Herleitung (Abel–Ruffini‑Kontext)</h2>
+        <p>Es gibt keine allgemeine Formel in Radikalen für \(n\ge5\). Daher sind strukturelle Zerlegung und Numerik zentrale Werkzeuge.</p>
       </section>
-
       <section class="card" id="beweis">
-        <h2>5. Kurzer Beweis</h2>
-        <p>Die Faktorisierung basiert auf dem Fundamentalsatz der Algebra; jede Reduktionsstufe wird mit gültigen Umformungen gelöst.</p>
+        <h2>6. Beweis‑Hinweis</h2>
+        <p>Die Korrektheit einzelner Schritte folgt aus Äquivalenzumformungen; Existenz der Faktoren wird durch den Fundamentalsatz der Algebra abgesichert.</p>
+      </section>
+      <section class="card" id="fehler">
+        <h2>7. Typische Fehler</h2>
+        <ul>
+          <li>Frühe Substitution ohne Rücksubstitution.</li>
+          <li>Übersehen einfacher rationaler Nullstellen.</li>
+        </ul>
+      </section>
+      <section class="card" id="uebungen">
+        <h2>8. Übungen</h2>
+        <ol>
+          <li>\(x^5-2x^4-13x^3+14x^2+40x-48=0\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungsskizze</summary>
+          Kandidaten testen ⇒ z.&nbsp;B. \(x=2\) Nullstelle. Reduktion führt zu biquadratischer Restgleichung.
+        </details>
       </section>
 
-      
       <section class="card" id="weiter">
-        <h2>6. Wohin als Nächstes?</h2>
+        <h2>9. Wohin als Nächstes?</h2>
         <div class="categories" style="margin-top:.75rem;">
           <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
-            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-            <p>Definition & Regeln</p>
-          </a>
+      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+      <p>Definition & Regeln</p>
+    </a>
 <a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>Grad 1 – Basis</p>
-          </a>
+      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+      <p>Grad 1 – Basis</p>
+    </a>
 <a class="card" href="/pages/mathematik/algebra/gleichungen/quartische-gleichungen.html">
-            <h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
-            <p>Grad 4</p>
-          </a>
+      <h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
+      <p>Grad 4</p>
+    </a>
 <a class="card" href="/pages/mathematik/algebra/gleichungen/besondere-gleichungen.html">
-            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
-            <p>Spezialformen</p>
-          </a>
+      <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
+      <p>Spezialformen</p>
+    </a>
         </div>
       </section>
+    
     </div>
   </main>
 

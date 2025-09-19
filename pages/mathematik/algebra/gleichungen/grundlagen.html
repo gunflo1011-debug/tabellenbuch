@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Grundlagen der Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Gleichungen: Definition, zulässige Äquivalenzumformungen, Beispiel Schritt für Schritt, allgemeine Herleitung und kurzer Beweis." />
+  <meta name="description" content="Definition, Äquivalenzumformungen, Lösungsprinzip und allgemeine Begründung – ausführlich und verständlich." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -14,16 +14,20 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    /* Seitenfeinschliff */
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:10px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+    /* Header kompakt wie auf den anderen Seiten */
+    #header .tb-compact { margin-bottom:.75rem; }
+
+    nav.breadcrumb{ margin-top:.25rem; }
     .tb-container{ max-width:1100px; margin:0 auto; }
     .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
     .muted{ color:#6b7280; }
+
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600;
+    }
+    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
   </style>
 </head>
 <body>
@@ -40,98 +44,117 @@
 
   <main id="mainContent" class="content">
     <div class="tb-container">
-      <!-- Titelblock -->
       <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-        <i class="fa-solid fa-book-open" style="font-size:1.6rem; color:#1e3a8a;"></i>
+        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Grundlagen der Gleichungen</h1>
       </div>
-      <p class="muted">Definition, zulässige Umformungen, Schritt‑für‑Schritt‑Beispiel, allgemeine Herleitung und kurzer Beweis.</p>
+      <p class="muted">Definition, Äquivalenzumformungen, Lösungsprinzip und allgemeine Begründung – ausführlich und verständlich.</p>
 
-      <!-- In-Page-Navi -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+      <!-- Toolbar -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
         <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#aequivalenz">Äquivalenzumformungen</a>
-        <a class="btn" href="#beispiel">Beispiel</a>
-        <a class="btn" href="#herleitung">Allgemeine Herleitung</a>
-        <a class="btn" href="#beweis">Beweis</a>
+        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
-      <!-- Inhalte als Cards -->
       <section class="card" id="definition">
-        <h2>1. Was ist eine Gleichung?</h2>
-        <p>Eine <strong>Gleichung</strong> ist eine Aussage, in der zwei Terme durch ein <strong>Gleichheitszeichen</strong> (=) verbunden sind, z.&nbsp;B. \(2x+3=7\).
-           Ziel ist es, die <em>unbekannte Variable</em> (hier \(x\)) so zu bestimmen, dass die Aussage wahr ist.</p>
+        <h2>1. Definition</h2>
+        <p>Eine <strong>Gleichung</strong> ist eine Aussage der Form \(L(x)=R(x)\). Gesucht sind alle Werte von \(x\), die diese Aussage <em>wahr</em> machen (Lösungsmenge).</p>
+        <div class="formula">Äquivalente Gleichungen haben <em>dieselbe</em> Lösungsmenge.</div>
       </section>
-
-      <section class="card" id="aequivalenz">
+      <section class="card" id="methoden">
         <h2>2. Äquivalenzumformungen</h2>
-        <p>Umformungen, die die Lösungsmenge <em>nicht</em> verändern, heißen <strong>Äquivalenzumformungen</strong>. Erlaubt sind u.&nbsp;a.:</p>
         <ul>
-          <li>Addition/Subtraktion derselben Zahl auf beiden Seiten,</li>
-          <li>Multiplikation/Division beider Seiten mit derselben Zahl (außer 0),</li>
-          <li>Ausklammern, Zusammenfassen, Verteilen (Distributivgesetz),</li>
-          <li>Faktorisieren oder andere <em>umkehrbare</em> Umformungen von Termen.</li>
+          <li>Addieren/Subtrahieren derselben Terme auf beiden Seiten.</li>
+          <li>Multiplizieren/Dividieren mit \(\neq 0\).</li>
+          <li>Potenzieren/Wurzelziehen <em>mit Rückprüfung</em> (kann Scheinlösungen erzeugen!).</li>
+          <li>Substitution (z.&nbsp;B. \(t=x^2\)) – mit Rücksubstitution.</li>
         </ul>
-        <p class="muted" style="margin-top:.5rem;">Nicht äquivalent sind z.&nbsp;B. das Quadrieren ohne Zusatzprüfung (Scheinlösungen möglich).</p>
       </section>
-
-      <section class="card" id="beispiel">
-        <h2>3. Beispiel (Schritt für Schritt)</h2>
-        <p>Gegeben: \(2x+3=7\)</p>
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <div class="grid-2">
+          <div>
+            <h3>Lineares Beispiel</h3>
+            <p>\(2x+5=11\Rightarrow 2x=6\Rightarrow x=3\).</p>
+          </div>
+          <div>
+            <h3>Mit Wurzel</h3>
+            <p>\(\sqrt{x+4}=x\Rightarrow x+4=x^2\Rightarrow x=4\) oder \(x=-1\) (verwerfen, da \(\sqrt{3}\neq-1\)).</p>
+          </div>
+        </div>
+      </section>
+      <section class="card" id="strategie">
+        <h2>4. Schritt‑für‑Schritt</h2>
         <ol>
-          <li>Subtrahiere 3: \(2x+3-3=7-3 \Rightarrow 2x=4\)</li>
-          <li>Teile durch 2: \(\frac{2x}{2}=\frac{4}{2} \Rightarrow x=2\)</li>
+          <li>Definitionsmenge klären (Nenner \(\neq0\), Wurzelausdrücke \(\ge0\)).</li>
+          <li>Term vereinfachen, gesammelt auf eine Seite bringen.</li>
+          <li>Geeignete Methode wählen (linear, quadratisch, Faktorisieren, Substitution).</li>
+          <li>Rückprüfung in der <em>Ausgangsgleichung</em>.</li>
         </ol>
-        <p><strong>Lösung:</strong> \(x=2\). <span class="muted">Probe: \(2\cdot 2+3=7\) ✓</span></p>
       </section>
-
       <section class="card" id="herleitung">
-        <h2>4. Allgemeine Herleitung (lineare Gleichungen)</h2>
-        <p>Für \(ax+b=c\) mit \(a\neq 0\):</p>
-        <ol>
-          <li>Subtrahiere \(b\): \(ax=c-b\)</li>
-          <li>Teile durch \(a\): \(x=\dfrac{c-b}{a}\)</li>
-        </ol>
-        <p>Damit ist die eindeutige Lösung für jede lineare Gleichung der Form \(ax+b=c\) angegeben.</p>
+        <h2>5. Herleitungsidee</h2>
+        <p>Warum funktionieren die Schritte? Weil die erlaubten Umformungen <em>Äquivalenz</em> erhalten. Bei nicht umkehrbaren Schritten (Potenzieren) wird durch Prüfung sichergestellt, dass nur echte Lösungen bleiben.</p>
       </section>
-
       <section class="card" id="beweis">
-        <h2>5. Kurzer Beweis (Korrektheit der Schritte)</h2>
-        <p>Die Schritte sind <em>äquivalent</em>, weil gilt:</p>
+        <h2>6. Beweis‑Skizze (Regeln)</h2>
         <ul>
-          <li>\(u=v \Rightarrow u+k=v+k\) (Additionsgesetz)</li>
-          <li>\(u=v \Rightarrow u\cdot k=v\cdot k\) (Multiplikationsgesetz)</li>
-          <li>Für \(k\neq 0\): aus \(u\cdot k=v\cdot k\) folgt \(u=v\) (Division als Umkehrung).</li>
+          <li>Aus \(u=v\) folgt \(u+k=v+k\) (Additionsgesetz).</li>
+          <li>Aus \(u=v\) folgt \(uk=vk\) (Multiplikationsgesetz).</li>
+          <li>Für \(k\neq0\): aus \(uk=vk\) folgt wieder \(u=v\) (Division).</li>
         </ul>
-        <p>Daraus folgt direkt \(x=\dfrac{c-b}{a}\).</p>
+      </section>
+      <section class="card" id="fehler">
+        <h2>7. Typische Fehler</h2>
+        <ul>
+          <li>Definitionsmenge vergessen → Scheinlösungen zulassen.</li>
+          <li>Falsches Verteilen bei Minusklammern, z.&nbsp;B. \(-(a-b)\neq -a-b\).</li>
+          <li>Potenzieren ohne Rückprüfung.</li>
+        </ul>
+      </section>
+      <section class="card" id="uebungen">
+        <h2>8. Übungen</h2>
+        <ol>
+          <li>\(3x-7=2x+5\)</li>
+          <li>\(\dfrac{2}{x-1}=1\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungen</summary>
+          1) \(x=12\). 2) DN: \(x\neq1\). \(2=x-1\Rightarrow x=3\).
+        </details>
       </section>
 
       <section class="card" id="weiter">
-        <h2>6. Wohin als Nächstes?</h2>
+        <h2>9. Wohin als Nächstes?</h2>
         <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>1.&nbsp;Grades – einfache Lösungen</p>
-          </a>
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
-            <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-            <p>Mitternachtsformel, pq‑Formel</p>
-          </a>
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+      <p>Definition & Regeln</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+      <p>Grad 1 – Basis</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
+      <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
+      <p>Grad 2</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/besondere-gleichungen.html">
+      <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
+      <p>Spezialformen</p>
+    </a>
         </div>
       </section>
+    
     </div>
   </main>
 
   <div id="footer"></div>
 
-  <!-- Globale Header/Footer-Injektion + Mobile/UX -->
   <script>
   Promise.all([
-    fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header"); if(el){el.innerHTML=h;}}),
-    fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer"); if(el){el.innerHTML=h;}})
-  ]).then(()=>{
-    // search.js wird von mobile.js geladen und initialisiert
-  }).catch(console.error);
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
   </script>
   <script defer src="/assets/mobile.js"></script>
 </body>

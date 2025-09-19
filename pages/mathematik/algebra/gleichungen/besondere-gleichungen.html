@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Besondere Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Biquadratische, Bruch- und Wurzelgleichungen – Verfahren, Herleitung, Beweis, Beispiele." />
+  <meta name="description" content="Spezielle Gleichungstypen: biquadratische, Bruch- und Wurzelgleichungen – mit Musterlösungen, Fallstricken und Übungen." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -44,81 +44,100 @@
 
   <main id="mainContent" class="content">
     <div class="tb-container">
-      <!-- Titelblock -->
       <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Besondere Gleichungen</h1>
       </div>
-      <p class="muted">Biquadratische, Bruch- und Wurzelgleichungen – Verfahren, Herleitung, Beweis, Beispiele.</p>
+      <p class="muted">Spezielle Gleichungstypen: biquadratische, Bruch- und Wurzelgleichungen – mit Musterlösungen, Fallstricken und Übungen.</p>
 
-      <!-- Toolbar (identisch aufgebaut) -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+      <!-- Toolbar -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
         <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a>
-        <a class="btn" href="#methoden">Methoden</a>
-        <a class="btn" href="#beispiel">Beispiel</a>
-        <a class="btn" href="#herleitung">Herleitung</a>
-        <a class="btn" href="#beweis">Beweis</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
-      
       <section class="card" id="definition">
         <h2>1. Definition & Typen</h2>
         <ul>
-          <li><strong>Biquadratisch:</strong> \(ax^4+cx^2+e=0\)</li>
-          <li><strong>Bruchgleichungen:</strong> Gleichungen mit Termen im Nenner</li>
-          <li><strong>Wurzelgleichungen:</strong> Gleichungen mit Wurzelausdrücken</li>
+          <li><strong>Biquadratisch:</strong> \(ax^4+cx^2+e=0\).</li>
+          <li><strong>Bruchgleichungen:</strong> Terme im Nenner.</li>
+          <li><strong>Wurzelgleichungen:</strong> Wurzelausdrücke.</li>
         </ul>
       </section>
-
       <section class="card" id="methoden">
         <h2>2. Methoden</h2>
         <ul>
-          <li>Biquadratisch: \(t=x^2\)-Substitution.</li>
-          <li>Bruchgleichungen: <em>Definitionsmenge</em>, Hauptnenner, lösen, <strong>Rückprüfung</strong>.</li>
-          <li>Wurzelgleichungen: Wurzel isolieren, potenzieren, <strong>Rückprüfung</strong>.</li>
+          <li>Biquadratisch: \(t=x^2\), Quadratik lösen, Rücksubstitution.</li>
+          <li>Bruch: Definitionsmenge, Hauptnenner, lösen, Rückprüfung.</li>
+          <li>Wurzel: isolieren, potenzieren, Rückprüfung.</li>
         </ul>
       </section>
-
-      <section class="card" id="beispiel">
-        <h2>3. Beispiel</h2>
-        <p><em>Bruch:</em> \(\frac{x+1}{x-2}=2\) ⇒ \(x=5\) (DN: \(x\neq2\)).<br/>
-           <em>Wurzel:</em> \(\sqrt{x+1}=x-1\) ⇒ DN: \(x\ge1\); Lösung \(x=3\).</p>
-      </section>
-
-      <section class="card" id="herleitung">
-        <h2>4. Herleitung (Allgemeine Vorgehensmuster)</h2>
-        <p>Alle drei Typen lassen sich auf bekannte Formen zurückführen: Substitution, Bruchbeseitigung bzw. Potenzierung.</p>
-      </section>
-
-      <section class="card" id="beweis">
-        <h2>5. Kurzer Beweis</h2>
-        <p>Die Schritte sind äquivalente Umformungen; bei Potenzieren/Division ist die Rückprüfung Teil des Beweises (Scheinlösungen ausschließen).</p>
-      </section>
-
-      
-      <section class="card" id="weiter">
-        <h2>6. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
-            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-            <p>Definition & Regeln</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>Grad 1 – Basis</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
-            <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-            <p>Grad 2</p>
-          </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
-            <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
-            <p>Grad ≥ 5</p>
-          </a>
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <div class="grid-2">
+          <div><h3>Bruch</h3><p>\(\frac{x+1}{x-2}=2\) ⇒ DN: \(x\neq2\). \(x+1=2x-4\Rightarrow x=5\).</p></div>
+          <div><h3>Wurzel</h3><p>\(\sqrt{2x+3}=x\) ⇒ DN: \(x\ge0\). \(2x+3=x^2\Rightarrow x=3\) (\(x=-1\) verwerfen).</p></div>
         </div>
       </section>
+      <section class="card" id="strategie">
+        <h2>4. Schritt‑für‑Schritt (Bruch)</h2>
+        <ol>
+          <li>DN: Nenner \(\neq0\) bestimmen.</li>
+          <li>Mit Hauptnenner multiplizieren.</li>
+          <li>Polynomgleichung lösen, <em>DN prüfen</em>.</li>
+        </ol>
+      </section>
+      <section class="card" id="herleitung">
+        <h2>5. Herleitung (Wurzel)</h2>
+        <p>Isolieren der Wurzel und Potenzieren führt auf eine äquivalente (ggf. erweiterte) Gleichung; Rückprüfung entfernt Scheinlösungen.</p>
+      </section>
+      <section class="card" id="beweis">
+        <h2>6. Beweis‑Skizze</h2>
+        <p>Äquivalenz folgt aus den Umformungsregeln; bei Potenzieren/Division ist die explizite Probe Teil des Beweises.</p>
+      </section>
+      <section class="card" id="fehler">
+        <h2>7. Typische Fehler</h2>
+        <ul>
+          <li>DN nicht beachtet ⇒ unzulässige Lösungen.</li>
+          <li>Potenzieren ohne Doppelprüfung.</li>
+        </ul>
+      </section>
+      <section class="card" id="uebungen">
+        <h2>8. Übungen</h2>
+        <ol>
+          <li>\(\frac{2x-3}{x+1}=1\)</li>
+          <li>\(\sqrt{x+4}=x\)</li>
+          <li>\(2x^4-3x^2-2=0\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungen</summary>
+          1) DN: \(x\neq-1\). \(2x-3=x+1\Rightarrow x=4\).<br/>
+          2) DN: \(x\ge0\). \(x^2=x+4\Rightarrow x=4\) (\(x=-1\) verwerfen).<br/>
+          3) \(t=x^2\Rightarrow 2t^2-3t-2=0\Rightarrow t=2,-\tfrac12\Rightarrow x=\pm\sqrt{2}\) (reell).
+        </details>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>9. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem;">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+      <p>Definition & Regeln</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+      <p>Grad 1 – Basis</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
+      <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
+      <p>Grad 2</p>
+    </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
+      <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
+      <p>Grad ≥ 5</p>
+    </a>
+        </div>
+      </section>
+    
     </div>
   </main>
 
