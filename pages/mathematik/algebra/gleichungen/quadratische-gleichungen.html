@@ -1,157 +1,113 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Quadratische Gleichungen – Tabellenbuch.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Quadratische Gleichungen – alle gängigen Verfahren mit ausführlichen Beispielen, Herleitung der Formeln und typischen Stolperfallen." />
+<section class="content">
+  <h1>Quadratische Gleichungen</h1>
 
-  <link rel="stylesheet" href="/assets/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <div class="tb-callout">
+    <strong>Lernziele:</strong>
+    <ul>
+      <li>Quadratische Gleichungen in Normalform, Scheitel- und Produktform erkennen und überführen.</li>
+      <li>pq-Formel, Mitternachtsformel, Faktorisierung und quadratische Ergänzung sicher anwenden.</li>
+      <li>Diskriminante interpretieren und Anzahl/Typ der Lösungen begründen.</li>
+      <li>Lösungen prüfen und typische Umformungsfehler vermeiden.</li>
+    </ul>
+  </div>
 
-  <!-- MathJax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <h2>Begriffe & Notation</h2>
+  <p>Eine quadratische Gleichung hat die Form \(ax^2+bx+c=0\) mit \(a\neq 0\).
+     Häufige Spezialformen:
+     <em>Normalform</em> \(ax^2+bx+c=0\),
+     <em>pq-Form</em> \(x^2+px+q=0\),
+     <em>Produktform</em \((x-x_1)(x-x_2)=0\).
+  </p>
 
-  <style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
+  <h2>Intuition</h2>
+  <p>Quadratische Gleichungen beschreiben Parabeln. Lösungen sind die Schnittpunkte der Parabel mit der x-Achse (Nullstellen).</p>
 
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
+  <h2>Methoden & Entscheidungsbaum</h2>
+  <ol>
+    <li><strong>Direkt faktorisierbar?</strong> Versuche \(ax^2+bx+c=(dx+e)(fx+g)\). Wenn ja: Nullprodukt \( \Rightarrow \) Lösungen sofort.</li>
+    <li><strong>pq-Form?</strong> Bei \(x^2+px+q=0\): \(x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}\).</li>
+    <li><strong>Allgemeine Form?</strong> Mitternachtsformel:
+      \[
+        x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+      \]
+      Diskriminante \(D=b^2-4ac\) steuert die Anzahl der Lösungen.</li>
+    <li><strong>Quadratische Ergänzung</strong> (robust, lehrreich), siehe Herleitung.</li>
+  </ol>
 
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
-  </style>
-</head>
-<body>
-  <div id="header"></div>
+  <div class="tb-callout warn">
+    <strong>Merke:</strong> \(D=b^2-4ac\).
+    <ul>
+      <li>\(D&gt;0\): zwei reelle Lösungen</li>
+      <li>\(D=0\): doppelte Lösung (Berührpunkt)</li>
+      <li>\(D&lt;0\): keine reellen Lösungen (komplexe Lösungen)</li>
+    </ul>
+  </div>
 
-  <!-- Breadcrumb -->
-  <nav class="breadcrumb">
-    <a href="/">Startseite</a> ›
-    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
-    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
-    <span>Quadratische Gleichungen</span>
-  </nav>
+  <h2>Herleitung der pq-Formel (quadratische Ergänzung)</h2>
+  <details>
+    <summary>Beweis einblenden</summary>
+    <p>Ausgehend von \(x^2+px+q=0\) ergänzen wir zu einem Quadrat:</p>
+    \[
+      x^2+px = -q
+      \;\Rightarrow\;
+      x^2+px+\left(\frac{p}{2}\right)^2 = \left(\frac{p}{2}\right)^2 - q
+      \;\Rightarrow\;
+      \left(x+\frac{p}{2}\right)^2 = \left(\frac{p}{2}\right)^2 - q.
+    \]
+    <p>Wurzelziehen liefert
+    \(
+      x+\frac{p}{2}=\pm\sqrt{\left(\frac{p}{2}\right)^2-q}
+      \Rightarrow
+      x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}.
+    \)</p>
+  </details>
 
-  <main id="mainContent" class="content">
-    <div class="tb-container">
-      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
-        <h1 style="margin:0;">Quadratische Gleichungen</h1>
-      </div>
-      <p class="muted">Quadratische Gleichungen – alle gängigen Verfahren mit ausführlichen Beispielen, Herleitung der Formeln und typischen Stolperfallen.</p>
+  <h2>Beispiele</h2>
+  <h3>1) Faktorisieren</h3>
+  <p>\(x^2-5x+6=0\Rightarrow (x-2)(x-3)=0 \Rightarrow L=\{2,3\}\).</p>
 
-      <!-- Toolbar -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
-      </div>
+  <h3>2) pq-Form</h3>
+  <p>\(x^2-6x+5=0\) hat \(p=-6, q=5\).
+     \[
+       x=3\pm\sqrt{9-5}=3\pm 2 \Rightarrow L=\{1,5\}.
+     \]</p>
 
-      <section class="card" id="definition">
-        <h2>1. Definition</h2>
-        <p>Allgemeine Form \(ax^2+bx+c=0\) mit \(a\neq0\). Die <em>Diskriminante</em> \(\Delta=b^2-4ac\) bestimmt die Anzahl reeller Lösungen.</p>
-      </section>
-      <section class="card" id="methoden">
-        <h2>2. Methoden</h2>
-        <ol>
-          <li><strong>Mitternachtsformel:</strong> \(x=\tfrac{-b\pm\sqrt{\Delta}}{2a}\).</li>
-          <li><strong>pq‑Formel:</strong> normiere zu \(x^2+px+q=0\) ⇒ \(x=-\tfrac{p}{2}\pm\sqrt{(\tfrac{p}{2})^2-q}\).</li>
-          <li><strong>Quadratische Ergänzung</strong> – besonders anschaulich.</li>
-          <li><strong>Faktorisieren</strong>, falls \(ax^2+bx+c=a(x-r_1)(x-r_2)\) gelingt.</li>
-        </ol>
-      </section>
-      <section class="card" id="beispiele">
-        <h2>3. Beispiele</h2>
-        <div class="grid-2">
-          <div>
-            <h3>Mitternachtsformel</h3>
-            <p>\(2x^2-3x-2=0\Rightarrow \Delta=25\Rightarrow x=2\;\text{oder}\;x=-\tfrac12\).</p>
-          </div>
-          <div>
-            <h3>pq‑Formel</h3>
-            <p>\(x^2-8x+12=0\Rightarrow x=4\pm\sqrt{4}\Rightarrow x=2,6\).</p>
-          </div>
-        </div>
-      </section>
-      <section class="card" id="strategie">
-        <h2>4. Schritt‑für‑Schritt (Ergänzung)</h2>
-        <ol>
-          <li>Auf \(x^2+px+q=0\) bringen.</li>
-          <li>\(x^2+px = -q\) und \((\tfrac{p}{2})^2\) ergänzen.</li>
-          <li>Quadratseite bilden: \((x+\tfrac{p}{2})^2=(\tfrac{p}{2})^2-q\).</li>
-          <li>Wurzelziehen und nach \(x\) auflösen.</li>
-        </ol>
-      </section>
-      <section class="card" id="herleitung">
-        <h2>5. Herleitung der pq‑Formel</h2>
-        <p>Siehe Schritt‑für‑Schritt: Die Ergänzung liefert direkt \(x=-\tfrac{p}{2}\pm\sqrt{(\tfrac{p}{2})^2-q}\).</p>
-      </section>
-      <section class="card" id="beweis">
-        <h2>6. Beweis‑Skizze</h2>
-        <p>Alle Schritte sind Äquivalenzumformungen; das Wurzelziehen ist umkehrbar (beide Vorzeichen berücksichtigen).</p>
-      </section>
-      <section class="card" id="fehler">
-        <h2>7. Typische Fehler</h2>
-        <ul>
-          <li>Vorzeichen bei \(b\) in der Formel.</li>
-          <li>Nur eine Wurzel statt \(\pm\).</li>
-          <li>Vergessen, durch \(a\) zu teilen, bevor die pq‑Formel angewendet wird.</li>
-        </ul>
-      </section>
-      <section class="card" id="uebungen">
-        <h2>8. Übungen</h2>
-        <ol>
-          <li>\(x^2+5x+6=0\)</li>
-          <li>\(3x^2+12x+12=0\)</li>
-          <li>\(x^2-2x-3=0\)</li>
-        </ol>
-        <details class="solution"><summary>Lösungen</summary>
-          1) \(x=-2,-3\). 2) \(x=-2\) (doppelt). 3) \(x=-1,3\).
-        </details>
-      </section>
+  <h3>3) Mitternachtsformel (allgemein)</h3>
+  <p>\(2x^2+3x-2=0\).
+     \(D=3^2-4\cdot 2\cdot (-2)=9+16=25\).
+     \[
+       x=\frac{-3\pm\sqrt{25}}{4}=\frac{-3\pm 5}{4}
+       \Rightarrow L=\left\{\frac{1}{2}, -2\right\}.
+     \]</p>
 
-      <section class="card" id="weiter">
-        <h2>9. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
-      <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-      <p>Definition & Regeln</p>
-    </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
-      <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-      <p>Grad 1 – Basis</p>
-    </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html">
-      <h3><i class="fa-solid fa-cube"></i> Kubische Gleichungen</h3>
-      <p>Grad 3</p>
-    </a>
-<a class="card" href="/pages/mathematik/algebra/gleichungen/besondere-gleichungen.html">
-      <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
-      <p>Spezialformen</p>
-    </a>
-        </div>
-      </section>
-    
-    </div>
-  </main>
+  <h3>4) Keine reellen Lösungen</h3>
+  <p>\(x^2+4x+8=0\).
+     \(D=16-32=-16\Rightarrow\) keine reellen Lösungen (komplexe: \(x=-2\pm 2i\)).</p>
 
-  <div id="footer"></div>
+  <h2>Typische Fehler & Checks</h2>
+  <ul>
+    <li><strong>Falsches Vorzeichen</strong> unter der Wurzel oder bei \(-b\).</li>
+    <li><strong>Teilen durch \(2a\)</strong> vergessen.</li>
+    <li><strong>Rückprüfung:</strong> Lösungen immer in die Ursprungsgleichung einsetzen.</li>
+  </ul>
 
-  <script>
-  Promise.all([
-    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-  ]).catch(console.error);
-  </script>
-  <script defer src="/assets/mobile.js"></script>
-</body>
-</html>
+  <h2>Anwendungen (kurz)</h2>
+  <p>Geometrie (Flächen/Seiten), Physik (Wurfbahn), Ökonomie (Ertragsoptimum via Parabel).</p>
+
+  <h2>Übungen</h2>
+  <ol>
+    <li>\(x^2-7x+10=0\)</li>
+    <li>\(3x^2-12x+12=0\)</li>
+    <li>\(x^2+2x+5=0\)</li>
+  </ol>
+  <details>
+    <summary>🧩 Lösungen</summary>
+    <p>1) \(L=\{2,5\}\) &nbsp; 2) \(D=144-144=0\Rightarrow x=2\) &nbsp; 3) \(D=4-20=-16\Rightarrow\) keine reellen Lösungen.</p>
+  </details>
+
+  <h2>Weiterlesen</h2>
+  <ul>
+    <li><a href="/pages/mathematik/algebra/polynome/polynomdivision.html">Polynomdivision &amp; Faktorisierung</a></li>
+    <li><a href="/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html">Lineare Gleichungssysteme</a></li>
+  </ul>
+</section>
