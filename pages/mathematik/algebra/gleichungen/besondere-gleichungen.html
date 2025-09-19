@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Besondere Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Besondere Gleichungen: biquadratische, Bruch- und Wurzelgleichungen – Methode, Beispiele, Übungen." />
+  <meta name="description" content="Biquadratische, Bruch- und Wurzelgleichungen – Verfahren, Herleitung, Beweis, Beispiele." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -14,21 +14,20 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
+    /* Header kompakt wie auf den anderen Seiten */
     #header .tb-compact { margin-bottom:.75rem; }
+
     nav.breadcrumb{ margin-top:.25rem; }
     .tb-container{ max-width:1100px; margin:0 auto; }
     .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
     .muted{ color:#6b7280; }
+
     .local-toolbar a.btn{
       text-decoration:none; background:#eef2ff; color:#1e3a8a;
       padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600; border:1px solid #dbeafe;
+      align-items:center; font-weight:600;
     }
-    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
-    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
-    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
-    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
-    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
   </style>
 </head>
 <body>
@@ -50,71 +49,76 @@
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Besondere Gleichungen</h1>
       </div>
-      <p class="muted">Biquadratische, Bruch- und Wurzelgleichungen – mit Methode, Beispielen und typischen Fehlern.</p>
+      <p class="muted">Biquadratische, Bruch- und Wurzelgleichungen – Verfahren, Herleitung, Beweis, Beispiele.</p>
 
-      <!-- Local toolbar -->
-      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
-        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      <!-- Toolbar (identisch aufgebaut) -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
+        <a class="btn" href="#definition">Definition</a>
+        <a class="btn" href="#methoden">Methoden</a>
+        <a class="btn" href="#beispiel">Beispiel</a>
+        <a class="btn" href="#herleitung">Herleitung</a>
+        <a class="btn" href="#beweis">Beweis</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
       
-<section class="card">
-  <h2>Biquadratische Gleichungen</h2>
-  <p>Form \(ax^4+cx^2+e=0\). Substitution \(t=x^2\) → Quadratgleichung in \(t\).
-     Danach \(x=\pm\sqrt{t}\) berücksichtigen.</p>
-  <p class="formula"><strong>Beispiel:</strong> \(2x^4-3x^2-2=0\) → \(2t^2-3t-2=0\) →
-     \(t=2\) oder \(t=-\tfrac{1}{2}\). Reell: \(x=\pm\sqrt{2}\).</p>
-</section>
+      <section class="card" id="definition">
+        <h2>1. Definition & Typen</h2>
+        <ul>
+          <li><strong>Biquadratisch:</strong> \(ax^4+cx^2+e=0\)</li>
+          <li><strong>Bruchgleichungen:</strong> Gleichungen mit Termen im Nenner</li>
+          <li><strong>Wurzelgleichungen:</strong> Gleichungen mit Wurzelausdrücken</li>
+        </ul>
+      </section>
 
-<section class="card">
-  <h2>Bruchgleichungen (rationale Gleichungen)</h2>
-  <ol>
-    <li>Definitionsmenge festlegen (Nenner \(\neq 0\)).</li>
-    <li>Mit Hauptnenner multiplizieren, Brüche entfernen.</li>
-    <li>Entstandene Polynomgleichung lösen.</li>
-    <li><strong>Lösung(s)menge prüfen</strong> (Ausschluss falscher, eingeschlichener Werte).</li>
-  </ol>
-  <p class="formula"><strong>Beispiel:</strong> \(\frac{x+1}{x-2}=2\).
-     DN: \(x\neq2\). Multiplizieren: \(x+1=2(x-2)\Rightarrow x=5\) (zulässig).</p>
-</section>
+      <section class="card" id="methoden">
+        <h2>2. Methoden</h2>
+        <ul>
+          <li>Biquadratisch: \(t=x^2\)-Substitution.</li>
+          <li>Bruchgleichungen: <em>Definitionsmenge</em>, Hauptnenner, lösen, <strong>Rückprüfung</strong>.</li>
+          <li>Wurzelgleichungen: Wurzel isolieren, potenzieren, <strong>Rückprüfung</strong>.</li>
+        </ul>
+      </section>
 
-<section class="card">
-  <h2>Wurzelgleichungen (radikale Gleichungen)</h2>
-  <ol>
-    <li>Wurzel isolieren.</li>
-    <li>Beidseitig potenzieren, <strong>Definitionsmenge beachten</strong>.</li>
-    <li>Ergebnisprüfung (Scheinlösungen möglich!).</li>
-  </ol>
-  <p class="formula"><strong>Beispiel:</strong> \(\sqrt{x+1}=x-1\).
-     DN: \(x\ge1\). Quadrieren: \(x+1=x^2-2x+1\Rightarrow x^2-3x=0\Rightarrow x=0\,\text{oder}\,3\).
-     Prüfung: \(x=0\) verwirft (DN verletzt), \(x=3\) ist Lösung.</p>
-</section>
+      <section class="card" id="beispiel">
+        <h2>3. Beispiel</h2>
+        <p><em>Bruch:</em> \(\frac{x+1}{x-2}=2\) ⇒ \(x=5\) (DN: \(x\neq2\)).<br/>
+           <em>Wurzel:</em> \(\sqrt{x+1}=x-1\) ⇒ DN: \(x\ge1\); Lösung \(x=3\).</p>
+      </section>
 
-<section class="card">
-  <h2>Tipps &amp; typische Fehler</h2>
-  <ul>
-    <li>Bei Bruchgleichungen stets die Definitionsmenge angeben.</li>
-    <li>Bei Wurzelgleichungen nach dem Potenzieren immer rückprüfen.</li>
-    <li>Nach Faktorisierung alle Faktoren gleich Null setzen.</li>
-  </ul>
-</section>
+      <section class="card" id="herleitung">
+        <h2>4. Herleitung (Allgemeine Vorgehensmuster)</h2>
+        <p>Alle drei Typen lassen sich auf bekannte Formen zurückführen: Substitution, Bruchbeseitigung bzw. Potenzierung.</p>
+      </section>
 
-<section class="card">
-  <h2>Übungen</h2>
-  <ol>
-    <li>\(\frac{2x-3}{x+1}=1\)</li>
-    <li>\(\sqrt{2x+3}=x\)</li>
-    <li>\(x^4-8x^2+16=0\)</li>
-  </ol>
-  <details class="solution"><summary>Lösungen einblenden</summary>
-    <div>
-      1) DN: \(x\neq-1\). \(2x-3=x+1\Rightarrow x=4\).<br>
-      2) DN: \(x\ge0\). Quadrieren: \(2x+3=x^2\Rightarrow x^2-2x-3=0\Rightarrow x=3\) oder \(x=-1\) (verwerfen).<br>
-      3) Biquadratisch: \((x^2-4)^2=0\Rightarrow x=\pm2\) (je doppelt).
-    </div>
-  </details>
-</section>
+      <section class="card" id="beweis">
+        <h2>5. Kurzer Beweis</h2>
+        <p>Die Schritte sind äquivalente Umformungen; bei Potenzieren/Division ist die Rückprüfung Teil des Beweises (Scheinlösungen ausschließen).</p>
+      </section>
 
+      
+      <section class="card" id="weiter">
+        <h2>6. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem;">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+            <p>Definition & Regeln</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+            <p>Grad 1 – Basis</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
+            <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
+            <p>Grad 2</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
+            <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
+            <p>Grad ≥ 5</p>
+          </a>
+        </div>
+      </section>
     </div>
   </main>
 

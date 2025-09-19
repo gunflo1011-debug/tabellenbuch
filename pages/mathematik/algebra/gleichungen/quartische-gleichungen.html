@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Quartische Gleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Quartische Gleichungen: biquadratische Form (t-Substitution), Faktorisieren, Ferrari (Hinweis), Beispiele und Übungen." />
+  <meta name="description" content="Quartische Gleichungen – biquadratisch (t‑Substitution), Faktorisieren, Herleitung & Beweis." />
 
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -14,21 +14,20 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
+    /* Header kompakt wie auf den anderen Seiten */
     #header .tb-compact { margin-bottom:.75rem; }
+
     nav.breadcrumb{ margin-top:.25rem; }
     .tb-container{ max-width:1100px; margin:0 auto; }
     .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
     .muted{ color:#6b7280; }
+
     .local-toolbar a.btn{
       text-decoration:none; background:#eef2ff; color:#1e3a8a;
       padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600; border:1px solid #dbeafe;
+      align-items:center; font-weight:600;
     }
-    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
-    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
-    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
-    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
-    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
   </style>
 </head>
 <body>
@@ -50,54 +49,71 @@
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
         <h1 style="margin:0;">Quartische Gleichungen</h1>
       </div>
-      <p class="muted">Biquadratische Spezialfälle via \(t=x^2\), Faktorisierung in Quadrate und ein kurzer Ferrari‑Hinweis.</p>
+      <p class="muted">Quartische Gleichungen – biquadratisch (t‑Substitution), Faktorisieren, Herleitung & Beweis.</p>
 
-      <!-- Local toolbar -->
-      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
-        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      <!-- Toolbar (identisch aufgebaut) -->
+      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0 1.25rem;">
+        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
+        <a class="btn" href="#definition">Definition</a>
+        <a class="btn" href="#methoden">Methoden</a>
+        <a class="btn" href="#beispiel">Beispiel</a>
+        <a class="btn" href="#herleitung">Herleitung</a>
+        <a class="btn" href="#beweis">Beweis</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
 
       
-<section class="card">
-  <h2>Überblick</h2>
-  <p>Quartische Gleichungen haben die Form \(ax^4+bx^3+cx^2+dx+e=0\) (\(a\neq0\)).
-     Allgemein gibt es vier (ggf. komplexe) Lösungen.</p>
-</section>
+      <section class="card" id="definition">
+        <h2>1. Definition & Form</h2>
+        <p><strong>Quartische Gleichungen</strong>: \(ax^4+bx^3+cx^2+dx+e=0\), \(a\neq0\).</p>
+      </section>
 
-<section class="card">
-  <h2>Biquadratische Gleichungen</h2>
-  <p>Form: \(ax^4+cx^2+e=0\) (ohne \(x^3\) und \(x\)). Substitution \(t=x^2\) →
-     \(at^2+ct+e=0\). Lösen in \(t\) und danach \(x=\pm\sqrt{t}\) beachten.</p>
-  <p class="formula"><strong>Beispiel:</strong> \(x^4-5x^2+4=0\). Mit \(t=x^2\): \(t^2-5t+4=0\) →
-     \(t=1\) oder \(t=4\). Damit \(x=\pm1\) oder \(x=\pm2\).</p>
-</section>
+      <section class="card" id="methoden">
+        <h2>2. Methoden</h2>
+        <ul>
+          <li><strong>Biquadratisch</strong>: \(ax^4+cx^2+e=0\) ⇒ Substitution \(t=x^2\).</li>
+          <li><strong>Faktorisieren</strong> als Produkt zweier Quadrate \((ux^2+vx+w)(rx^2+sx+t)\).</li>
+          <li><em>Fortgeschritten:</em> Ferrari‑Methode für den allgemeinen Fall.</li>
+        </ul>
+      </section>
 
-<section class="card">
-  <h2>Faktorisieren in Quadrate</h2>
-  <p>Oft lässt sich \(ax^4+bx^3+cx^2+dx+e\) als Produkt zweier Quadrate schreiben:
-     \((ux^2+vx+w)(rx^2+sx+t)\). Koeffizientenvergleich liefert ein lineares Gleichungssystem.</p>
-</section>
+      <section class="card" id="beispiel">
+        <h2>3. Beispiel</h2>
+        <p>\(x^4-5x^2+4=0\) (biquadratisch) ⇒ \(t^2-5t+4=0\) ⇒ \(t=1,4\) ⇒ \(x=\pm1,\pm2\).</p>
+      </section>
 
-<section class="card">
-  <h2>Ferrari (fortgeschritten)</h2>
-  <p>Die allgemeine quartische Gleichung ist in Radikalen lösbar (Methode von Ferrari).
-     In der Schulpraxis genügt meist Faktorisierung und der biquadratische Spezialfall.</p>
-</section>
+      <section class="card" id="herleitung">
+        <h2>4. Herleitung (Biquadratische Substitution)</h2>
+        <p>Ohne ungerade Potenzen lässt sich \(x^4\) durch \(t^2\) und \(x^2\) durch \(t\) ersetzen. Die Rücksubstitution \(x=\pm\sqrt{t}\) liefert die Lösungen.</p>
+      </section>
 
-<section class="card">
-  <h2>Übungen</h2>
-  <ol>
-    <li>\(x^4-13x^2+36=0\)</li>
-    <li>\(x^4-2x^3-7x^2+8x+12=0\)</li>
-  </ol>
-  <details class="solution"><summary>Lösungen einblenden</summary>
-    <div>
-      1) \(t^2-13t+36=0\Rightarrow t=4,9\Rightarrow x=\pm2,\pm3\)<br>
-      2) Faktorisierbar zu \((x^2-5x+6)(x^2+3x-2)=0\Rightarrow x\in\{1,2,-\tfrac{3}{2},2\}\ (Mehrfachheit beachten)
-    </div>
-  </details>
-</section>
+      <section class="card" id="beweis">
+        <h2>5. Kurzer Beweis</h2>
+        <p>Die Substitution ist bijektiv auf der Definitionsmenge \(t=x^2\ge0\). Die Rücksubstitution prüft alle Kandidaten (inkl. Vorzeichen) – damit bleiben die Lösungen äquivalent.</p>
+      </section>
 
+      
+      <section class="card" id="weiter">
+        <h2>6. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem;">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/grundlagen.html">
+            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
+            <p>Definition & Regeln</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html">
+            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
+            <p>Grad 1 – Basis</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html">
+            <h3><i class="fa-solid fa-cube"></i> Kubische Gleichungen</h3>
+            <p>Grad 3</p>
+          </a>
+<a class="card" href="/pages/mathematik/algebra/gleichungen/gleichungen-hoeherer-ordnung.html">
+            <h3><i class="fa-solid fa-layer-group"></i> Höhere Ordnung</h3>
+            <p>Grad ≥ 5</p>
+          </a>
+        </div>
+      </section>
     </div>
   </main>
 
