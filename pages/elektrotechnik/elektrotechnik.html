@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elektrotechnik – Tabellenbuch.org</title>
+  <meta name="description" content="Elektrotechnik: Grundlagen wie das Ohmsche Gesetz mit Erklärungen & interaktiven Rechnern.">
+  <link rel="canonical" href="https://tabellenbuch.org/elektrotechnik.html">
+  <link rel="stylesheet" href="/assets/style.css">
+</head></head>
+<body>
+  <div id="header"></div>
+
+  <header>
+    <div class="logo">📘 Tabellenbuch.org</div>
+    <input type="text" placeholder="Formel suchen…" class="search-bar" aria-label="Suche">
+  </header>
+
+  <aside class="sidebar">
+    <h3>Kategorien</h3>
+    <ul>
+      <li><a href="mathematik.html">Mathematik</a></li>
+      <li><a href="#"><strong>Elektrotechnik</strong></a></li>
+      <li><a href="#">Physik</a></li>
+      <li><a href="#">Wirtschaft</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <div class="tb-container">
+      <h1>Elektrotechnik</h1>
+      <p class="muted">Grundlagen, Formeln, Beispiele und interaktive Rechner.</p>
+
+      <div class="categories" style="margin-top:14px;">
+        <a class="card" href="ohm.html">
+          <h3>⚡ Ohmsches Gesetz</h3>
+          <p>U = R·I • Erklärung, Tabelle, interaktive Darstellung & Rechner</p>
+        </a>
+      </div>
+
+      <div class="section" style="margin-top:18px;">
+        <h2>Demnächst</h2>
+        <ul>
+          <li>Leistung P = U·I</li>
+          <li>Spannungsteiler</li>
+          <li>Elektrische Arbeit & Energie</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Tabellenbuch.org · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+  <div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+]).catch(console.error);
+</script>
+<script defer src="/assets/mobile.js"></script>
+</body>
+</html>
