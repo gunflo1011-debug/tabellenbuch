@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seite nicht gefunden – Tabellenbuch.org</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .notfound { text-align:center; padding: 32px 12px; }
+    .notfound h1 { font-size: 2rem; margin-bottom: .5rem; }
+    .notfound p { color: var(--tb-muted); margin-bottom: 1rem; }
+    .actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 10px; }
+    .btn { background: var(--tb-primary); color:#fff; padding:.6rem 1rem; border-radius:.75rem; text-decoration:none; }
+    .search404 { max-width:520px; margin:12px auto 0; display:flex; gap:8px; }
+    .search404 input { flex:1; padding:.6rem .8rem; border-radius:.75rem; border:1px solid #e5e7eb; }
+    .breadcrumbs{font-size:.95rem;margin:8px 0 16px}
+    .breadcrumbs a{color:var(--tb-link);text-decoration:none}
+    .breadcrumbs .sep{margin:0 6px;color:var(--tb-muted)}
+  </style>
+</head></head>
+<body>
+  <div id="header"></div>
+
+  <div class="tb-container">
+    <nav class="breadcrumbs">
+      <a href="index.html">Startseite</a><span class="sep">›</span>
+      <span>404</span>
+    </nav>
+    <div class="notfound">
+      <h1>Seite nicht gefunden</h1>
+      <p>Die von dir aufgerufene URL existiert nicht oder wurde verschoben.</p>
+      <div class="search404">
+        <input id="q404" type="text" placeholder="Begriff suchen… (z.B. Pythagoras, Kreisfläche)" aria-label="Suche">
+        <a id="go404" class="btn" href="mathematik.html">Suchen</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="index.html">← Zur Startseite</a>
+        <a class="btn" href="mathematik.html">Zu Mathematik</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const input = document.getElementById('q404');
+      const go = document.getElementById('go404');
+      function run(){
+        const q = (input.value || '').trim();
+        const url = q ? 'mathematik.html?suche=' + encodeURIComponent(q) : 'mathematik.html';
+        location.href = url;
+      }
+      go.addEventListener('click', function(e){
+        e.preventDefault(); run();
+      });
+      input.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') run();
+      });
+    })();
+  </script>
+  <div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+]).catch(console.error);
+</script>
+<script defer src="/assets/mobile.js"></script>
+</body>
+</html>

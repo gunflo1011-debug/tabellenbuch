@@ -1,0 +1,5 @@
+# robots.txt for https://tabellenbuch.org/
+User-agent: *
+Allow: /
+
+Sitemap: https://tabellenbuch.org/sitemap.xml
