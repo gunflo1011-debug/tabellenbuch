@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="de"><head>
+<meta charset="UTF-8" /><title>Ringe & Ideale – Tabellenbuch.org</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Ideale, Faktorringe." />
+<link rel="stylesheet" href="/assets/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+    /* Header kompakt wie auf den anderen Seiten */
+    #header .tb-compact { margin-bottom:.75rem; }
+
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600;
+    }
+    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+  </style>
+</head><body>
+<div id="header"></div>
+<nav class="breadcrumb">
+  <a href="/">Startseite</a> ›
+  <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+  <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+  <span>Ringe & Ideale</span>
+</nav>
+<main id="mainContent" class="content"><div class="tb-container">
+  <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem;">
+    <i class="fa-solid fa-circle-dot" style="font-size:1.6rem;color:#1e3a8a"></i><h1 style="margin:0;">Ringe & Ideale</h1>
+  </div>
+  <p class="muted">Ideale, Faktorringe.</p>
+  
+<div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 1.25rem;">
+  <a class="btn primary" href="/pages/mathematik/algebra/ringtheorie/ringtheorie.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht</a>
+  <a class="btn" href="#definition">Definition</a>
+  <a class="btn" href="#methoden">Methoden</a>
+  <a class="btn" href="#beispiele">Beispiele</a>
+  <a class="btn" href="#strategie">Schritt‑für‑Schritt</a>
+  <a class="btn" href="#herleitung">Herleitung</a>
+  <a class="btn" href="#beweis">Beweis</a>
+  <a class="btn" href="#fehler">Typische Fehler</a>
+  <a class="btn" href="#uebungen">Übungen</a>
+  <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+</div>
+<section class="card" id="definition"><h2>1. Definition</h2><p>Ideal: absorbiert Multiplikation mit Ring.</p></section>
+<section class="card" id="methoden"><h2>2. Methoden</h2><ul><li>Erzeugte Ideale.</li></ul></section>
+<section class="card" id="beispiele"><h2>3. Beispiele</h2><p>\((n)\subset \mathbb{Z}\).</p></section>
+<section class="card" id="strategie"><h2>4. Schritt‑für‑Schritt</h2><ol><li>Idealtest.</li></ol></section>
+<section class="card" id="herleitung"><h2>5. Herleitung</h2><p>Korrespondenzsatz.</p></section>
+<section class="card" id="beweis"><h2>6. Beweis</h2><p>Homomorphiesätze.</p></section>
+<section class="card" id="fehler"><h2>7. Typische Fehler</h2><ul><li>Teilmenge ≠ Ideal.</li></ul></section>
+<section class="card" id="uebungen"><h2>8. Übungen</h2><ol><li>Ist \((p)\) maximal in \(\mathbb{Z}\)?</li></ol><details class='solution'><summary>Ja</summary></details></section>
+<section class="card" id="weiter"><h2>9. Wohin als Nächstes?</h2><div class="categories" style="margin-top:.75rem;"><a class="card" href="/pages/mathematik/algebra/ringtheorie/ringtheorie.html"><h3><i class="fa-solid fa-book-open"></i> Überblick</h3><p>Zusammenhang</p></a>
+<a class="card" href="/pages/mathematik/algebra/polynome/polynome.html"><h3><i class="fa-solid fa-cubes"></i> Polynome</h3><p>Beispiele</p></a></div></section>
+
+</div></main>
+<div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el)el.innerHTML=h;}),
+  fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el)el.innerHTML=h;})
+]).catch(console.error);
+</script><script defer src="/assets/mobile.js"></script>
+</body></html>
