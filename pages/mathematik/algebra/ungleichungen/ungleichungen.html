@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ungleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Algebra: Ungleichungen – Grundlagen, lineare, quadratische, Betragsungleichungen, Systeme und besondere Typen." />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Header kompakt wie auf den anderen Seiten */
+    #header .tb-compact { margin-bottom:.75rem; }
+
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600;
+    }
+    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <nav class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+    <span>Ungleichungen</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
+        <i class="fa-solid fa-not-equal" style="font-size:1.6rem; color:#9d174d;"></i>
+        <h1 style="margin:0;">Ungleichungen</h1>
+      </div>
+      <p class="muted">Alle Themenbereiche: verständlich, konsistent und mit Übungen.</p>
+
+      <div class="categories">
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/grundlagen.html">
+          <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Ungleichungen</h3>
+          <p>Relationen, Regeln, Intervalle</p>
+        </a>
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/lineare-ungleichungen.html">
+          <h3><i class="fa-solid fa-slash"></i> Lineare Ungleichungen</h3>
+          <p>ax + b # c</p>
+        </a>
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/quadratische-ungleichungen.html">
+          <h3><i class="fa-solid fa-superscript"></i> Quadratische Ungleichungen</h3>
+          <p>Parabel‑Vorzeichen, Nullstellen</p>
+        </a>
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/betragsungleichungen.html">
+          <h3><i class="fa-solid fa-ruler-combined"></i> Betragsungleichungen</h3>
+          <p>|x| # a</p>
+        </a>
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/ungleichungssysteme.html">
+          <h3><i class="fa-solid fa-layer-group"></i> Ungleichungssysteme</h3>
+          <p>Schnitt von Intervalen/Halbräumen</p>
+        </a>
+        <a class="card" href="/pages/mathematik/algebra/ungleichungen/besondere-ungleichungen.html">
+          <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Ungleichungen</h3>
+          <p>Rational & Wurzel</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+  Promise.all([
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js"></script>
+</body>
+</html>
