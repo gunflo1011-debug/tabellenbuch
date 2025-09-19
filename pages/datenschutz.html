@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz – Tabellenbuch.org</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <meta name="robots" content="index,follow">
+</head></head>
+<body>
+  <div id="header"></div>
+
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="https://tabellenbuch.org/">Startseite</a> ›
+    <span>Datenschutz</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlich für die Datenverarbeitung ist:<br>
+        <strong>Florian Gundermann</strong><br>
+        Teichstraße 1a<br>
+        76707 Hambrücken<br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:info@tabellenbuch.org">info@tabellenbuch.org</a>
+      </p>
+
+      <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+      <p>
+        Beim Besuch dieser Website werden automatisch Daten durch den Hosting-Provider erfasst (sog. Server-Logs). 
+        Dazu gehören: IP-Adresse, Datum und Uhrzeit des Abrufs, Browsertyp/-version, verwendetes Betriebssystem, 
+        Referrer-URL und die aufgerufene Seite. Diese Daten dienen ausschließlich der Sicherstellung eines 
+        störungsfreien Betriebs der Seite und werden nach kurzer Zeit automatisch gelöscht.
+      </p>
+
+      <h2>3. Cookies</h2>
+      <p>
+        Diese Website verwendet selbst keine Cookies. Sollte zu einem späteren Zeitpunkt ein 
+        Analyse- oder Werbedienst eingebunden werden, wird dies hier transparent ergänzt.
+      </p>
+
+      <h2>4. Kontaktaufnahme</h2>
+      <p>
+        Wenn du uns per E-Mail kontaktierst, werden die von dir mitgeteilten Daten (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) 
+        ausschließlich zur Bearbeitung deiner Anfrage verarbeitet.
+      </p>
+
+      <h2>5. Weitergabe von Daten</h2>
+      <p>
+        Eine Übermittlung personenbezogener Daten an Dritte findet nicht statt, es sei denn, es besteht eine gesetzliche Verpflichtung.
+      </p>
+
+      <h2>6. Deine Rechte</h2>
+      <p>
+        Du hast folgende Rechte in Bezug auf deine gespeicherten Daten:
+      </p>
+      <ul>
+        <li>Auskunft über die verarbeiteten Daten</li>
+        <li>Berichtigung unrichtiger Daten</li>
+        <li>Löschung deiner Daten („Recht auf Vergessenwerden“)</li>
+        <li>Einschränkung der Verarbeitung</li>
+        <li>Widerspruch gegen die Verarbeitung</li>
+        <li>Datenübertragbarkeit</li>
+      </ul>
+      <p>
+        Wenn du eines dieser Rechte geltend machen möchtest, genügt eine formlose E-Mail an: 
+        <a href="mailto:info@tabellenbuch.org">info@tabellenbuch.org</a>.
+      </p>
+
+      <h2>7. Aktualität</h2>
+      <p>
+        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: 18.09.2025.
+      </p>
+
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+]).catch(console.error);
+</script>
+<script defer src="/assets/mobile.js"></script>
+</body>
+</html>
