@@ -52,5 +52,23 @@
     "title": "Gleichungen – Tabellenbuch.org",
     "h1": "Gleichungen",
     "desc": "Alle Themenbereiche der Gleichungen im Überblick"
+  },
+  {
+    "path": "/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html",
+    "title": "Quadratische Gleichungen – Tabellenbuch.org",
+    "h1": "Quadratische Gleichungen",
+    "desc": "Mitternachtsformel, pq‑Formel"
+  },
+  {
+    "path": "/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html",
+    "title": "Kubische Gleichungen – Tabellenbuch.org",
+    "h1": "Kubische Gleichungen",
+    "desc": "3. Grades – Faktorisierung"
+  },
+  {
+    "path": "/pages/mathematik/algebra/gleichungen/quartische-gleichungen.html",
+    "title": "Quartische Gleichungen – Tabellenbuch.org",
+    "h1": "Quartische Gleichungen",
+    "desc": "4. Grades – Grundidee"
   }
 ]
