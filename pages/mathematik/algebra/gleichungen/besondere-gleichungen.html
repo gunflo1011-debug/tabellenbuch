@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Besondere Gleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Besondere Gleichungen: biquadratische, Bruch- und Wurzelgleichungen – Methode, Beispiele, Übungen." />
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    #header .tb-compact { margin-bottom:.75rem; }
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600; border:1px solid #dbeafe;
+    }
+    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
+    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
+    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
+    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
+    <span>Besondere Gleichungen</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <!-- Titelblock -->
+      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
+        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
+        <h1 style="margin:0;">Besondere Gleichungen</h1>
+      </div>
+      <p class="muted">Biquadratische, Bruch- und Wurzelgleichungen – mit Methode, Beispielen und typischen Fehlern.</p>
+
+      <!-- Local toolbar -->
+      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
+        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      </div>
+
+      
+<section class="card">
+  <h2>Biquadratische Gleichungen</h2>
+  <p>Form \(ax^4+cx^2+e=0\). Substitution \(t=x^2\) → Quadratgleichung in \(t\).
+     Danach \(x=\pm\sqrt{t}\) berücksichtigen.</p>
+  <p class="formula"><strong>Beispiel:</strong> \(2x^4-3x^2-2=0\) → \(2t^2-3t-2=0\) →
+     \(t=2\) oder \(t=-\tfrac{1}{2}\). Reell: \(x=\pm\sqrt{2}\).</p>
+</section>
+
+<section class="card">
+  <h2>Bruchgleichungen (rationale Gleichungen)</h2>
+  <ol>
+    <li>Definitionsmenge festlegen (Nenner \(\neq 0\)).</li>
+    <li>Mit Hauptnenner multiplizieren, Brüche entfernen.</li>
+    <li>Entstandene Polynomgleichung lösen.</li>
+    <li><strong>Lösung(s)menge prüfen</strong> (Ausschluss falscher, eingeschlichener Werte).</li>
+  </ol>
+  <p class="formula"><strong>Beispiel:</strong> \(\frac{x+1}{x-2}=2\).
+     DN: \(x\neq2\). Multiplizieren: \(x+1=2(x-2)\Rightarrow x=5\) (zulässig).</p>
+</section>
+
+<section class="card">
+  <h2>Wurzelgleichungen (radikale Gleichungen)</h2>
+  <ol>
+    <li>Wurzel isolieren.</li>
+    <li>Beidseitig potenzieren, <strong>Definitionsmenge beachten</strong>.</li>
+    <li>Ergebnisprüfung (Scheinlösungen möglich!).</li>
+  </ol>
+  <p class="formula"><strong>Beispiel:</strong> \(\sqrt{x+1}=x-1\).
+     DN: \(x\ge1\). Quadrieren: \(x+1=x^2-2x+1\Rightarrow x^2-3x=0\Rightarrow x=0\,\text{oder}\,3\).
+     Prüfung: \(x=0\) verwirft (DN verletzt), \(x=3\) ist Lösung.</p>
+</section>
+
+<section class="card">
+  <h2>Tipps &amp; typische Fehler</h2>
+  <ul>
+    <li>Bei Bruchgleichungen stets die Definitionsmenge angeben.</li>
+    <li>Bei Wurzelgleichungen nach dem Potenzieren immer rückprüfen.</li>
+    <li>Nach Faktorisierung alle Faktoren gleich Null setzen.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Übungen</h2>
+  <ol>
+    <li>\(\frac{2x-3}{x+1}=1\)</li>
+    <li>\(\sqrt{2x+3}=x\)</li>
+    <li>\(x^4-8x^2+16=0\)</li>
+  </ol>
+  <details class="solution"><summary>Lösungen einblenden</summary>
+    <div>
+      1) DN: \(x\neq-1\). \(2x-3=x+1\Rightarrow x=4\).<br>
+      2) DN: \(x\ge0\). Quadrieren: \(2x+3=x^2\Rightarrow x^2-2x-3=0\Rightarrow x=3\) oder \(x=-1\) (verwerfen).<br>
+      3) Biquadratisch: \((x^2-4)^2=0\Rightarrow x=\pm2\) (je doppelt).
+    </div>
+  </details>
+</section>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+  Promise.all([
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js"></script>
+</body>
+</html>

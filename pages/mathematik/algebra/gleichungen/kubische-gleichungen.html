@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kubische Gleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kubische Gleichungen: rationale Nullstellen, Faktorisierung, Beispiel und Übungen." />
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    #header .tb-compact { margin-bottom:.75rem; }
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600; border:1px solid #dbeafe;
+    }
+    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
+    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
+    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
+    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
+    <span>Kubische Gleichungen</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <!-- Titelblock -->
+      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
+        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
+        <h1 style="margin:0;">Kubische Gleichungen</h1>
+      </div>
+      <p class="muted">Faktorisieren über rationale Nullstellen, anschließend Quadratik lösen – schnell und praxisnah.</p>
+
+      <!-- Local toolbar -->
+      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
+        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      </div>
+
+      
+<section class="card">
+  <h2>Überblick</h2>
+  <p>Kubische Gleichungen haben die Form \(ax^3+bx^2+cx+d=0\) (\(a\neq0\)).
+     Allgemein existieren immer drei (ggf. komplexe) Lösungen.</p>
+</section>
+
+<section class="card">
+  <h2>Praktischer Ansatz: Faktorisieren &amp; rationale Nullstellen</h2>
+  <ol>
+    <li>Suche rationale Nullstellen \(x=\tfrac{p}{q}\) mit \(p\mid d\), \(q\mid a\).</li>
+    <li>Teste Kandidaten (z.&nbsp;B. via Horner-Schema).</li>
+    <li>Finde einen Linearfaktor \((x-r)\) und teile ihn aus: ergibt ein Quadratpolynom.</li>
+    <li>Löse das verbleibende Quadratpolynom mit der Mitternachts- oder pq-Formel.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2>Beispiel</h2>
+  <p>\(x^3-4x^2-7x+10=0\). Kandidaten: \(\pm1,\pm2,\pm5,\pm10\).
+     Einsetzen liefert \(x=5\) als Nullstelle. Somit \((x-5)\) Faktor.
+     Polynomdivision ergibt \(x^2+x-2\). Dessen Nullstellen: \(x=1\) und \(x=-2\).
+     Insgesamt: \(x\in\{-2,1,5\}\).</p>
+</section>
+
+<section class="card">
+  <h2>Hinweis: Cardano (fortgeschritten)</h2>
+  <p>Mit der Substitution zur <em>depressierten Kubik</em> und der Cardano-Formel lassen sich alle
+     Kubiken in Radikalen lösen. Für die Schule reicht i.&nbsp;d.&nbsp;R. Faktorisierung.</p>
+</section>
+
+<section class="card">
+  <h2>Übungen</h2>
+  <ol>
+    <li>\(x^3-6x^2+11x-6=0\)</li>
+    <li>\(2x^3-3x^2-8x+12=0\)</li>
+  </ol>
+  <details class="solution"><summary>Lösungen einblenden</summary>
+    <div>
+      1) \((x-1)(x-2)(x-3)=0\Rightarrow x=1,2,3\)<br>
+      2) Kandidaten \(\pm1,\pm2,\pm3,\pm4,\pm6,\pm12,\pm\tfrac12\).
+         Nullstellen: \(x=2,\;x=-2,\;x=\tfrac{3}{2}\).
+    </div>
+  </details>
+</section>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+  Promise.all([
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quartische Gleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Quartische Gleichungen: biquadratische Form (t-Substitution), Faktorisieren, Ferrari (Hinweis), Beispiele und Übungen." />
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    #header .tb-compact { margin-bottom:.75rem; }
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600; border:1px solid #dbeafe;
+    }
+    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
+    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
+    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
+    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
+    <span>Quartische Gleichungen</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <!-- Titelblock -->
+      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
+        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
+        <h1 style="margin:0;">Quartische Gleichungen</h1>
+      </div>
+      <p class="muted">Biquadratische Spezialfälle via \(t=x^2\), Faktorisierung in Quadrate und ein kurzer Ferrari‑Hinweis.</p>
+
+      <!-- Local toolbar -->
+      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
+        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      </div>
+
+      
+<section class="card">
+  <h2>Überblick</h2>
+  <p>Quartische Gleichungen haben die Form \(ax^4+bx^3+cx^2+dx+e=0\) (\(a\neq0\)).
+     Allgemein gibt es vier (ggf. komplexe) Lösungen.</p>
+</section>
+
+<section class="card">
+  <h2>Biquadratische Gleichungen</h2>
+  <p>Form: \(ax^4+cx^2+e=0\) (ohne \(x^3\) und \(x\)). Substitution \(t=x^2\) →
+     \(at^2+ct+e=0\). Lösen in \(t\) und danach \(x=\pm\sqrt{t}\) beachten.</p>
+  <p class="formula"><strong>Beispiel:</strong> \(x^4-5x^2+4=0\). Mit \(t=x^2\): \(t^2-5t+4=0\) →
+     \(t=1\) oder \(t=4\). Damit \(x=\pm1\) oder \(x=\pm2\).</p>
+</section>
+
+<section class="card">
+  <h2>Faktorisieren in Quadrate</h2>
+  <p>Oft lässt sich \(ax^4+bx^3+cx^2+dx+e\) als Produkt zweier Quadrate schreiben:
+     \((ux^2+vx+w)(rx^2+sx+t)\). Koeffizientenvergleich liefert ein lineares Gleichungssystem.</p>
+</section>
+
+<section class="card">
+  <h2>Ferrari (fortgeschritten)</h2>
+  <p>Die allgemeine quartische Gleichung ist in Radikalen lösbar (Methode von Ferrari).
+     In der Schulpraxis genügt meist Faktorisierung und der biquadratische Spezialfall.</p>
+</section>
+
+<section class="card">
+  <h2>Übungen</h2>
+  <ol>
+    <li>\(x^4-13x^2+36=0\)</li>
+    <li>\(x^4-2x^3-7x^2+8x+12=0\)</li>
+  </ol>
+  <details class="solution"><summary>Lösungen einblenden</summary>
+    <div>
+      1) \(t^2-13t+36=0\Rightarrow t=4,9\Rightarrow x=\pm2,\pm3\)<br>
+      2) Faktorisierbar zu \((x^2-5x+6)(x^2+3x-2)=0\Rightarrow x\in\{1,2,-\tfrac{3}{2},2\}\ (Mehrfachheit beachten)
+    </div>
+  </details>
+</section>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+  Promise.all([
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js"></script>
+</body>
+</html>

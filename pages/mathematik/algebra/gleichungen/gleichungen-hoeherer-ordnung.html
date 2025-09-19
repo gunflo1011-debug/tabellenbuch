@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gleichungen höherer Ordnung – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Polynomgleichungen ab Grad 5: Faktorisierung, rationale Nullstellen, Numerik, Abel–Ruffini, Beispiele." />
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    #header .tb-compact { margin-bottom:.75rem; }
+    nav.breadcrumb{ margin-top:.25rem; }
+    .tb-container{ max-width:1100px; margin:0 auto; }
+    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
+    .muted{ color:#6b7280; }
+    .local-toolbar a.btn{
+      text-decoration:none; background:#eef2ff; color:#1e3a8a;
+      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
+      align-items:center; font-weight:600; border:1px solid #dbeafe;
+    }
+    .grid-2{ display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media(min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
+    details.solution summary{ cursor:pointer; font-weight:600; color:#1e3a8a; margin:.5rem 0; }
+    code.kbd{ background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px; }
+    .formula{ background:#fafafa; border-left:4px solid #1e3a8a; padding:.5rem .75rem; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
+    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
+    <span>Gleichungen höherer Ordnung</span>
+  </nav>
+
+  <main id="mainContent" class="content">
+    <div class="tb-container">
+      <!-- Titelblock -->
+      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
+        <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
+        <h1 style="margin:0;">Gleichungen höherer Ordnung (n ≥ 5)</h1>
+      </div>
+      <p class="muted">Strategien: Faktorisieren, rationale Nullstellen testen, Reduktion und numerische Verfahren. Hinweis auf Abel–Ruffini.</p>
+
+      <!-- Local toolbar -->
+      <div class="local-toolbar" style="display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem;">
+        <a class="btn" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zurück zu Gleichungen</a>
+      </div>
+
+      
+<section class="card">
+  <h2>Überblick</h2>
+  <p>Polynomgleichungen \(a_n x^n+\dots+a_1 x+a_0 = 0\) mit \(n\ge 5\) heißen
+     <em>höherer Ordnung</em>. Es existieren stets \(n\) (ggf. komplexe) Lösungen
+     (Fundamentalsatz der Algebra).</p>
+</section>
+
+<section class="card">
+  <h2>Wichtig: Abel–Ruffini</h2>
+  <p>Allgemein gibt es für \(n\ge5\) keine Formel <em>in Radikalen</em>, die alle Fälle löst.
+     Praktisch nutzt man Faktorisierung, Abschätzungen, Graphik oder numerische Verfahren.</p>
+</section>
+
+<section class="card">
+  <h2>Praxisleitfaden</h2>
+  <ol>
+    <li><strong>Faktorisieren:</strong> gemeinsamer Faktor, Gruppenfaktorisierung, Substitution (z.&nbsp;B. \(t=x^2\)).</li>
+    <li><strong>Rationale Nullstellen testen:</strong> Kandidaten \(p/q\) mit \(p\mid a_0\), \(q\mid a_n\).</li>
+    <li><strong>Reduktion:</strong> Gefundene Faktoren ausklammern → verbleibende Quadrate/Kubiken lösen.</li>
+    <li><strong>Numerik:</strong> z.&nbsp;B. Newton-Verfahren, ggf. mit Startwert aus der Skizze des Funktionsgraphen.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2>Beispiel</h2>
+  <p>\(x^5-3x^4-7x^3+21x^2+20x-60=0\). Man findet \(x=3\) als Nullstelle ⇒
+     \((x-3)\) ausklammern. Rest: \(x^4-7x^2-20=0\) (biquadratisch) ⇒
+     \(t^2-7t-20=0\Rightarrow t=\{10,-2\}\Rightarrow x=\pm\sqrt{10}\) bzw. keine reellen Lösungen aus \(t=-2\).
+  </p>
+</section>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+  Promise.all([
+    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+  ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js"></script>
+</body>
+</html>
