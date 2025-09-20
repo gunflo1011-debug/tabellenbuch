@@ -1,144 +1,155 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<title>Kubische Gleichungen – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Kubische Gleichungen – rationale Nullstellen, Faktorisierung und Beispiele. Cardano als Exkurs." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
-
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+  <meta charset="utf-8"/>
+  <title>Kubische Gleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Kubische Gleichungen: Reduktion zur depressiven Form, Cardano-Formel, Diskriminante, casus irreducibilis (Trigonometrie), rationale Nullstellen & Beispiele."/>
+  <link rel="stylesheet" href="../../../../assets/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    #header .tb-compact{margin-bottom:.75rem}
+    nav.breadcrumb{margin-top:.25rem}
+    .tb-container{max-width:1100px;margin:0 auto}
+    .card{background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin:1rem 0}
+    .muted{color:#6b7280}
+    .local-toolbar a.btn{ text-decoration:none;background:#eef2ff;color:#1e3a8a;padding:.5rem .75rem;border-radius:8px;display:inline-flex;gap:.5rem;align-items:center;font-weight:600 }
+    .local-toolbar a.btn.primary{ background:#1e3a8a;color:#fff }
+    mjx-container:not([display="true"]){display:inline-block;margin:0 .05em}
+    mjx-container[display="true"]{margin:.6rem 0}
   </style>
 </head>
 <body>
-<div id="header"></div>
-<!-- Breadcrumb -->
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
+  <div id="header"></div>
+
+  <nav class="breadcrumb">
+    <a href="../../../..">Startseite</a> ›
     <a href="../../mathematik.html">Mathematik</a> ›
     <a href="../algebra.html">Algebra</a> ›
     <a href="../gleichungen.html">Gleichungen</a> ›
     <span>Kubische Gleichungen</span>
-</nav>
-<main class="content" id="mainContent">
-<div class="tb-container">
-<div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-<i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
-<h1 style="margin:0;">Kubische Gleichungen</h1>
-</div>
-<p class="muted">Kubische Gleichungen – rationale Nullstellen, Faktorisierung und Beispiele. Cardano als Exkurs.</p>
-<!-- Toolbar -->
-<div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-<a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-<a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition">
-<h2>1. Definition</h2>
-<p>Allgemeine Form \(ax^3+bx^2+cx+d=0\) mit \(a\neq0\). Es gibt stets drei (ggf. komplexe) Lösungen.</p>
-</section>
-<section class="card" id="methoden">
-<h2>2. Methoden</h2>
-<ul>
-<li><strong>Rationale Nullstellen</strong> (Kandidaten \(p/q\) mit \(p\mid d,\;q\mid a\)).</li>
-<li><strong>Horner/Polynomdivision</strong> → Reduktion auf Quadratik.</li>
-<li><em>Exkurs:</em> Cardano‑Formel (fortgeschritten).</li>
-</ul>
-</section>
-<section class="card" id="beispiele">
-<h2>3. Beispiele</h2>
-<div class="grid-2">
-<div>
-<h3>Mit rationaler Nullstelle</h3>
-<p>\(x^3-4x^2-7x+10=0\Rightarrow x=5\). Teilen ⇒ \(x^2+x-2\) ⇒ \(x=1,-2\).</p>
-</div>
-<div>
-<h3>Mehrere rationale</h3>
-<p>\(x^3-6x^2+11x-6=0\Rightarrow (x-1)(x-2)(x-3)=0\).</p>
-</div>
-</div>
-</section>
-<section class="card" id="strategie">
-<h2>4. Schritt‑für‑Schritt</h2>
-<ol>
-<li>Kandidatenliste \(\{\pm1,\pm2,\dots\}\) gemäß Teilbarkeit bilden.</li>
-<li>Werte einsetzen (oder Horner) bis eine Nullstelle gefunden ist.</li>
-<li>Faktor abspalten, Quadratik lösen.</li>
-<li>Gesamtlösungsmenge notieren.</li>
-</ol>
-</section>
-<section class="card" id="herleitung">
-<h2>5. Herleitung (Restekriterium)</h2>
-<p>\(x=r\) ist Nullstelle \(\Leftrightarrow\) Rest bei Division durch \(x-r\) ist 0. So entsteht der Linearfaktor.</p>
-</section>
-<section class="card" id="beweis">
-<h2>6. Beweis‑Skizze</h2>
-<p>Die Polynomdivision ist eindeutig; die Rückführung auf eine Quadratik verwendet nur erlaubte Umformungen.</p>
-</section>
-<section class="card" id="fehler">
-<h2>7. Typische Fehler</h2>
-<ul>
-<li>Kandidaten vergessen (z. B. Brüche \(\tfrac{p}{q}\)).</li>
-<li>Vorzeichenfehler beim Horner‑Schema.</li>
-</ul>
-</section>
-<section class="card" id="uebungen">
-<h2>8. Übungen</h2>
-<ol>
-<li>\(2x^3-3x^2-8x+12=0\)</li>
-<li>\(x^3+x^2-4x-4=0\)</li>
-</ol>
-<details class="solution"><summary>Lösungen</summary>
-          1) \(x\in\{-2,2,\tfrac{3}{2}\}\). 2) \((x+1)(x^2-4)=0\Rightarrow x=-1,\pm2\).
-        </details>
-</section>
-<section class="card" id="weiter">
-<h2>9. Wohin als Nächstes?</h2>
-<div class="categories" style="margin-top:.75rem;">
-<a class="card" href="grundlagen.html">
-<h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-<p>Definition &amp; Regeln</p>
-</a>
-<a class="card" href="lineare-gleichungen.html">
-<h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-<p>Grad 1 – Basis</p>
-</a>
-<a class="card" href="quadratische-gleichungen.html">
-<h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-<p>Grad 2</p>
-</a>
-<a class="card" href="quartische-gleichungen.html">
-<h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
-<p>Grad 4</p>
-</a>
-</div>
-</section>
-</div>
-</main>
-<div id="footer"></div>
-<script>
-  Promise.all([
-    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-  ]).catch(console.error);
+  </nav>
+
+  <main class="content" id="mainContent">
+    <div class="tb-container">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
+        <i class="fa-solid fa-cube" style="font-size:1.6rem;color:#1e3a8a"></i>
+        <h1 style="margin:0">Kubische Gleichungen</h1>
+      </div>
+      <p class="muted">
+        Von der Reduktion zur <em>depressiven Form</em> \(t^3+pt+q=0\) über die Cardano-Formel
+        bis zur Diskriminantenanalyse und dem <em>casus irreducibilis</em> (trigonometrische Lösung).
+      </p>
+
+      <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
+        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
+        <a class="btn" href="#reduktion">Reduktion</a>
+        <a class="btn" href="#cardano">Cardano-Formel</a>
+        <a class="btn" href="#diskr">Diskriminante</a>
+        <a class="btn" href="#casus">Casus irreducibilis</a>
+        <a class="btn" href="#rational">Rationale Nullstellen</a>
+        <a class="btn" href="#beispiele">Beispiele</a>
+        <a class="btn" href="#uebungen">Übungen</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+      </div>
+
+      <section class="card" id="reduktion">
+        <h2>1. Reduktion zur depressiven Form</h2>
+        <p>Gegeben \(ax^3+bx^2+cx+d=0\) mit \(a\ne 0\). Substitution
+          \(x=t-\dfrac{b}{3a}\) eliminiert den \(t^2\)-Term und liefert
+          \(t^3+pt+q=0\) mit
+          \(p=\dfrac{3ac-b^2}{3a^2}\), \(q=\dfrac{27a^2 d-9abc+2b^3}{27a^3}\).</p>
+      </section>
+
+      <section class="card" id="cardano">
+        <h2>2. Cardano-Formel</h2>
+        <p>Für die depressive Form \(t^3+pt+q=0\) setze \(t=u+v\) mit
+           \(3uv=-p\) und \(u^3+v^3=-q\). Daraus folgt
+           \[
+             u^3=\,-\frac{q}{2}+\sqrt{\Delta},\qquad
+             v^3=\,-\frac{q}{2}-\sqrt{\Delta},
+           \]
+           wobei \(\Delta=\left(\frac{q}{2}\right)^2+\left(\frac{p}{3}\right)^3\).
+           Eine reelle Lösung ist
+           \[
+             t=\sqrt[3]{-\frac{q}{2}+\sqrt{\Delta}}+\sqrt[3]{-\frac{q}{2}-\sqrt{\Delta}}.
+           \]
+           Weitere Lösungen entstehen durch Multiplikation von \(u\) bzw. \(v\) mit den kubischen Einheitswurzeln.</p>
+      </section>
+
+      <section class="card" id="diskr">
+        <h2>3. Diskriminante & Fallunterscheidung</h2>
+        <p>Für \(t^3+pt+q=0\) ist die (bis auf Vorzeichen äquivalente) Diskriminante
+           \(\Delta_c = -4p^3-27q^2\).</p>
+        <ul>
+          <li>\(\Delta_c>0\): drei reelle, verschiedene Nullstellen.</li>
+          <li>\(\Delta_c=0\): Mehrfachwurzel (mind. zwei gleiche).</li>
+          <li>\(\Delta_c<0\): eine reelle und zwei komplex konjugierte Nullstellen.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="casus">
+        <h2>4. Casus irreducibilis (trigonometrische Lösung)</h2>
+        <p>Für \(\Delta_c>0\) (drei reelle Nullstellen) sind die Radikale in Cardano
+           über reellen Zahlen unhandlich. Setze
+           \[
+             t_k = 2\sqrt{-\frac{p}{3}}
+             \cos\!\left(\frac{1}{3}\arccos\!\left(\frac{3q}{2p}\sqrt{-\frac{3}{p}}\right)
+             - \frac{2\pi k}{3}\right),\quad k=0,1,2,
+           \]
+           sofern \(p<0\). Die Lösungen für \(x\) erhält man durch Rücksubstitution \(x=t-\dfrac{b}{3a}\).</p>
+      </section>
+
+      <section class="card" id="rational">
+        <h2>5. Rationale Nullstellen (Teilbarkeitskriterium)</h2>
+        <p>Bei ganzzahligen Koeffizienten sind mögliche rationale Nullstellen
+           \(x=\dfrac{p}{q}\) Teiler von \(\dfrac{\text{konst. Glied}}{\text{Leitkoeffizient}}\).
+           Ein Treffer erlaubt Faktorisierung und reduziert auf eine quadratische Gleichung.</p>
+      </section>
+
+      <section class="card" id="beispiele">
+        <h2>6. Beispiele</h2>
+        <h3>(a) Eine rationale Nullstelle</h3>
+        <p>\(x^3-4x^2-x+4=0\). Teste \(x=1\): \(1-4-1+4=0\) ⇒ Faktor \((x-1)\).
+           Division liefert \(x^2-3x-4=0\Rightarrow x\in\{1,4,-1\}\).</p>
+
+        <h3>(b) Depressive Form & Cardano</h3>
+        <p>\(x^3-3x+1=0\) ist bereits depressiv (\(p=-3,q=1\)).
+           \(\Delta=\left(\tfrac{1}{2}\right)^2+\left(-1\right)^3=-\tfrac{3}{4}<0\) ⇒ drei reelle Lösungen.
+           Nutze trigonometrische Form aus Abschnitt 4:
+           \(x_k=2\cos\!\left(\tfrac{1}{3}\arccos\!\tfrac{1}{2}-\tfrac{2\pi k}{3}\right)\), \(k=0,1,2\).</p>
+      </section>
+
+      <section class="card" id="uebungen">
+        <h2>7. Übungen (kurze Lösungen)</h2>
+        <ol>
+          <li>\(x^3-2x^2-5x+6=0\) → \(x\in\{1,2, -3\}\).</li>
+          <li>\(x^3+3x^2+3x+1=0\) → \((x+1)^3=0\) ⇒ \(x=-1\) (dreifach).</li>
+          <li>\(x^3-3x+1=0\) → drei reelle (Trigonometrie).</li>
+        </ol>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>8. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem">
+          <a class="card" href="quadratische-gleichungen.html"><h3>🅱 Quadratische</h3><p>pq/ Mitternacht</p></a>
+          <a class="card" href="quartische-gleichungen.html"><h3>🧩 Quartische</h3><p>Ferrari, biquadr.</p></a>
+          <a class="card" href="besondere-gleichungen.html"><h3>✨ Besondere</h3><p>Biquadr., Bruch-, Wurzelgleichungen</p></a>
+          <a class="card" href="gleichungen-hoeherer-ordnung.html"><h3>🔢 Höhere Ordnung</h3><p>Abel–Ruffini & Strategien</p></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    Promise.all([
+      fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el) el.innerHTML=h}),
+      fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el) el.innerHTML=h})
+    ]).catch(console.error);
   </script>
-<script defer="" src="../../../../assets/mobile.js"></script>
+  <script defer src="../../../../assets/mobile.js"></script>
 </body>
 </html>
