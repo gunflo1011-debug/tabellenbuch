@@ -1,82 +1,74 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quadratische Gleichungen – Tabellenbuch.org</title>
-  <meta name="description" content="Kurz & klar: Quadratische Gleichungen – Definitionen, Methoden, Beispiele, Beweise und Übungen auf Tabellenbuch.org.">
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Quadratische Gleichungen – Tabellenbuch.org</title>
+<meta content="Kurz &amp; klar: Quadratische Gleichungen – Definitionen, Methoden, Beispiele, Beweise und Übungen auf Tabellenbuch.org." name="description"/>
+<link href="../../../../assets/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<script>
   window.MathJax = {
     tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]']], tags: 'ams', processEscapes: true },
     chtml: { linebreaks: { automatic: true }, displayAlign: 'left' }
   };
   </script>
-  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <div id="header"></div>
-
-  <nav class="breadcrumb">
-    <a href="/">Startseite</a> ›
-    <a href="/pages/mathematik/mathematik.html">Mathematik</a> ›
-    <a href="/pages/mathematik/algebra/algebra.html">Algebra</a> ›
-    <a href="/pages/mathematik/algebra/gleichungen.html">Gleichungen</a> ›
+<div id="header"></div>
+<nav class="breadcrumb">
+<a href="../../../..">Startseite</a> ›
+    <a href="../../mathematik.html">Mathematik</a> ›
+    <a href="../algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
     Quadratische Gleichungen
   </nav>
-
-  <section class="content">
-    <h1>Quadratische Gleichungen</h1>
-
-    <div class="tb-callout">
-      <strong>Lernziele:</strong>
-      <ul>
-        <li>Quadratische Gleichungen in Normalform, Scheitel- und Produktform erkennen und überführen.</li>
-        <li>pq-Formel, Mitternachtsformel, Faktorisierung und quadratische Ergänzung sicher anwenden.</li>
-        <li>Diskriminante interpretieren und Anzahl/Typ der Lösungen begründen.</li>
-        <li>Lösungen prüfen und typische Umformungsfehler vermeiden.</li>
-      </ul>
-    </div>
-
-    <h2>Begriffe &amp; Notation</h2>
-    <p>
+<section class="content">
+<h1>Quadratische Gleichungen</h1>
+<div class="tb-callout">
+<strong>Lernziele:</strong>
+<ul>
+<li>Quadratische Gleichungen in Normalform, Scheitel- und Produktform erkennen und überführen.</li>
+<li>pq-Formel, Mitternachtsformel, Faktorisierung und quadratische Ergänzung sicher anwenden.</li>
+<li>Diskriminante interpretieren und Anzahl/Typ der Lösungen begründen.</li>
+<li>Lösungen prüfen und typische Umformungsfehler vermeiden.</li>
+</ul>
+</div>
+<h2>Begriffe &amp; Notation</h2>
+<p>
       Eine quadratische Gleichung hat die Form \(ax^2+bx+c=0\) mit \(a\neq 0\).
       Häufige Spezialformen:
       <em>Normalform</em> \(ax^2+bx+c=0\),
       <em>pq-Form</em> \(x^2+px+q=0\),
       <em>Produktform</em> \((x-x_1)(x-x_2)=0\).
     </p>
-
-    <h2>Intuition</h2>
-    <p>Quadratische Gleichungen beschreiben Parabeln. Lösungen sind die Schnittpunkte der Parabel mit der x-Achse (Nullstellen).</p>
-
-    <h2>Methoden &amp; Entscheidungsbaum</h2>
-    <ol>
-      <li><strong>Direkt faktorisierbar?</strong> Versuche \(ax^2+bx+c=(dx+e)(fx+g)\). Wenn ja: Nullprodukt \( \Rightarrow \) Lösungen sofort.</li>
-      <li><strong>pq-Form?</strong> Bei \(x^2+px+q=0\): \(x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}\).</li>
-      <li><strong>Allgemeine Form?</strong> Mitternachtsformel:
+<h2>Intuition</h2>
+<p>Quadratische Gleichungen beschreiben Parabeln. Lösungen sind die Schnittpunkte der Parabel mit der x-Achse (Nullstellen).</p>
+<h2>Methoden &amp; Entscheidungsbaum</h2>
+<ol>
+<li><strong>Direkt faktorisierbar?</strong> Versuche \(ax^2+bx+c=(dx+e)(fx+g)\). Wenn ja: Nullprodukt \( \Rightarrow \) Lösungen sofort.</li>
+<li><strong>pq-Form?</strong> Bei \(x^2+px+q=0\): \(x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}\).</li>
+<li><strong>Allgemeine Form?</strong> Mitternachtsformel:
         \[
           x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
         \]
         Diskriminante \(D=b^2-4ac\) steuert die Anzahl der Lösungen.</li>
-      <li><strong>Quadratische Ergänzung</strong> (robust, lehrreich), siehe Herleitung.</li>
-    </ol>
-
-    <div class="tb-callout warn">
-      <strong>Merke:</strong> \(D=b^2-4ac\).
+<li><strong>Quadratische Ergänzung</strong> (robust, lehrreich), siehe Herleitung.</li>
+</ol>
+<div class="tb-callout warn">
+<strong>Merke:</strong> \(D=b^2-4ac\).
       <ul>
-        <li>\(D&gt;0\): zwei reelle Lösungen</li>
-        <li>\(D=0\): doppelte Lösung (Berührpunkt)</li>
-        <li>\(D&lt;0\): keine reellen Lösungen (komplexe Lösungen)</li>
-      </ul>
-    </div>
-
-    <h2>Herleitung der pq-Formel (quadratische Ergänzung)</h2>
-    <details>
-      <summary>Beweis einblenden</summary>
-      <p>Ausgehend von \(x^2+px+q=0\) ergänzen wir zu einem Quadrat:</p>
+<li>\(D&gt;0\): zwei reelle Lösungen</li>
+<li>\(D=0\): doppelte Lösung (Berührpunkt)</li>
+<li>\(D&lt;0\): keine reellen Lösungen (komplexe Lösungen)</li>
+</ul>
+</div>
+<h2>Herleitung der pq-Formel (quadratische Ergänzung)</h2>
+<details>
+<summary>Beweis einblenden</summary>
+<p>Ausgehend von \(x^2+px+q=0\) ergänzen wir zu einem Quadrat:</p>
       \[
         x^2+px = -q
         \;\Rightarrow\;
@@ -90,58 +82,49 @@
         \Rightarrow
         x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}.
       \)</p>
-    </details>
-
-    <h2>Beispiele</h2>
-    <h3>1) Faktorisieren</h3>
-    <p>\(x^2-5x+6=0\Rightarrow (x-2)(x-3)=0 \Rightarrow L=\{2,3\}\).</p>
-
-    <h3>2) pq-Form</h3>
-    <p>\(x^2-6x+5=0\) hat \(p=-6, q=5\).
+</details>
+<h2>Beispiele</h2>
+<h3>1) Faktorisieren</h3>
+<p>\(x^2-5x+6=0\Rightarrow (x-2)(x-3)=0 \Rightarrow L=\{2,3\}\).</p>
+<h3>2) pq-Form</h3>
+<p>\(x^2-6x+5=0\) hat \(p=-6, q=5\).
        \[
          x=3\pm\sqrt{9-5}=3\pm 2 \Rightarrow L=\{1,5\}.
        \]</p>
-
-    <h3>3) Mitternachtsformel (allgemein)</h3>
-    <p>\(2x^2+3x-2=0\).
+<h3>3) Mitternachtsformel (allgemein)</h3>
+<p>\(2x^2+3x-2=0\).
        \(D=3^2-4\cdot 2\cdot (-2)=9+16=25\).
        \[
          x=\frac{-3\pm\sqrt{25}}{4}=\frac{-3\pm 5}{4}
          \Rightarrow L=\left\{\frac{1}{2}, -2\right\}.
        \]</p>
-
-    <h3>4) Keine reellen Lösungen</h3>
-    <p>\(x^2+4x+8=0\).
+<h3>4) Keine reellen Lösungen</h3>
+<p>\(x^2+4x+8=0\).
        \(D=16-32=-16\Rightarrow\) keine reellen Lösungen (komplexe: \(x=-2\pm 2i\)).</p>
-
-    <h2>Typische Fehler &amp; Checks</h2>
-    <ul>
-      <li><strong>Falsches Vorzeichen</strong> unter der Wurzel oder bei \(-b\).</li>
-      <li><strong>Teilen durch \(2a\)</strong> vergessen.</li>
-      <li><strong>Rückprüfung:</strong> Lösungen immer in die Ursprungsgleichung einsetzen.</li>
-    </ul>
-
-    <h2>Anwendungen (kurz)</h2>
-    <p>Geometrie (Flächen/Seiten), Physik (Wurfbahn), Ökonomie (Ertragsoptimum via Parabel).</p>
-
-    <h2>Übungen</h2>
-    <ol>
-      <li>\(x^2-7x+10=0\)</li>
-      <li>\(3x^2-12x+12=0\)</li>
-      <li>\(x^2+2x+5=0\)</li>
-    </ol>
-    <details>
-      <summary>🧩 Lösungen</summary>
-      <p>1) \(L=\{2,5\}\) &nbsp; 2) \(D=144-144=0\Rightarrow x=2\) &nbsp; 3) \(D=4-20=-16\Rightarrow\) keine reellen Lösungen.</p>
-    </details>
-
-    <h2>Weiterlesen</h2>
-    <ul>
-      <li><a href="/pages/mathematik/algebra/polynome/polynomdivision.html">Polynomdivision &amp; Faktorisierung</a></li>
-      <li><a href="/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html">Lineare Gleichungssysteme</a></li>
-    </ul>
-  </section>
-
-  <script defer src="/assets/site.js"></script>
+<h2>Typische Fehler &amp; Checks</h2>
+<ul>
+<li><strong>Falsches Vorzeichen</strong> unter der Wurzel oder bei \(-b\).</li>
+<li><strong>Teilen durch \(2a\)</strong> vergessen.</li>
+<li><strong>Rückprüfung:</strong> Lösungen immer in die Ursprungsgleichung einsetzen.</li>
+</ul>
+<h2>Anwendungen (kurz)</h2>
+<p>Geometrie (Flächen/Seiten), Physik (Wurfbahn), Ökonomie (Ertragsoptimum via Parabel).</p>
+<h2>Übungen</h2>
+<ol>
+<li>\(x^2-7x+10=0\)</li>
+<li>\(3x^2-12x+12=0\)</li>
+<li>\(x^2+2x+5=0\)</li>
+</ol>
+<details>
+<summary>🧩 Lösungen</summary>
+<p>1) \(L=\{2,5\}\)   2) \(D=144-144=0\Rightarrow x=2\)   3) \(D=4-20=-16\Rightarrow\) keine reellen Lösungen.</p>
+</details>
+<h2>Weiterlesen</h2>
+<ul>
+<li><a href="../polynome/polynomdivision.html">Polynomdivision &amp; Faktorisierung</a></li>
+<li><a href="../gleichungssysteme/lineare-systeme.html">Lineare Gleichungssysteme</a></li>
+</ul>
+</section>
+<script defer="" src="/assets/site.js"></script>
 </body>
 </html>
