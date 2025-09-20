@@ -1,126 +1,378 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<title>Lineare Gleichungen – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Lineare Gleichungen des 1. Grades – Methoden, Muster, Beweise, Fehlerquellen und viele Beispiele." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
+  <meta charset="UTF-8" />
+  <title>Lineare Gleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
+  <!-- Pfad-Tiefe: /pages/mathematik/algebra/gleichungen/ -->
+  <link rel="stylesheet" href="../../../../assets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <meta name="description" content="Lineare Gleichungen tief erklärt: Definition, Äquivalenzumformungen, Beweise, Lösungsstrategien, lineare Gleichungssysteme, Matrixform, Rouché–Capelli, Beispiele.">
+  <style>
+    /* Seiten-spezifisches Feintuning – hält sich ans vorhandene Design */
+    :root{
+      --tb-primary:#1e3a8a;   /* wie übrige Seiten */
+      --tb-accent:#2563eb;
+      --tb-bg:#f5f7fa;
+      --tb-text:#222;
+      --tb-muted:#4b5563;
+      --tb-card:#fff;
+      --tb-border:rgba(0,0,0,.08);
+      --tb-success:#0e9f6e;
+      --tb-warning:#ca8a04;
+      --tb-danger:#dc2626;
     }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+    body{ background:var(--tb-bg); color:var(--tb-text); }
+    main.tb-container{ max-width:1100px; margin:1rem auto 3rem; background:var(--tb-card); border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,.08); padding:1.5rem; }
+    header.page-hero{
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #60a5fa 100%);
+      color:#fff; border-radius:14px; padding:1.25rem 1.25rem;
+      display:flex; gap:1rem; align-items:flex-start; margin-bottom:1rem;
+    }
+    header.page-hero .icon{ font-size:2rem; opacity:.95; }
+    header.page-hero h1{ margin:0; font-size:1.6rem; line-height:1.25; }
+    header.page-hero p{ margin:.35rem 0 0; color:rgba(255,255,255,.95) }
+
+    nav.breadcrumb{ font-size:.95rem; margin:.25rem 0 1rem }
+    nav.breadcrumb a{ color:var(--tb-primary); text-decoration:none }
+    nav.breadcrumb span.sep{ color:#777; margin:0 .35rem }
+
+    h2{ color:var(--tb-primary); margin:1.25rem 0 .5rem; font-size:1.35rem }
+    h3{ color:var(--tb-accent); margin:1rem 0 .35rem; font-size:1.1rem }
+
+    .lead{ color:var(--tb-muted) }
+    .grid-2{
+      display:grid; gap:1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){ .grid-2{ grid-template-columns: 1.2fr .8fr } }
+
+    .card{
+      background:#fff; border:1px solid var(--tb-border); border-radius:12px; padding:1rem;
+    }
+    .theorem, .definition, .method, .warning, .note, .proof, .example{
+      border-radius:12px; padding:1rem; margin:.75rem 0; border:1px solid var(--tb-border);
+      background:#fff;
+    }
+    .definition{ border-left:4px solid var(--tb-accent) }
+    .theorem{ border-left:4px solid var(--tb-primary) }
+    .proof{ border-left:4px solid #111827; background:#fafafa }
+    .method{ border-left:4px solid var(--tb-success) }
+    .warning{ border-left:4px solid var(--tb-danger); background:#fff7f7 }
+    .note{ border-left:4px solid var(--tb-warning); background:#fffbeb }
+    .example{ border-left:4px solid #10b981; background:#f0fdf4 }
+    .tag{ display:inline-block; font-size:.8rem; background:#eef2ff; color:#3730a3; border:1px solid #e0e7ff; padding:.2rem .5rem; border-radius:999px; }
+
+    details{ border:1px dashed var(--tb-border); border-radius:10px; padding:.6rem .8rem; background:#fcfcff }
+    details > summary{ cursor:pointer; font-weight:600; color:var(--tb-primary) }
+
+    .formula{ display:block; padding:.5rem .8rem; background:#f8fafc; border:1px solid var(--tb-border); border-radius:8px; overflow:auto }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.9rem; background:#111827; color:#e5e7eb; padding:.15rem .4rem; border-radius:6px }
+
+    .nav-actions{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.25rem }
+    .btn{
+      display:inline-flex; gap:.5rem; align-items:center; text-decoration:none; border:1px solid var(--tb-border);
+      padding:.55rem .9rem; border-radius:10px; background:#fff;
+    }
+    .btn i{ color:var(--tb-primary) }
+    .btn:hover{ box-shadow:0 2px 10px rgba(0,0,0,.06) }
+    .btn-primary{ background:var(--tb-primary); color:#fff; border-color:transparent }
+    .btn-primary i{ color:#fff }
+    .hl{ background:#fffde7; padding:.1rem .25rem; border-radius:4px }
+    /* bessere Zeilenabstände für MathJax */
+    mjx-container[display="true"]{ margin: .6rem 0; }
   </style>
 </head>
 <body>
-<div id="header"></div>
-<!-- Breadcrumb -->
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
-    <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="https://tabellenbuch.org/">Startseite</a>
+    <span class="sep">›</span>
+    <a href="https://tabellenbuch.org/pages/mathematik/mathematik.html">Mathematik</a>
+    <span class="sep">›</span>
+    <a href="https://tabellenbuch.org/pages/mathematik/algebra/algebra.html">Algebra</a>
+    <span class="sep">›</span>
+    <a href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/gleichungen.html">Gleichungen</a>
+    <span class="sep">›</span>
     <span>Lineare Gleichungen</span>
-</nav>
-<main class="content" id="mainContent">
-<div class="tb-container">
-<div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-<i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
-<h1 style="margin:0;">Lineare Gleichungen</h1>
-</div>
-<p class="muted">Lineare Gleichungen des 1. Grades – Methoden, Muster, Beweise, Fehlerquellen und viele Beispiele.</p>
-<!-- Toolbar -->
-<div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-<a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-<a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition">
-<h2>1. Definition</h2>
-<p>Form \(ax+b=c\) mit \(a\neq0\). Es gibt genau eine Lösung \(x=\dfrac{c-b}{a}\).</p>
-</section>
-<section class="card" id="methoden">
-<h2>2. Methoden</h2>
-<ul>
-<li>Zusammenfassen gleichartiger Terme.</li>
-<li>Alle \(x\)-Terme auf eine Seite, Zahlen auf die andere.</li>
-<li>Durch den Koeffizienten vor \(x\) dividieren.</li>
-</ul>
-</section>
-<section class="card" id="beispiele">
-<h2>3. Beispiele</h2>
-<div class="grid-2">
-<div><h3>Basis</h3><p>\(5x-2=3x+8\Rightarrow 2x=10\Rightarrow x=5\).</p></div>
-<div><h3>Mit Klammern</h3><p>\(2(x-3)=x+1\Rightarrow 2x-6=x+1\Rightarrow x=7\).</p></div>
-</div>
-</section>
-<section class="card" id="strategie">
-<h2>4. Schritt‑für‑Schritt</h2>
-<ol>
-<li>Klammern auflösen, Brüche vereinheitlichen.</li>
-<li>Sortieren: \(ax\) links, Zahlen rechts.</li>
-<li>Durch \(a\) teilen.</li>
-<li>Probe einsetzen.</li>
-</ol>
-</section>
-<section class="card" id="herleitung">
-<h2>5. Herleitung</h2>
-<p>Aus \(ax+b=c\) folgt \(ax=c-b\). Division durch \(a\neq0\) ergibt \(x=\dfrac{c-b}{a}\).</p>
-</section>
-<section class="card" id="beweis">
-<h2>6. Beweis‑Skizze</h2>
-<p>Die Schritte sind Äquivalenzumformungen (siehe Grundlagen).</p>
-</section>
-<section class="card" id="fehler">
-<h2>7. Typische Fehler</h2>
-<ul>
-<li>Vorzeichenfehler beim Verschieben.</li>
-<li>Division durch 0 (wenn \(a=0\) → keine lineare Gleichung).</li>
-</ul>
-</section>
-<section class="card" id="uebungen">
-<h2>8. Übungen</h2>
-<ol>
-<li>\(7x+4=3x+28\)</li>
-<li>\(\dfrac{x-2}{3} + \dfrac{x+1}{6} = 2\)</li>
-</ol>
-<details class="solution"><summary>Lösungen</summary>
-          1) \(x=6\). 2) \(\tfrac{2(x-2)+(x+1)}{6}=2\Rightarrow 3x-3=12\Rightarrow x=5\).
+  </nav>
+
+  <main class="tb-container">
+    <header class="page-hero">
+      <div class="icon"><i class="fa-solid fa-equals"></i></div>
+      <div>
+        <h1>Lineare Gleichungen <span class="tag">Streng definiert · Beweise · Methoden · Beispiele</span></h1>
+        <p class="lead">Von der einvariablen Gleichung \(ax=b\) bis zum Gleichungssystem \(Ax=b\) mit Rang-Kriterium. Saubere Äquivalenzumformungen, Eindeutigkeitsbeweise und algorithmische Lösungsschritte.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="definition">
+        <h2>Definition</h2>
+        <p>Eine <strong>lineare Gleichung</strong> in einer Unbekannten \(x\) über einem Körper \(K\) (in der Schule meist \(K=\mathbb{R}\)) hat die Form
+          \[
+            a\,x = b,\quad a,b \in K.
+          \]
+          Allgemeiner lässt sie sich als \(a_1x_1 + \dots + a_n x_n = b\) in \(n\) Unbekannten schreiben.</p>
+        <p>Eine <strong>Äquivalenzumformung</strong> ist eine Operation, die die <em>Lösungsmenge</em> unverändert lässt. Zulässig sind z.&nbsp;B.:</p>
+        <ul>
+          <li>Addition/Subtraktion derselben Größe auf beiden Seiten.</li>
+          <li>Multiplikation/Division beider Seiten mit einem \( \neq 0\) (im selben Körper).</li>
+          <li>Zusammenfassen gleichartiger Terme, Ausmultiplizieren, Klammern auflösen.</li>
+        </ul>
+      </div>
+
+      <div class="theorem">
+        <h2>Satz (Lösungsformel und Fallunterscheidung)</h2>
+        <p>Für \(a,b \in K\) gilt:</p>
+        <ol>
+          <li>Ist \(a \neq 0\), besitzt \(a x = b\) genau eine Lösung
+            \[
+              x = \frac{b}{a}.
+            \]
+          </li>
+          <li>Ist \(a = 0\) und \(b \neq 0\), gibt es <em>keine</em> Lösung (Widerspruch \(0=b\)).</li>
+          <li>Ist \(a = 0\) und \(b = 0\), ist jede Zahl \(x \in K\) Lösung (Identität \(0=0\)).</li>
+        </ol>
+      </div>
+
+      <div class="proof">
+        <h3>Beweis (Eindeutigkeit bei \(a\neq 0\))</h3>
+        <p>Seien \(x_1,x_2\) zwei Lösungen von \(a x = b\) mit \(a\neq 0\). Dann ist \(a x_1=b=a x_2\). Subtrahieren liefert \(a(x_1-x_2)=0\). Da der Körper nullteilerfrei ist und \(a\neq 0\), folgt \(x_1-x_2=0\), also \(x_1=x_2\). <span class="hl">Damit existiert höchstens eine Lösung</span>. Die Existenz ergibt sich aus \(x=b/a\).</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="example">
+          <h3>Beispiel 1 (einvariabel)</h3>
+          <p>\(7x - 3 = 2x + 12\)</p>
+          <div class="formula">
+            \[
+              \begin{aligned}
+                7x-3 &= 2x+12 \\
+                5x-3 &= 12 \quad (\text{Subtrahiere }2x)\\
+                5x &= 15 \quad (\text{Addiere }3)\\
+                x &= 3 \quad (\text{Dividiere durch }5).
+              \end{aligned}
+            \]
+          </div>
+        </div>
+        <div class="note">
+          <h3>Terminologie</h3>
+          <ul>
+            <li><strong>Lösungsmenge</strong> \(L=\{x\in K\mid a x=b\}\)</li>
+            <li><strong>Äquivalenz</strong> \(\iff\) gleicher Lösungsraum</li>
+            <li><strong>Implikation</strong> \(\Rightarrow\) Lösungsmenge wird <em>enger</em> (z. B. Quadrieren ohne Fallprüfung)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warning">
+        <h3>Häufige Fehler</h3>
+        <ul>
+          <li>Durch \(0\) teilen (unzulässig).</li>
+          <li>Beim Multiplizieren/Dividieren mit Negativzahlen Ungleichungsrichtung nicht anpassen (bei Ungleichungen!).</li>
+          <li>Äquivalenzumformung vs. Implikation verwechseln (z.&nbsp;B. Quadrieren).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Lineare Gleichungssysteme (LGS)</h2>
+      <p>Ein LGS mit \(m\) Gleichungen und \(n\) Unbekannten lässt sich als <strong>Matrixgleichung</strong> schreiben:
+        \[
+          A x = b,\quad A\in K^{m\times n},\; x\in K^n,\; b\in K^m.
+        \]
+      </p>
+
+      <div class="definition">
+        <h3>Rang und Lösbarkeit (Rouché–Capelli)</h3>
+        <p>Sei \(\operatorname{rg}(A)\) der Rang der Koeffizientenmatrix und \(\operatorname{rg}(A|b)\) der Rang der erweiterten Matrix.</p>
+        <ul>
+          <li><strong>Lösbar</strong> genau dann, wenn \(\operatorname{rg}(A)=\operatorname{rg}(A|b)\).</li>
+          <li><strong>Eindeutig</strong> lösbar, wenn zusätzlich \(\operatorname{rg}(A)=n\) (volle Spaltenrangzahl).</li>
+          <li><strong>Unendlich viele Lösungen</strong>, wenn \(\operatorname{rg}(A)=\operatorname{rg}(A|b)<n\) (Parameterfreiheiten).</li>
+        </ul>
+      </div>
+
+      <div class="grid-2">
+        <div class="method">
+          <h3>Methoden im Überblick</h3>
+          <ol>
+            <li><strong>Einsetzungsverfahren</strong> (eine Variable isolieren, in andere einsetzen)</li>
+            <li><strong>Additions-/Eliminationsverfahren</strong> (Linearkombinationen zur Elimination)</li>
+            <li><strong>Gleichsetzungsverfahren</strong> (bei zwei Gleichungen: zwei Ausdrücke für dieselbe Variable gleichsetzen)</li>
+            <li><strong>Gaußsches Eliminationsverfahren</strong> (systematisch, matrixbasiert)</li>
+          </ol>
+        </div>
+        <div class="example">
+          <h3>Beispiel 2 (2×2, Determinante)</h3>
+          <p>
+            \[
+              \begin{cases}
+                a_1 x + b_1 y = c_1\\
+                a_2 x + b_2 y = c_2
+              \end{cases}
+            \]
+          </p>
+          <p>Ist \(\Delta = a_1 b_2 - a_2 b_1 \neq 0\), so eindeutig lösbar mit
+            \[
+              x = \frac{c_1 b_2 - c_2 b_1}{\Delta},\quad
+              y = \frac{a_1 c_2 - a_2 c_1}{\Delta}.
+            \]
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Beispiel 3 (Additionsverfahren)</h3>
+        <p>
+          \[
+            \begin{cases}
+              3x + 2y = 4\\
+              5x - 2y = 6
+            \end{cases}
+          \]
+        </p>
+        <div class="formula">
+          \[
+            \begin{aligned}
+              (3x+2y) + (5x-2y) &= 4 + 6 \Rightarrow 8x = 10 \Rightarrow x=\tfrac{10}{8}=\tfrac{5}{4}.\\
+              \text{Setze in } 3x+2y=4 &: \; 3\cdot \tfrac{5}{4} + 2y = 4 \Rightarrow \tfrac{15}{4}+2y=4 \Rightarrow 2y=\tfrac{1}{4} \Rightarrow y=\tfrac{1}{8}.
+            \end{aligned}
+          \]
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Beispiel 4 (Gauß, 3×3)</h3>
+        <p>
+          \[
+            \begin{cases}
+              x + y + z = 6\\
+              2x - y + 3z = 14\\
+              -x + 2y + z = 2
+            \end{cases}
+          \]
+        </p>
+        <details>
+          <summary>Schrittfolge anzeigen</summary>
+          <div class="formula">
+            \[
+              \begin{aligned}
+                &\left[
+                  \begin{array}{ccc|c}
+                    1&1&1&6\\
+                    2&-1&3&14\\
+                    -1&2&1&2
+                  \end{array}
+                \right]\\[4pt]
+                R_2 \leftarrow R_2 - 2R_1 &: 
+                \left[
+                  \begin{array}{ccc|c}
+                    1&1&1&6\\
+                    0&-3&1&2\\
+                    -1&2&1&2
+                  \end{array}
+                \right]\\
+                R_3 \leftarrow R_3 + R_1 &: 
+                \left[
+                  \begin{array}{ccc|c}
+                    1&1&1&6\\
+                    0&-3&1&2\\
+                    0&3&2&8
+                  \end{array}
+                \right]\\
+                R_3 \leftarrow R_3 + R_2 &: 
+                \left[
+                  \begin{array}{ccc|c}
+                    1&1&1&6\\
+                    0&-3&1&2\\
+                    0&0&3&10
+                  \end{array}
+                \right]\\
+                z = \tfrac{10}{3},\quad
+                -3y + z = 2 \Rightarrow y = \tfrac{1}{9},\quad
+                x + y + z = 6 \Rightarrow x = \tfrac{35}{9}.
+              \end{aligned}
+            \]
+          </div>
         </details>
-</section>
-<section class="card" id="weiter">
-<h2>9. Wohin als Nächstes?</h2>
-<div class="categories" style="margin-top:.75rem;">
-<a class="card" href="quadratische-gleichungen.html">
-<h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-<p>Grad 2</p>
-</a>
-</div>
-</section>
-</div>
-</main>
-<div id="footer"></div>
-<script>
-  Promise.all([
-    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-  ]).catch(console.error);
-  </script>
-<script defer="" src="../../../../assets/mobile.js"></script>
+      </div>
+
+      <div class="note">
+        <h3>Geometrische Interpretation (für \(n=2\))</h3>
+        <p>Jede Gleichung \(a x + b y = c\) beschreibt eine Gerade. Lösungen sind die Schnittpunkte der Geraden – <em>keiner</em>, <em>einer</em> oder <em>unendlich viele</em> (identische Geraden).</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Strenge Praxis: Äquivalenzumformungen korrekt anwenden</h2>
+      <ul>
+        <li><strong>Multiplikation/Division</strong> nur mit <em>nichtnull</em> Elementen (\( \times 0\) zerstört Information).</li>
+        <li><strong>Funktionen anwenden</strong>: Nur bijektive Funktionen auf beiden Seiten (z. B. \(\exp\)) sind sicher äquivalent; nichtbijektive (z. B. Quadrat) erfordern Fallanalyse.</li>
+        <li><strong>Domänen</strong> beachten (z. B. Nenner \(\neq 0\), Definitionsbereich von Wurzeln/Logarithmen).</li>
+      </ul>
+
+      <div class="example">
+        <h3>Beispiel 5 (Fallanalyse nach Quadrieren)</h3>
+        <p>\(\sqrt{2x+3} = x-1\). Quadrieren ist <em>nicht</em> äquivalent, daher am Ende prüfen.</p>
+        <div class="formula">
+          \[
+            \begin{aligned}
+              2x+3 &= (x-1)^2 = x^2 - 2x + 1 \\
+              0 &= x^2 - 4x - 2 \\
+              x &= 2 \pm \sqrt{6}.
+            \end{aligned}
+          \]
+        </div>
+        <p>Probe: Nur \(x=2+\sqrt{6}\) erfüllt die Ausgangsgleichung; \(x=2-\sqrt{6}\) ist <em>Scheinlösung</em>.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Üben & Verstehen</h2>
+
+      <div class="card">
+        <h3>Aufgaben (mit Lösungen zum Aufklappen)</h3>
+
+        <details>
+          <summary>1) \(9x - 4 = 2x + 17\)</summary>
+          <p>Lösung: \(x=\;3\)</p>
+        </details>
+
+        <details>
+          <summary>2) \(\begin{cases} 4x + y = 1\\ 2x - 3y = 11 \end{cases}\)</summary>
+          <p>Eliminieren: \(y = 1 - 4x\) in die zweite Gleichung \(\Rightarrow 2x - 3(1-4x)=11 \Rightarrow 14x=14 \Rightarrow x=1,\, y=-3\).</p>
+        </details>
+
+        <details>
+          <summary>3) Parametrische Lösung</summary>
+          <p>\(\begin{cases} x + 2y - z = 0\\ 2x + 4y - 2z = 0 \end{cases}\). Rang\(=1\), \(n=3\) \(\Rightarrow\) unendlich viele Lösungen. Setze \(y=t, z=s\). Dann \(x = -2t + s\). Also \( (x,y,z) = (-2t+s,\; t,\; s)\).</p>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <h2>Weiterführend</h2>
+      <ul>
+        <li><a class="btn" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/gleichungen.html"><i class="fa-solid fa-arrow-left-long"></i>Zur Übersicht: Gleichungen</a></li>
+        <li><a class="btn" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/pq-formel.html"><i class="fa-solid fa-square-root-variable"></i>pq-Formel (Quadratische Gleichungen)</a></li>
+        <li><a class="btn" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/ungleichungen.html"><i class="fa-regular fa-square-minus"></i>Ungleichungen</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn-primary btn" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/gleichungen.html"><i class="fa-solid fa-chevron-left"></i> Zurück zu „Gleichungen“</a>
+        <a class="btn btn" href="#top"><i class="fa-solid fa-arrow-up"></i> Nach oben</a>
+      </div>
+    </section>
+  </main>
+
 </body>
 </html>
