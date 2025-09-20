@@ -1,134 +1,139 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<title>Gleichungen höherer Ordnung – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Polynomgleichungen ab Grad 5 – systematische Strategien ohne allgemeine Radikallösung (Abel–Ruffini)." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
-
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
+  <meta charset="utf-8"/>
+  <title>Gleichungen höherer Ordnung – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Polynome n≥5: Abel–Ruffini (keine allgemeine Radikallösung), Faktorisierungsstrategien, rationale Nullstellen, Substitutionen, numerische Verfahren (Newton), Zeichenregeln."/>
+  <link rel="stylesheet" href="../../../../assets/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    #header .tb-compact{margin-bottom:.75rem}
+    nav.breadcrumb{margin-top:.25rem}
+    .tb-container{max-width:1100px;margin:0 auto}
+    .card{background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin:1rem 0}
+    .muted{color:#6b7280}
+    .local-toolbar a.btn{ text-decoration:none;background:#eef2ff;color:#1e3a8a;padding:.5rem .75rem;border-radius:8px;display:inline-flex;gap:.5rem;align-items:center;font-weight:600 }
+    .local-toolbar a.btn.primary{ background:#1e3a8a;color:#fff }
+    mjx-container:not([display="true"]){display:inline-block;margin:0 .05em}
+    mjx-container[display="true"]{margin:.6rem 0}
   </style>
 </head>
 <body>
-<div id="header"></div>
-<!-- Breadcrumb -->
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
+  <div id="header"></div>
+
+  <nav class="breadcrumb">
+    <a href="../../../..">Startseite</a> ›
     <a href="../../mathematik.html">Mathematik</a> ›
     <a href="../algebra.html">Algebra</a> ›
     <a href="../gleichungen.html">Gleichungen</a> ›
     <span>Gleichungen höherer Ordnung</span>
-</nav>
-<main class="content" id="mainContent">
-<div class="tb-container">
-<div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-<i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
-<h1 style="margin:0;">Gleichungen höherer Ordnung (n ≥ 5)</h1>
-</div>
-<p class="muted">Polynomgleichungen ab Grad 5 – systematische Strategien ohne allgemeine Radikallösung (Abel–Ruffini).</p>
-<!-- Toolbar -->
-<div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-<a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-<a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition">
-<h2>1. Definition</h2>
-<p>\(a_n x^n+\cdots+a_0=0\) mit \(n\ge5\). Nach dem Fundamentalsatz der Algebra existieren \(n\) komplexe Lösungen.</p>
-</section>
-<section class="card" id="methoden">
-<h2>2. Methoden</h2>
-<ul>
-<li>Strukturerkennung: gemeinsame Faktoren, Gruppenfaktorisierung, Substitution.</li>
-<li>Rationale Nullstellen testen und schrittweise reduzieren.</li>
-<li>Numerische Verfahren (Newton), unterstützt durch Graphanalyse.</li>
-</ul>
-</section>
-<section class="card" id="beispiele">
-<h2>3. Beispiele</h2>
-<p>\(x^5-3x^4-7x^3+21x^2+20x-60=0\Rightarrow (x-3)(x^4-7x^2-20)=0\) ⇒ biquadratisch lösen.</p>
-</section>
-<section class="card" id="strategie">
-<h2>4. Schritt‑für‑Schritt</h2>
-<ol>
-<li>Auf offensichtliche Faktoren prüfen (\(x\), \(x\pm1\), etc.).</li>
-<li>Kandidatenliste \(p/q\) testen.</li>
-<li>Jeden gefundenen Faktor abspalten, weiter vereinfachen.</li>
-<li>Übrig bleibende quadratische/kubische Teile mit bekannten Methoden lösen.</li>
-</ol>
-</section>
-<section class="card" id="herleitung">
-<h2>5. Herleitung (Abel–Ruffini‑Kontext)</h2>
-<p>Es gibt keine allgemeine Formel in Radikalen für \(n\ge5\). Daher sind strukturelle Zerlegung und Numerik zentrale Werkzeuge.</p>
-</section>
-<section class="card" id="beweis">
-<h2>6. Beweis‑Hinweis</h2>
-<p>Die Korrektheit einzelner Schritte folgt aus Äquivalenzumformungen; Existenz der Faktoren wird durch den Fundamentalsatz der Algebra abgesichert.</p>
-</section>
-<section class="card" id="fehler">
-<h2>7. Typische Fehler</h2>
-<ul>
-<li>Frühe Substitution ohne Rücksubstitution.</li>
-<li>Übersehen einfacher rationaler Nullstellen.</li>
-</ul>
-</section>
-<section class="card" id="uebungen">
-<h2>8. Übungen</h2>
-<ol>
-<li>\(x^5-2x^4-13x^3+14x^2+40x-48=0\)</li>
-</ol>
-<details class="solution"><summary>Lösungsskizze</summary>
-          Kandidaten testen ⇒ z. B. \(x=2\) Nullstelle. Reduktion führt zu biquadratischer Restgleichung.
-        </details>
-</section>
-<section class="card" id="weiter">
-<h2>9. Wohin als Nächstes?</h2>
-<div class="categories" style="margin-top:.75rem;">
-<a class="card" href="grundlagen.html">
-<h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-<p>Definition &amp; Regeln</p>
-</a>
-<a class="card" href="lineare-gleichungen.html">
-<h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-<p>Grad 1 – Basis</p>
-</a>
-<a class="card" href="quartische-gleichungen.html">
-<h3><i class="fa-regular fa-square"></i> Quartische Gleichungen</h3>
-<p>Grad 4</p>
-</a>
-<a class="card" href="besondere-gleichungen.html">
-<h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
-<p>Spezialformen</p>
-</a>
-</div>
-</section>
-</div>
-</main>
-<div id="footer"></div>
-<script>
-  Promise.all([
-    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-  ]).catch(console.error);
+  </nav>
+
+  <main class="content" id="mainContent">
+    <div class="tb-container">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
+        <i class="fa-solid fa-layer-group" style="font-size:1.6rem;color:#1e3a8a"></i>
+        <h1 style="margin:0">Gleichungen höherer Ordnung</h1>
+      </div>
+      <p class="muted">
+        Warum es keine allgemeine Radikallösung für \(n\ge 5\) gibt (Abel–Ruffini) und
+        wie man in der Praxis trotzdem systematisch Lösungen findet: Faktorisierung,
+        Substitutionen, Zeichenregeln, Näherungsverfahren.
+      </p>
+
+      <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
+        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
+        <a class="btn" href="#abel">Abel–Ruffini</a>
+        <a class="btn" href="#faktorisierung">Faktorisierung</a>
+        <a class="btn" href="#zeichen">Zeichenregeln</a>
+        <a class="btn" href="#numerik">Numerik (Newton)</a>
+        <a class="btn" href="#beispiele">Beispiele</a>
+        <a class="btn" href="#uebungen">Übungen</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+      </div>
+
+      <section class="card" id="abel">
+        <h2>1. Abel–Ruffini-Satz (Kurzfassung)</h2>
+        <p>Es existiert <em>keine</em> allgemeine Formel, die die Nullstellen beliebiger
+           Polynome fünften und höheren Grades allein durch Radikale der Koeffizienten ausdrückt.
+           Viele konkrete Polynome sind jedoch faktorisierbar oder haben spezielle Strukturen.</p>
+      </section>
+
+      <section class="card" id="faktorisierung">
+        <h2>2. Faktorisierungsstrategien</h2>
+        <ul>
+          <li><strong>Rationale Nullstellen</strong> (bei ganzzahligen Koeffizienten):
+              Kandidaten \(x=\dfrac{p}{q}\) mit \(p\mid\) konstantes Glied, \(q\mid\) Leitkoeffizient.</li>
+          <li><strong>Horner/Synthetische Division</strong> zur deflationierten Restgleichung.</li>
+          <li><strong>Substitutionen</strong>: z.&nbsp;B. biquadratisch \(x^4+ax^2+b\) (\(t=x^2\)),
+              palindromisch \(x^n+\dots+1\) (\(x+1\) als Faktor testen), Tschebyschow-Strukturen usw.</li>
+          <li><strong>Gruppieren</strong> und <strong>Faktorisieren über \(\mathbb{Q}\)</strong> / \(\mathbb{R}\).</li>
+        </ul>
+      </section>
+
+      <section class="card" id="zeichen">
+        <h2>3. Zeichenregeln & Informationsgewinn</h2>
+        <ul>
+          <li><strong>Descartes’ Regel</strong>: Anzahl positiver reeller Nullstellen \(\le\) Zahl der Vorzeichenwechsel im Polynom (Differenz ist gerade).</li>
+          <li><strong>Für negative Nullstellen</strong>: wende die Regel auf \(p(-x)\) an.</li>
+          <li><strong>Grenzwerte</strong>: Verhalten für \(|x|\to\infty\) wird vom Leitkoeffizienten und Grad bestimmt.</li>
+          <li><strong>Zwischenwertsatz</strong>: Vorzeichenwechsel auf einem Intervall ⇒ mindestens eine Nullstelle.</li>
+        </ul>
+      </section>
+
+      <section class="card" id="numerik">
+        <h2>4. Numerische Verfahren (Newton–Raphson)</h2>
+        <p>Für \(f(x)=0\) mit differenzierbarem \(f\) und Startwert \(x_0\):
+           \[
+             x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}.
+           \]
+           Konvergiert lokal quadratisch bei guter Startwahl. Kombiniere mit Intervallsuche (bisection) für Robustheit.</p>
+      </section>
+
+      <section class="card" id="beispiele">
+        <h2>5. Beispiele</h2>
+        <h3>(a) Grad 5 mit rationaler Nullstelle</h3>
+        <p>\(x^5-6x^4+11x^3-6x^2=0\Rightarrow x^2(x^3-6x^2+11x-6)=0\).
+           Restpolynom hat \(x=1\) als Nullstelle ⇒ \((x-1)(x^2-5x+6)\) ⇒
+           \(x\in\{0,0,1,2,3\}\).</p>
+
+        <h3>(b) Palindromisches Polynom</h3>
+        <p>\(x^5+2x^4+3x^3+3x^2+2x+1\).
+           Faktor \(x+1\) prüfen: \(p(-1)=0\) ⇒ deflation und weiter faktorisieren.</p>
+
+        <h3>(c) Numerik</h3>
+        <p>\(f(x)=x^5-3x+1\). Descartes: eine positive Nullstelle. Starte Newton bei \(x_0=1\) ⇒ rasche Konvergenz.</p>
+      </section>
+
+      <section class="card" id="uebungen">
+        <h2>6. Übungen</h2>
+        <ol>
+          <li>\(x^5-1=0\) → reell \(x=1\), übrige komplex (Einheitswurzeln).</li>
+          <li>\(x^6-5x^4+6x^2=0\) → \(x^2(x^4-5x^2+6)=0\) ⇒ biquadratisch.</li>
+          <li>\(x^5-2x^4-x^3+2x^2=0\) → faktorisieren durch Gruppieren.</li>
+        </ol>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>7. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem">
+          <a class="card" href="quartische-gleichungen.html"><h3>🧩 Quartische</h3><p>Ferrari & Biquadr.</p></a>
+          <a class="card" href="besondere-gleichungen.html"><h3>✨ Besondere</h3><p>Bruch-, Wurzel-, Log-Gleichungen</p></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    Promise.all([
+      fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el) el.innerHTML=h}),
+      fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el) el.innerHTML=h})
+    ]).catch(console.error);
   </script>
-<script defer="" src="../../../../assets/mobile.js"></script>
+  <script defer src="../../../../assets/mobile.js"></script>
 </body>
 </html>
