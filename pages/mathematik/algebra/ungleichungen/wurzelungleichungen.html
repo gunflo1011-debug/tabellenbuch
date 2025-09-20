@@ -4,11 +4,61 @@
   <meta charset="utf-8"/>
   <title>Wurzelungleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Domäne (Radikand ≥ 0), isolieren, quadrieren mit Fallanalyse, Probe."/>
+  <meta name="description" content="Wurzelungleichungen: Domäne, Isolieren, Quadrieren mit Fallanalyse, Probe – Beispiele &amp; Übungen."/>
   <link rel="stylesheet" href="../../../../assets/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/wurzelungleichungen.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:site_name" content="Tabellenbuch.org"/>
+  <meta property="og:title" content="Wurzelungleichungen"/>
+  <meta property="og:description" content="Wurzelungleichungen: Domäne, Isolieren, Quadrieren mit Fallanalyse, Probe – Beispiele &amp; Übungen."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/wurzelungleichungen.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Wurzelungleichungen"/>
+  <meta name="twitter:description" content="Wurzelungleichungen: Domäne, Isolieren, Quadrieren mit Fallanalyse, Probe – Beispiele &amp; Übungen."/>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://tabellenbuch.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Mathematik",
+      "item": "https://tabellenbuch.org/pages/mathematik/mathematik.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Algebra",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/algebra.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Ungleichungen",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/ungleichungen.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Wurzelungleichungen",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/wurzelungleichungen.html"
+    }
+  ]
+}
+  </script>
+
   <style>
     #header .tb-compact{margin-bottom:.75rem}
     nav.breadcrumb{margin-top:.25rem}
@@ -26,9 +76,9 @@
 
   <nav class="breadcrumb">
     <a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
-    <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
+    <a href="../../mathematik/mathematik.html">Mathematik</a> ›
+    <a href="../algebra/algebra.html">Algebra</a> ›
+    <a href="ungleichungen.html">Ungleichungen</a> ›
     <span>Wurzelungleichungen</span>
   </nav>
 
@@ -38,20 +88,54 @@
         <i class="fa-solid fa-square-root-variable" style="font-size:1.6rem;color:#1e3a8a"></i>
         <h1 style="margin:0">Wurzelungleichungen</h1>
       </div>
-      <p class="muted">Domäne (Radikand ≥ 0), isolieren, quadrieren mit Fallanalyse, Probe.</p>
-
+      <p class="muted">Wurzelungleichungen: Domäne, Isolieren, Quadrieren mit Fallanalyse, Probe – Beispiele & Übungen.</p>
       <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
-        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#domäne">Domäne</a>
-        <a class="btn" href="#schema">Schema</a>
-        <a class="btn" href="#beispiele">Beispiele</a>
-        <a class="btn" href="#uebungen">Übungen</a>
+        <a class="btn primary" href="ungleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Ungleichungen“</a>
+        <a class="btn" href="#domaene">1. Domäne</a>
+        <a class="btn" href="#schema">2. Schema</a>
+        <a class="btn" href="#beispiele">3. Beispiele</a>
+        <a class="btn" href="#uebungen">4. Übungen</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
-      <section class="card" id="domäne"><h2>1. Domäne</h2><p>\(h(x)\ge 0\) für \(\sqrt{h(x)}\).</p></section>
-      <section class="card" id="schema"><h2>2. Schema</h2><ol><li>Radikal isolieren</li><li>Falls beide Seiten \(\ge 0\), quadrieren</li><li>Probe in Ausgangsform</li></ol></section>
-      <section class="card" id="beispiele"><h2>3. Beispiele</h2><p>\(\sqrt{x+3}\le x\Rightarrow x\in [	frac{1+\sqrt{13}}{2},\infty)\).</p></section>
-      <section class="card" id="uebungen"><h2>4. Übungen</h2><ol><li>\(\sqrt{x+1}\ge 2-x\)</li><li>\(\sqrt{3x-2}< x\)</li></ol></section>
-    
+      <section class="card" id="domaene">
+        <h2>1. Domäne</h2>
+        <p>\(h(x)\ge 0\) für \(\sqrt{h(x)}\) (reell).</p>
+      </section>
+
+      <section class="card" id="schema">
+        <h2>2. Schema</h2>
+        <ol><li>Radikal isolieren</li><li>Nur quadrieren, wenn beide Seiten \(\ge 0\)</li><li>Probe in der Ausgangsform</li></ol>
+      </section>
+
+      <section class="card" id="beispiele">
+        <h2>3. Beispiele</h2>
+        <p>\(\sqrt{x+3}\le x\Rightarrow x\in [\tfrac{1+\sqrt{13}}{2},\infty)\).</p><p>\(\sqrt{2x-1} > x-2\Rightarrow L=[\tfrac12,5)\).</p>
+      </section>
+
+      <section class="card" id="uebungen">
+        <h2>4. Übungen</h2>
+        <ol><li>\(\sqrt{x+1}\ge 2-x\)</li><li>\(\sqrt{3x-2}< x\)</li><li>\(\sqrt{x^2-4}\le x-1\)</li></ol>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>Wohin als Nächstes?</h2>
+
+        <div class="categories" style="margin-top:.75rem">
+          <a class="card" href="grundlagen-ungleichungen.html"><h3>📘 Grundlagen</h3><p>Zeichen & Regeln</p></a>
+          <a class="card" href="lineare-ungleichungen.html"><h3>➗ Lineare</h3><p>Ketten & Systeme</p></a>
+          <a class="card" href="quadratische-ungleichungen.html"><h3>🅱 Quadratische</h3><p>Parabel & Vorzeichen</p></a>
+          <a class="card" href="polynom-ungleichungen.html"><h3>🔢 Polynome</h3><p>Grad ≥3</p></a>
+          <a class="card" href="bruchungleichungen.html"><h3>➗ Bruchungleichungen</h3><p>Domäne & Vorzeichen</p></a>
+          <a class="card" href="wurzelungleichungen.html"><h3>√ Wurzel</h3><p>Quadrieren & Probe</p></a>
+          <a class="card" href="betragsungleichungen.html"><h3>|x| Beträge</h3><p>Stückweise</p></a>
+          <a class="card" href="exp-log-ungleichungen.html"><h3>exp/log</h3><p>Monotonie</p></a>
+          <a class="card" href="ungleichungssysteme.html"><h3>📈 Systeme</h3><p>1D & 2D</p></a>
+          <a class="card" href="klassische-ungleichungen.html"><h3>∑ Klassische</h3><p>AM–GM, C–S</p></a>
+          <a class="card" href="methoden-ungleichungen.html"><h3>🧭 Methoden</h3><p>Cheat-Sheet</p></a>
+        </div>
+
+      </section>
+
     </div>
   </main>
 

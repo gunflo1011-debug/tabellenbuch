@@ -4,11 +4,61 @@
   <meta charset="utf-8"/>
   <title>Grundlagen der Ungleichungen – Tabellenbuch.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele & Übungen."/>
+  <meta name="description" content="Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele &amp; Übungen."/>
   <link rel="stylesheet" href="../../../../assets/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/grundlagen-ungleichungen.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:site_name" content="Tabellenbuch.org"/>
+  <meta property="og:title" content="Grundlagen der Ungleichungen"/>
+  <meta property="og:description" content="Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele &amp; Übungen."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/grundlagen-ungleichungen.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Grundlagen der Ungleichungen"/>
+  <meta name="twitter:description" content="Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele &amp; Übungen."/>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://tabellenbuch.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Mathematik",
+      "item": "https://tabellenbuch.org/pages/mathematik/mathematik.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Algebra",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/algebra.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Ungleichungen",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/ungleichungen.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Grundlagen",
+      "item": "https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/grundlagen-ungleichungen.html"
+    }
+  ]
+}
+  </script>
+
   <style>
     #header .tb-compact{margin-bottom:.75rem}
     nav.breadcrumb{margin-top:.25rem}
@@ -26,10 +76,10 @@
 
   <nav class="breadcrumb">
     <a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
-    <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
-    <span>Ungleichungen – Grundlagen</span>
+    <a href="../../mathematik/mathematik.html">Mathematik</a> ›
+    <a href="../algebra/algebra.html">Algebra</a> ›
+    <a href="ungleichungen.html">Ungleichungen</a> ›
+    <span>Grundlagen</span>
   </nav>
 
   <main class="content" id="mainContent">
@@ -38,97 +88,76 @@
         <i class="fa-solid fa-less-than-equal" style="font-size:1.6rem;color:#1e3a8a"></i>
         <h1 style="margin:0">Grundlagen der Ungleichungen</h1>
       </div>
-      <p class="muted">Zeichen, Intervallschreibweise, korrekte Umformungsregeln (inkl. Richtungswechsel), monotone Funktionen, Kettenungleichungen und Vorzeichentabellen – mit Beispielen & Übungen.</p>
+      <p class="muted">Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele & Übungen.</p>
       <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
-        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#zeichen">Zeichen & Bedeutung</a>
-        <a class="btn" href="#intervalle">Intervallschreibweise</a>
-        <a class="btn" href="#equiv">Äquivalenzumformungen</a>
-        <a class="btn" href="#monoton">Monotone Funktionen</a>
-        <a class="btn" href="#ketten">Kettenungleichungen</a>
-        <a class="btn" href="#vorzeichen">Vorzeichentabelle</a>
-        <a class="btn" href="#beispiele">Beispiele</a>
-        <a class="btn" href="#uebungen">Übungen</a>
+        <a class="btn primary" href="ungleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Ungleichungen“</a>
+        <a class="btn" href="#zeichen">1. Zeichen & Bedeutung</a>
+        <a class="btn" href="#intervalle">2. Intervallschreibweise</a>
+        <a class="btn" href="#equiv">3. Äquivalenzumformungen</a>
+        <a class="btn" href="#monoton">4. Monotone Funktionen</a>
+        <a class="btn" href="#ketten">5. Kettenungleichungen</a>
+        <a class="btn" href="#vorzeichen">6. Vorzeichentabelle</a>
+        <a class="btn" href="#beispiele">7. Beispiele</a>
+        <a class="btn" href="#uebungen">8. Übungen</a>
         <a class="btn" href="#weiter">Wohin als Nächstes?</a>
       </div>
-
       <section class="card" id="zeichen">
-        <h2>1. Zeichen &amp; Bedeutung</h2>
-        <ul>
-          <li><strong>Streng:</strong> \(x<y\), \(x>y\)</li>
-          <li><strong>Nicht streng:</strong> \(x\le y\), \(x\ge y\)</li>
-          <li><strong>Lösungsmenge:</strong> \(L=\{x\in D\mid 	ext{Aussage wahr}\}\)</li>
-          <li><strong>Vereinigung/Schnitt:</strong> \(A\cup B\), \(A\cap B\)</li>
-        </ul>
+        <h2>1. Zeichen & Bedeutung</h2>
+        <ul><li><strong>Streng:</strong> \(x<y\), \(x>y\)</li><li><strong>Nicht streng:</strong> \(x\le y\), \(x\ge y\)</li><li><strong>Lösungsmenge:</strong> \(L=\{x\in D\mid \text{Aussage wahr}\}\)</li><li><strong>Mengen:</strong> \(A\cup B\), \(A\cap B\)</li></ul>
       </section>
 
       <section class="card" id="intervalle">
         <h2>2. Intervallschreibweise</h2>
-        <ul>
-          <li>Offen: \((a,b)=\{x\mid a<x<b\}\)</li>
-          <li>Halboffen: \([a,b)\), \((a,b]\)</li>
-          <li>Abgeschlossen: \([a,b]\)</li>
-          <li>Unbeschränkt: \((-\infty,a)\), \((a,\infty)\) usw.</li>
-        </ul>
+        <ul><li>Offen: \((a,b)\)</li><li>Halboffen: \([a,b)\), \((a,b]\)</li><li>Abgeschlossen: \([a,b]\)</li><li>Unbeschränkt: \((\! -\infty,a), (a,\infty)\)</li></ul>
       </section>
 
       <section class="card" id="equiv">
         <h2>3. Äquivalenzumformungen</h2>
-        <ul>
-          <li>Addieren/Subtrahieren derselben Größe: Richtung bleibt.</li>
-          <li>Multiplikation/Division mit \(\lambda>0\): Richtung bleibt.</li>
-          <li>Multiplikation/Division mit \(\lambda<0\): <em>Richtungswechsel</em>.</li>
-          <li>Multiplikation mit 0 ist nicht erlaubt.</li>
-        </ul>
+        <ul><li>Addieren/Subtrahieren: Richtung bleibt.</li><li>\(\lambda>0\): Richtung bleibt.</li><li>\(\lambda<0\): <em>Richtungswechsel</em>.</li><li>Multiplikation mit 0 nicht erlaubt.</li></ul>
       </section>
 
       <section class="card" id="monoton">
         <h2>4. Monotone Funktionen</h2>
-        <p>Wächst \(arphi\) streng auf \(D\), gilt \(x_1\,\square\,x_2 \iff arphi(x_1)\,\square\,arphi(x_2)\).
-           Fällt \(arphi\) streng, kehrt sich die Richtung um.</p>
+        <p>Wachsende \(\varphi\): Richtung bleibt; fallende: kehrt sich um. Nicht injektive (z. B. Quadrieren) ⇒ nur implikativ, Probe nötig.</p>
       </section>
 
       <section class="card" id="ketten">
         <h2>5. Kettenungleichungen</h2>
-        <p>\(a<bx+c<d\) in zwei Ungleichungen zerlegen, korrekt lösen und den Schnitt bilden.</p>
+        <p>Behandle \(a<bx+c<d\) als zwei Ungleichungen und schneide die Lösungen.</p>
       </section>
 
       <section class="card" id="vorzeichen">
         <h2>6. Vorzeichentabelle</h2>
-        <ol>
-          <li>In die Form \(F(x)\,\square\,0\) bringen.</li>
-          <li>Kritische Punkte (Nullen/Polstellen) bestimmen.</li>
-          <li>Intervalle aufspannen, Vorzeichen testen.</li>
-          <li>Intervalle gemäß \(\square\) wählen; Ränder je nach \(\le,\ge\) einschließen.</li>
-        </ol>
+        <ol><li>Form \(F(x)\,\square\,0\)</li><li>Kritische Punkte</li><li>Testintervalle</li><li>Ränder je nach \(\le,\ge\)</li></ol>
       </section>
 
       <section class="card" id="beispiele">
         <h2>7. Beispiele</h2>
-        <p>\(3x-5\le 7 \Rightarrow x\le 4\). &nbsp; 
-           \(-2<2x+1\le 5 \Rightarrow (-	frac{3}{2},2]\). &nbsp;
-           \((x-2)(x-3)\ge 0 \Rightarrow (-\infty,2]\cup[3,\infty)\).</p>
+        <p>\(3x-5\le 7\Rightarrow x\le 4\). \; \(-2<2x+1\le 5\Rightarrow (-\tfrac{3}{2},2]\). \; \((x-2)(x-3)\ge0\Rightarrow (-\infty,2]\cup[3,\infty)\).</p>
       </section>
 
       <section class="card" id="uebungen">
         <h2>8. Übungen</h2>
-        <ol>
-          <li>\(5-2x<1\)</li>
-          <li>\(x^2-4x-5<0\)</li>
-          <li>\(\dfrac{2x+1}{x-3}\ge 0\)</li>
-          <li>\(|2x-1|>3\)</li>
-        </ol>
+        <ol><li>\(5-2x<1\)</li><li>\(x^2-4x-5<0\)</li><li>\(\dfrac{2x+1}{x-3}\ge 0\)</li><li>\(|2x-1|>3\)</li></ol>
       </section>
 
       <section class="card" id="weiter">
-        <h2>9. Wohin als Nächstes?</h2>
+        <h2>Wohin als Nächstes?</h2>
+
         <div class="categories" style="margin-top:.75rem">
+          <a class="card" href="grundlagen-ungleichungen.html"><h3>📘 Grundlagen</h3><p>Zeichen & Regeln</p></a>
           <a class="card" href="lineare-ungleichungen.html"><h3>➗ Lineare</h3><p>Ketten & Systeme</p></a>
           <a class="card" href="quadratische-ungleichungen.html"><h3>🅱 Quadratische</h3><p>Parabel & Vorzeichen</p></a>
+          <a class="card" href="polynom-ungleichungen.html"><h3>🔢 Polynome</h3><p>Grad ≥3</p></a>
           <a class="card" href="bruchungleichungen.html"><h3>➗ Bruchungleichungen</h3><p>Domäne & Vorzeichen</p></a>
+          <a class="card" href="wurzelungleichungen.html"><h3>√ Wurzel</h3><p>Quadrieren & Probe</p></a>
           <a class="card" href="betragsungleichungen.html"><h3>|x| Beträge</h3><p>Stückweise</p></a>
           <a class="card" href="exp-log-ungleichungen.html"><h3>exp/log</h3><p>Monotonie</p></a>
+          <a class="card" href="ungleichungssysteme.html"><h3>📈 Systeme</h3><p>1D & 2D</p></a>
+          <a class="card" href="klassische-ungleichungen.html"><h3>∑ Klassische</h3><p>AM–GM, C–S</p></a>
+          <a class="card" href="methoden-ungleichungen.html"><h3>🧭 Methoden</h3><p>Cheat-Sheet</p></a>
         </div>
+
       </section>
 
     </div>
