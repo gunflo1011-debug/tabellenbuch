@@ -11,11 +11,26 @@
   <link rel="stylesheet" href="../../../../assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- MathJax (wie auf euren anderen Seiten) -->
+  <!-- MathJax (gleich wie auf den anderen Seiten) -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Kleine, seitenlokale Typo-Korrektur gegen unnatürliche Umbrüche -->
+  <style>
+    .tb-container p,
+    .tb-container li {
+      word-break: normal;       /* verhindert harte Umbrüche in Wörtern */
+      overflow-wrap: break-word;/* erlaubt saubere Zeilenwechsel bei langen Tokens */
+      hyphens: auto;            /* Silbentrennung, wenn verfügbar */
+    }
+    /* Etwas Luft um Formeln in Blocks (nur, wo tatsächlich Block-Math benutzt wird) */
+    mjx-container[display="true"]{ margin: .6rem 0; }
+  </style>
 </head>
 <body>
+
+  <!-- Globaler Header (wie auf allen Seiten, wird ggf. durch euer Skript befüllt) -->
+  <div id="header" class="tb-compact"></div>
 
   <!-- Breadcrumb wie auf den anderen Seiten -->
   <nav class="breadcrumb">
@@ -30,14 +45,19 @@
   <main class="tb-container">
 
     <h1>Lineare Gleichungen</h1>
-    <p class="lead">Von der einvariablen Gleichung \(ax=b\) bis zum Gleichungssystem \(Ax=b\): Äquivalenzumformungen, Eindeutigkeit, Gauß-Elimination und Rang-Kriterium (Rouché–Capelli) mit sauberen Herleitungen und Beispielen.</p>
+    <p class="lead">
+      Von der einvariablen Gleichung \(ax=b\) bis zum Gleichungssystem \(Ax=b\):
+      Äquivalenzumformungen, Eindeutigkeit, Gauß-Elimination und
+      Rang-Kriterium (Rouché–Capelli) mit sauberen Herleitungen und Beispielen.
+    </p>
 
     <h2>1. Definition</h2>
-    <p>Eine <strong>lineare Gleichung</strong> in einer Unbekannten \(x\) über einem Körper \(K\) (in der Schule i.&nbsp;d.&nbsp;R. \(K=\mathbb{R}\)) hat die Form
-      \[
-        a\,x=b,\quad a,b\in K.
-      \]
-      In \(n\) Unbekannten lautet die allgemeine Form \(a_1x_1+\dots +a_nx_n=b\).</p>
+    <p>
+      Eine <strong>lineare Gleichung</strong> in einer Unbekannten \(x\) über einem Körper \(K\)
+      (in der Schule i.&nbsp;d.&nbsp;R. \(K=\mathbb{R}\)) hat die Form
+      \(a\,x=b\) mit \(a,b\in K\).
+      In \(n\) Unbekannten lautet die allgemeine Form \(a_1x_1+\dots +a_nx_n=b\).
+    </p>
     <p><strong>Äquivalenzumformungen</strong> lassen die Lösungsmenge unverändert. Zulässig sind u.&nbsp;a.:</p>
     <ul>
       <li>Addition/Subtraktion derselben Größe auf beiden Seiten,</li>
@@ -47,13 +67,18 @@
 
     <h2>2. Satz: Lösungsformel und Fallunterscheidung</h2>
     <ol>
-      <li>Für \(a\neq 0\) besitzt \(ax=b\) genau die Lösung \(\displaystyle x=\frac{b}{a}\).</li>
+      <li>Für \(a\neq 0\) besitzt \(ax=b\) genau die Lösung \(x=\dfrac{b}{a}\).</li>
       <li>Für \(a=0,\,b\neq 0\): keine Lösung (Widerspruch \(0=b\)).</li>
       <li>Für \(a=0,\,b=0\): jede Zahl \(x\in K\) ist Lösung (Identität).</li>
     </ol>
 
     <h3>Beweis (Eindeutigkeit bei \(a\neq 0\))</h3>
-    <p>Seien \(x_1,x_2\) Lösungen von \(ax=b\) mit \(a\neq 0\). Dann \(ax_1=b=ax_2\). Subtraktion liefert \(a(x_1-x_2)=0\). Da Körper nullteilerfrei und \(a\neq 0\), folgt \(x_1-x_2=0\), also \(x_1=x_2\). Die Existenz ergibt sich aus \(x=b/a\).</p>
+    <p>
+      Seien \(x_1,x_2\) Lösungen von \(ax=b\) mit \(a\neq 0\).
+      Dann \(a x_1=b=a x_2\). Subtraktion liefert \(a(x_1-x_2)=0\).
+      Da Körper nullteilerfrei und \(a\neq 0\), folgt \(x_1-x_2=0\), also \(x_1=x_2\).
+      Die Existenz ergibt sich aus \(x=b/a\).
+    </p>
 
     <h2>3. Beispiele (einvariabel)</h2>
     <p><strong>Beispiel 1.</strong> \(7x-3=2x+12\)</p>
@@ -89,10 +114,9 @@
     </p>
 
     <h2>5. Lineare Gleichungssysteme (LGS)</h2>
-    <p>Ein LGS mit \(m\) Gleichungen in \(n\) Unbekannten wird als Matrixgleichung geschrieben:
-      \[
-        A x = b,\quad A\in K^{m\times n},\; x\in K^n,\; b\in K^m.
-      \]
+    <p>
+      Ein LGS mit \(m\) Gleichungen in \(n\) Unbekannten wird als Matrixgleichung geschrieben:
+      \(A x = b\) mit \(A\in K^{m\times n}\), \(x\in K^n\), \(b\in K^m\).
     </p>
 
     <h3>Rang und Lösbarkeit (Rouché–Capelli)</h3>
@@ -107,7 +131,7 @@
     <ol>
       <li>Einsetzungsverfahren (Variable isolieren, in andere Gleichungen einsetzen)</li>
       <li>Additions-/Eliminationsverfahren (geeignete Linearkombinationen)</li>
-      <li>Gleichsetzungsverfahren (bei zwei Gleichungen: zwei Ausdrücke gleichsetzen)</li>
+      <li>Gleichsetzungsverfahren (bei zwei Gleichungen)</li>
       <li>Gaußsches Eliminationsverfahren (systematisch, matrixbasiert)</li>
     </ol>
 
@@ -118,7 +142,7 @@
           a_1 x + b_1 y = c_1\\
           a_2 x + b_2 y = c_2
         \end{cases}
-        \quad\text{mit}\quad
+        \qquad
         \Delta = a_1 b_2 - a_2 b_1.
       \]
       Ist \(\Delta\neq 0\), dann
@@ -134,7 +158,7 @@
         \begin{cases}
           3x + 2y = 4\\
           5x - 2y = 6
-        \end{cases}
+        </end{cases}
       \]
       Addiere die Gleichungen:
       \[
