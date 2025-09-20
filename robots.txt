@@ -1,5 +1,12 @@
-# robots.txt for https://tabellenbuch.org/
+# robots.txt for Tabellenbuch.org
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
 
+# Sitemaps
 Sitemap: https://tabellenbuch.org/sitemap.xml
+Sitemap: https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/sitemap-ungleichungen.xml
