@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <title>Grundlagen der Ungleichungen – Tabellenbuch.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Ungleichungen: Zeichen, Intervallschreibweise, Äquivalenzumformungen, Richtungswechsel, monotone Funktionen, Kettenungleichungen, Vorzeichentabellen, Beispiele & Übungen."/>
+  <link rel="stylesheet" href="../../../../assets/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    #header .tb-compact{margin-bottom:.75rem}
+    nav.breadcrumb{margin-top:.25rem}
+    .tb-container{max-width:1100px;margin:0 auto}
+    .card{background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin:1rem 0}
+    .muted{color:#6b7280}
+    .local-toolbar a.btn{
+      text-decoration:none;background:#eef2ff;color:#1e3a8a;
+      padding:.5rem .75rem;border-radius:8px;display:inline-flex;gap:.5rem;align-items:center;font-weight:600
+    }
+    .local-toolbar a.btn.primary{ background:#1e3a8a;color:#fff }
+    /* Inline-Math Fix */
+    mjx-container:not([display="true"]){display:inline-block;margin:0 .05em}
+    mjx-container[display="true"]{margin:.6rem 0}
+    .two-col{display:grid;gap:.75rem}
+    @media (min-width: 900px){ .two-col{grid-template-columns:1fr 1fr} }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <nav class="breadcrumb">
+    <a href="../../../..">Startseite</a> ›
+    <a href="../../mathematik.html">Mathematik</a> ›
+    <a href="../algebra.html">Algebra</a> ›
+    <a href="../gleichungen.html">Gleichungen</a> ›
+    <span>Ungleichungen – Grundlagen</span>
+  </nav>
+
+  <main class="content" id="mainContent">
+    <div class="tb-container">
+
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
+        <i class="fa-solid fa-less-than-equal" style="font-size:1.6rem;color:#1e3a8a"></i>
+        <h1 style="margin:0">Grundlagen der Ungleichungen</h1>
+      </div>
+      <p class="muted">
+        Zeichen, Intervallschreibweise, korrekte Umformungsregeln (incl. Richtungswechsel),
+        monotone Funktionen, Kettenungleichungen, Vorzeichentabellen – mit Beispielen & Übungen.
+      </p>
+
+      <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
+        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
+        <a class="btn" href="#zeichen">Zeichen & Bedeutung</a>
+        <a class="btn" href="#intervalle">Intervallschreibweise</a>
+        <a class="btn" href="#equiv">Äquivalenzumformungen</a>
+        <a class="btn" href="#monoton">Monotone Funktionen</a>
+        <a class="btn" href="#ketten">Kettenungleichungen</a>
+        <a class="btn" href="#vorzeichen">Vorzeichentabelle</a>
+        <a class="btn" href="#beispiele">Beispiele</a>
+        <a class="btn" href="#uebungen">Übungen</a>
+        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
+      </div>
+
+      <section class="card" id="zeichen">
+        <h2>1. Zeichen &amp; Bedeutung</h2>
+        <ul class="two-col">
+          <li><strong>Streng:</strong> \(x&lt;y\), \(x&gt;y\)</li>
+          <li><strong>Nicht streng:</strong> \(x\le y\), \(x\ge y\)</li>
+          <li><strong>Lösungsmenge:</strong> \(L=\{x\in D\mid \text{Aussage wahr}\}\)</li>
+          <li><strong>Vereinigung/Schnitt:</strong> \(A\cup B\), \(A\cap B\)</li>
+        </ul>
+        <p class="muted">Hinweis: Ungleichungen gelten punktweise; die Lösung ist meist eine Menge von Intervallen.</p>
+      </section>
+
+      <section class="card" id="intervalle">
+        <h2>2. Intervallschreibweise &amp; Zahlengerade</h2>
+        <ul>
+          <li>Offen: \((a,b) = \{x\mid a&lt;x&lt;b\}\)</li>
+          <li>Halboffen: \([a,b)\) bzw. \((a,b]\)</li>
+          <li>Abgeschlossen: \([a,b]\)</li>
+          <li>Unbeschränkt: \((\! -\infty, a),\ (a,\infty)\) usw.</li>
+        </ul>
+        <p>Vereinigungen werden mit \(\cup\), Schnitte mit \(\cap\) notiert, z.&nbsp;B. \((\! -\infty,-1]\cup[2,\infty)\).</p>
+      </section>
+
+      <section class="card" id="equiv">
+        <h2>3. Äquivalenzumformungen bei Ungleichungen</h2>
+        <ul>
+          <li><strong>Addieren/Subtrahieren</strong> derselben Größe: Richtung bleibt.</li>
+          <li><strong>Multiplikation/Division mit \(\lambda&gt;0\)</strong>: Richtung bleibt.</li>
+          <li><strong>Multiplikation/Division mit \(\lambda&lt;0\)</strong>: <em>Richtungswechsel</em> (\(&lt;\leftrightarrow&gt;\), \(\le\leftrightarrow\ge\)).</li>
+          <li><strong>Multiplikation mit 0</strong> ist <em>nicht</em> erlaubt (Information geht verloren).</li>
+        </ul>
+      </section>
+
+      <section class="card" id="monoton">
+        <h2>4. Monotone Funktionen anwenden</h2>
+        <p>Sei \(\varphi\) auf \(D\) streng <em>monoton wachsend</em> (z. B. \(\exp\), \(\ln\) auf \((0,\infty)\), \(x\mapsto x^n\) mit ungeradem \(n\)). Dann gilt:</p>
+        <p>\(x\_1\,\square\, x\_2 \iff \varphi(x\_1)\,\square\,\varphi(x\_2)\).</p>
+        <p>Ist \(\varphi\) streng <em>monoton fallend</em> (z. B. \(x\mapsto -x\), \(x\mapsto a^x\) mit \(0&lt;a&lt;1\), \(\log\_a\) mit \(0&lt;a&lt;1\)), so kehrt sich die Richtung um.</p>
+        <p class="muted">Nicht injektive Abbildungen (z. B. Quadrieren auf \(\mathbb{R}\)) sind <em>nicht</em> äquivalent – es braucht Fallanalyse/Probe.</p>
+      </section>
+
+      <section class="card" id="ketten">
+        <h2>5. Kettenungleichungen</h2>
+        <p>Beispiel: \(a&lt;bx+c&lt;d\). Lösen durch <em>Aufspalten</em> in zwei Ungleichungen \(a&lt;bx+c\) und \(bx+c&lt;d\), jeweils korrekt umformen (mit Richtungswechsel bei Division durch negative Zahlen) und am Ende den <strong>Schnitt</strong> der Intervalle bilden.</p>
+      </section>
+
+      <section class="card" id="vorzeichen">
+        <h2>6. Vorzeichentabelle / Testintervall-Methode</h2>
+        <ol>
+          <li>Bringe die Ungleichung in die Form \(F(x)\,\square\,0\) (alles auf eine Seite).</li>
+          <li>Bestimme die <strong>kritischen Punkte</strong> (Nullen/Polstellen von Faktoren).</li>
+          <li>Teile die Zahlengerade anhand der kritischen Punkte in Intervalle.</li>
+          <li>Bestimme in jedem Intervall das Vorzeichen von \(F(x)\) (z. B. durch Testpunkt).</li>
+          <li>Wähle die Intervalle entsprechend \(\square\in\{&lt;,\le,\gt,\ge\}\) aus (Ränder je nach „gleich“ einschließen).</li>
+        </ol>
+        <p class="muted">Bei <em>gerader</em> Vielfachheit wechselt das Vorzeichen am Nullpunkt <em>nicht</em>, bei <em>ungerader</em> schon.</p>
+      </section>
+
+      <section class="card" id="beispiele">
+        <h2>7. Beispiele</h2>
+
+        <h3>(a) Linear</h3>
+        <p>\(3x-5\le 7\Rightarrow 3x\le12\Rightarrow x\le4\Rightarrow L=(\! -\infty,4]\).</p>
+
+        <h3>(b) Kette</h3>
+        <p>\(-2&lt;2x+1\le 5\Rightarrow -3&lt;2x\le4\Rightarrow -\tfrac{3}{2}&lt;x\le2\Rightarrow L=(-\tfrac{3}{2},2]\).</p>
+
+        <h3>(c) Quadratisch</h3>
+        <p>\(x^2-5x+6\ge0\Rightarrow (x-2)(x-3)\ge0\).
+           Nullstellen 2 und 3, Parabel „\(\smile\)“ ⇒ außerhalb nichtnegativ:
+           \(L=(\! -\infty,2]\cup[3,\infty)\).</p>
+
+        <h3>(d) Rational</h3>
+        <p>\(\dfrac{x-1}{x+2}&gt;0\). Kritische Punkte: Nullstelle 1, Polstelle -2.
+           Vorzeichentabelle ⇒ positiv auf \((\! -\infty,-2)\cup(1,\infty)\).
+           Polstelle nie enthalten ⇒ \(L=(\! -\infty,-2)\cup(1,\infty)\).</p>
+
+        <h3>(e) Betrag</h3>
+        <p>\(|x-3|\le 2 \iff -2\le x-3\le 2 \iff 1\le x\le 5 \Rightarrow L=[1,5].\)</p>
+      </section>
+
+      <section class="card" id="uebungen">
+        <h2>8. Übungen (kurze Lösungen)</h2>
+        <ol>
+          <li>\(5-2x &lt; 1\)</li>
+          <li>\(x^2-4x-5 &lt; 0\)</li>
+          <li>\(\dfrac{2x+1}{x-3}\ge 0\)</li>
+          <li>\(|2x-1| &gt; 3\)</li>
+        </ol>
+        <details class="solution"><summary>Lösungen einblenden</summary>
+          1) \( -2x &lt; -4 \Rightarrow x &gt; 2\Rightarrow (2,\infty)\).<br/>
+          2) Nullstellen: \(x=\frac{4\pm\sqrt{16+20}}{2}=2\pm3\Rightarrow (-1,5)\).<br/>
+          3) Kritische Punkte: \(x=-\tfrac{1}{2},3\Rightarrow (-\infty,-\tfrac{1}{2}]\cup(3,\infty)\).<br/>
+          4) \(|2x-1|&gt;3\iff 2x-1&lt;-3\,\vee\,2x-1&gt;3\Rightarrow x&lt;-1\,\vee\,x&gt;2\Rightarrow (-\infty,-1)\cup(2,\infty).\)
+        </details>
+      </section>
+
+      <section class="card" id="weiter">
+        <h2>9. Wohin als Nächstes?</h2>
+        <div class="categories" style="margin-top:.75rem">
+          <a class="card" href="lineare-ungleichungen.html"><h3>➗ Lineare Ungleichungen</h3><p>Grad 1, Ketten, Systeme</p></a>
+          <a class="card" href="quadratische-ungleichungen.html"><h3>🅱 Quadratische Ungleichungen</h3><p>Parabel & Vorzeichen</p></a>
+          <a class="card" href="bruchungleichungen.html"><h3>➗ Bruchungleichungen</h3><p>Domäne & Vorzeichen</p></a>
+          <a class="card" href="betragsungleichungen.html"><h3>|x| Beträge</h3><p>Stückweise lösen</p></a>
+          <a class="card" href="exp-log-ungleichungen.html"><h3>exp/log</h3><p>Monotonie nutzen</p></a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    Promise.all([
+      fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header"); if(el) el.innerHTML=h}),
+      fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer"); if(el) el.innerHTML=h})
+    ]).catch(console.error);
+  </script>
+  <script defer src="../../../../assets/mobile.js"></script>
+</body>
+</html>
