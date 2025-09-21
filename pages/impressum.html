@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head><head>
+<meta charset="utf-8"/>
+<title>Impressum – Tabellenbuch.org</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+</head></head>
+<body>
+<div id="header"></div>
+<div id="header"></div>
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+<a href="https://tabellenbuch.org/">Startseite</a> ›
+    <span>Impressum</span>
+</nav>
+<main class="content" id="mainContent">
+<div class="tb-container">
+<h1>Impressum</h1>
+<p><strong>Dienstanbieter:</strong><br/>
+      Florian Gundermann<br/>
+      Teichstraße 1a<br/>
+      76707 Hambrücken<br/>
+      Deutschland</p>
+<p><strong>Kontakt:</strong><br/>
+      E-Mail: info@listinglokal.de<br/>
+      Telefon: +49 (0)176 32669729</p>
+<h2>Haftungsausschluss</h2>
+<p>Inhalte dieser Website wurden sorgfältig erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr.</p>
+<h2>Links</h2>
+<p>Externe Links wurden geprüft, für deren Inhalte sind die jeweiligen Betreiber verantwortlich.</p>
+<h2>Urheberrecht</h2>
+<p>Alle Texte, Inhalte und Grafiken dieser Website unterliegen dem Urheberrecht. Nutzung nur mit ausdrücklicher Genehmigung des Seitenbetreibers.</p>
+</div>
+</main>
+<div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+]).catch(console.error);
+</script>
+<script defer="" src="../assets/mobile.js"></script>
+</body>
+</html>
