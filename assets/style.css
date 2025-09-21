@@ -231,3 +231,6 @@ li mjx-container[display="inline"] { margin: 0 .15rem; }
 .kbd, code.kbd {
   background:#f3f4f6; border:1px solid #e5e7eb; padding:.05rem .35rem; border-radius:6px;
 }
+
+/* TODO link styling */
+a[data-status=todo]{opacity:.7;cursor:not-allowed;text-decoration: none;}
