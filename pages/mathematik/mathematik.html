@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head><head>
+<meta charset="utf-8"/>
+<title>Mathematik – Tabellenbuch.org</title>
+<link href="../../assets/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+</head></head>
+<body>
+<div id="header"></div>
+<div id="header"></div>
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+<a href="https://tabellenbuch.org/">Startseite</a> ›
+    <span>Mathematik</span>
+</nav>
+<main class="content" id="mainContent">
+<div class="tb-container">
+<h1>📘 Mathematik</h1>
+<p class="muted">Alle Themenbereiche (alphabetisch sortiert)</p>
+<!-- 🔎 Suchfeld -->
+<input class="category-search" id="categorySearch" onkeyup="filterCategories()" placeholder="Kategorien durchsuchen..." type="text"/>
+<div class="categories">
+<a class="card" href="algebra/algebra.html">
+<h3>➗ Algebra</h3>
+<p>Gleichungen, Polynome, Terme, Ungleichungen …</p>
+</a>
+<a class="card" href="analysis-komplex/analysis-komplex.html">
+<h3>🔢 Analysis (komplex)</h3>
+<p>Komplexe Zahlen, Holomorphe Funktionen …</p>
+</a>
+<a class="card" href="analysis-reell/analysis-reell.html">
+<h3>📈 Analysis (reell)</h3>
+<p>Differential- &amp; Integralrechnung, Folgen, Reihen …</p>
+</a>
+<a class="card" href="zahlen-arithmetik/zahlen-arithmetik.html">
+<h3>🔢 Arithmetik</h3>
+<p>Zahlbereiche, Teilbarkeit, Primzahlen, Potenzen …</p>
+</a>
+<a class="card" href="dgl/dgl.html">
+<h3>📉 Differentialgleichungen</h3>
+<p>ODEs, PDEs, spezielle Funktionen, Transformationen …</p>
+</a>
+<a class="card" href="diskret/diskret.html">
+<h3>🧩 Diskrete Mathematik</h3>
+<p>Graphen, Automaten, Kombinatorik, Rekursionen …</p>
+</a>
+<a class="card" href="funktionalanalysis/funktionalanalysis.html">
+<h3>📐 Funktionalanalysis</h3>
+<p>Operatoren, Räume, Fourier, Distributionen …</p>
+</a>
+<a class="card" href="funktionen/funktionen.html">
+<h3>📌 Funktionen</h3>
+<p>Arten von Funktionen, Transformationen, Umkehrungen …</p>
+</a>
+<a class="card" href="geometrie/geometrie.html">
+<h3>📐 Geometrie</h3>
+<p>Analytische Geometrie, Ebenen, Koordinaten, Stereometrie …</p>
+</a>
+<a class="card" href="grundlagen/grundlagen.html">
+<h3>📖 Grundlagen</h3>
+<p>Beweise, Logik, Mengenlehre, Strukturen …</p>
+</a>
+<a class="card" href="info-code-krypto/info-code-krypto.html">
+<h3>🔒 Info &amp; Krypto</h3>
+<p>Informationstheorie, Codes, Kryptographie …</p>
+</a>
+<a class="card" href="kategorien-logik/kategorien-logik.html">
+<h3>📚 Kategorien &amp; Logik</h3>
+<p>Kategorientheorie, Modelltheorie …</p>
+</a>
+<a class="card" href="lineare-algebra/lineare-algebra.html">
+<h3>🔲 Lineare Algebra</h3>
+<p>Vektoren, Matrizen, Determinanten, Eigenwerte …</p>
+</a>
+<a class="card" href="mass-integration/mass-integration.html">
+<h3>⚖️ Maß &amp; Integration</h3>
+<p>Maßtheorie, Lᵖ-Räume, Konvergenzsätze …</p>
+</a>
+<a class="card" href="numerik/numerik.html">
+<h3>⚙️ Numerik</h3>
+<p>Fehlerrechnung, Interpolation, Nullstellen, Integration …</p>
+</a>
+<a class="card" href="optimierung/optimierung.html">
+<h3>🎯 Optimierung</h3>
+<p>LP, MIP, NLP, Simulationen, Spieltheorie …</p>
+</a>
+<a class="card" href="statistik/statistik.html">
+<h3>📊 Statistik</h3>
+<p>Deskriptiv, Regression, Tests, Zeitreihen …</p>
+</a>
+<a class="card" href="topologie-geo/topologie-geo.html">
+<h3>🌐 Topologie &amp; Geometrie</h3>
+<p>Metriken, Mannigfaltigkeiten, Topologische Räume …</p>
+</a>
+<a class="card" href="trigonometrie/trigonometrie.html">
+<h3>📏 Trigonometrie</h3>
+<p>Dreiecke, Einheitskreis, Identitäten, Perioden …</p>
+</a>
+<a class="card" href="wahrscheinlichkeit/wahrscheinlichkeit.html">
+<h3>🎲 Wahrscheinlichkeit</h3>
+<p>Verteilungen, Momente, Prozesse, Queues …</p>
+</a>
+<a class="card" href="zahlentheorie/zahlentheorie.html">
+<h3>🔐 Zahlentheorie</h3>
+<p>Kongruenzen, Reste, elliptische Kurven …</p>
+</a>
+</div>
+</div>
+</main>
+<div id="footer"></div>
+<script>
+Promise.all([
+  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
+  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+]).catch(console.error);
+</script>
+<script defer="" src="../../assets/mobile.js"></script>
+</body>
+</html>
