@@ -1,70 +1,28 @@
-<!DOCTYPE html>
-
-<html lang="de"><head>
-<meta charset="utf-8"/><title>Lineare Systeme – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Konsistent, bestimmt/unter-/überbestimmt." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Systems of Linear Equations — Methods, Graphs & Solver | Tabellenbuch</title>
+<meta name="description" content="Learn systems of linear equations rigorously: graphical meaning, substitution, elimination, matrices, Gaussian elimination, consistency, rank, worked examples and an interactive 2x2 solver.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260828-3">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.02}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
-
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
-  </style>
-</head><body>
+.article{max-width:1120px;margin:auto}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:clamp(1.5rem,5vw,3rem);background:linear-gradient(145deg,#fff,#f6f8ff);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-sm)}.hero h1{font-size:clamp(2.7rem,7vw,5rem);margin:.4rem 0 1rem}.hero p{color:var(--muted);font-size:1.08rem}.system-card{background:#111827;color:white;border-radius:22px;padding:1.6rem;text-align:center;font:700 clamp(1.3rem,3vw,2rem) Georgia,serif}.quick{display:flex;gap:.55rem;flex-wrap:wrap;margin:1rem 0 1.5rem}.quick a{padding:.55rem .8rem;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:700}.grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:1.2rem}.cardx{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1.1rem,3vw,1.7rem);margin-bottom:1rem}.cardx h2{margin-top:0}.mathbox{background:#f6f8fc;border:1px solid #e4e9f2;border-radius:14px;padding:.9rem;overflow:auto}.casegrid,.methodgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.case,.method{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fbfcff}.case strong,.method strong{display:block;margin-bottom:.35rem}.side{position:sticky;top:84px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1rem}.side a{display:block;padding:.4rem 0;color:var(--muted)}.graph svg{width:100%;height:auto}.solver{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}.inputs input{width:100%;padding:.7rem;border:1px solid #cbd5e1;border-radius:10px}.solver button{width:100%;margin-top:.8rem;padding:.78rem;border:0;border-radius:10px;background:#18233a;color:#fff;font-weight:800}.result{display:grid;place-items:center;min-height:180px;border:1px dashed #cbd5e1;border-radius:14px;background:#fbfcff;text-align:center;padding:1rem}.axis{stroke:#94a3b8}.line1{stroke:#315fd3;stroke-width:3}.line2{stroke:#10a37f;stroke-width:3}.dot{fill:#111827}@media(max-width:850px){.hero,.grid,.solver{grid-template-columns:1fr}.side{display:none}.casegrid,.methodgrid{grid-template-columns:1fr}.inputs{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
 <div id="header"></div>
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
-  <a href="../../mathematik.html">Mathematik</a> ›
-  <a href="../algebra.html">Algebra</a> ›
-  <span>Lineare Systeme</span>
-</nav>
-<main class="content" id="mainContent"><div class="tb-container">
-<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem;">
-<i class="fa-solid fa-grid-2" style="font-size:1.6rem;color:#1e3a8a"></i><h1 style="margin:0;">Lineare Systeme</h1>
-</div>
-<p class="muted">Konsistent, bestimmt/unter-/überbestimmt.</p>
-<div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 1.25rem;">
-<a class="btn primary" href="gleichungssysteme.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht</a>
-<a class="btn" href="#definition">Definition</a>
-<a class="btn" href="#methoden">Methoden</a>
-<a class="btn" href="#beispiele">Beispiele</a>
-<a class="btn" href="#strategie">Schritt‑für‑Schritt</a>
-<a class="btn" href="#herleitung">Herleitung</a>
-<a class="btn" href="#beweis">Beweis</a>
-<a class="btn" href="#fehler">Typische Fehler</a>
-<a class="btn" href="#uebungen">Übungen</a>
-<a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition"><h2>1. Definition</h2><p>System \(Ax=b\) mit Matrix \(A\).</p></section>
-<section class="card" id="methoden"><h2>2. Methoden</h2><ul><li>Gauss‑Elimination, Rang.</li></ul></section>
-<section class="card" id="beispiele"><h2>3. Beispiele</h2><p>2×2‑System mit eindeutiger Lösung.</p></section>
-<section class="card" id="strategie"><h2>4. Schritt‑für‑Schritt</h2><ol><li>Erweiterte Matrix bilden.</li><li>Zeilenstufenform.</li></ol></section>
-<section class="card" id="herleitung"><h2>5. Herleitung</h2><p>Äquivalenz von Zeilenumformungen.</p></section>
-<section class="card" id="beweis"><h2>6. Beweis</h2><p>Kronecker‑Capelli.</p></section>
-<section class="card" id="fehler"><h2>7. Typische Fehler</h2><ul><li>Pivotwahl ignoriert.</li></ul></section>
-<section class="card" id="uebungen"><h2>8. Übungen</h2><ol><li>\(\begin{cases}x+y=3\\2x-y=1\end{cases}\)</li></ol><details class="solution"><summary>Lösung</summary>\(x=2, y=1\).</details></section>
-<section class="card" id="weiter"><h2>9. Wohin als Nächstes?</h2><div class="categories" style="margin-top:.75rem;"><a class="card" data-status="todo" href="#">Gauss‑AlgorithmusElimination (In Arbeit)</a>
-<a class="card" href="../lineare-abbildungen/abbildungen-grundlagen.html"><h3><i class="fa-solid fa-right-left"></i> Lineare Abbildungen – Grundlagen</h3><p>Matrixbezug</p></a></div></section>
-</div></main>
-<div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el)el.innerHTML=h;}),
-  fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el)el.innerHTML=h;})
-]).catch(console.error);
-</script><script defer="" src="../../../../assets/mobile.js"></script>
-</body></html>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="../algebra.html">Algebra</a><span>›</span><a href="gleichungssysteme.html">Systems</a><span>›</span><span>Linear systems</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><div><p class="eyebrow">ALGEBRA · CORE CONCEPT</p><h1>Systems of linear equations</h1><p>A system asks for values that satisfy several linear equations at the same time. Algebraically, geometrically and in matrix form, the same structure appears.</p></div><div class="system-card">\[\begin{cases}2x+y=7\\x-y=2\end{cases}\qquad\Rightarrow\qquad (x,y)=(3,1)\]</div></section>
+<nav class="quick"><a href="#meaning">Meaning</a><a href="#cases">Solution types</a><a href="#methods">Methods</a><a href="#gauss">Gaussian elimination</a><a href="#graph">Graph</a><a href="#solver">Solver</a><a href="#practice">Practice</a></nav>
+<div class="grid"><div>
+<section class="cardx" id="meaning"><h2>1. What is a linear system?</h2><p>A system of \(m\) linear equations in \(n\) unknowns can be written as</p><div class="mathbox">\[A\mathbf{x}=\mathbf{b}\]</div><p>where \(A\in\mathbb{R}^{m\times n}\) contains the coefficients, \(\mathbf{x}\in\mathbb{R}^n\) the unknowns, and \(\mathbf{b}\in\mathbb{R}^m\) the constants. A solution must satisfy <strong>every row equation simultaneously</strong>.</p></section>
+<section class="cardx" id="cases"><h2>2. How many solutions can a system have?</h2><div class="casegrid"><div class="case"><strong>Exactly one</strong>The equations intersect in one common point. In a square system this corresponds to full rank.</div><div class="case"><strong>No solution</strong>The equations are inconsistent; row reduction produces a contradiction such as \(0=1\).</div><div class="case"><strong>Infinitely many</strong>Some equations are dependent, leaving one or more free variables.</div></div><p style="margin-top:1rem">The rank criterion is \(\operatorname{rank}(A)=\operatorname{rank}([A\mid b])\) for consistency. If this common rank also equals the number of unknowns, the solution is unique.</p></section>
+<section class="cardx" id="methods"><h2>3. Main solving methods</h2><div class="methodgrid"><div class="method"><strong>Substitution</strong>Isolate one variable and insert it into another equation. Excellent for small systems.</div><div class="method"><strong>Elimination</strong>Add suitable multiples of equations so one variable cancels.</div><div class="method"><strong>Gaussian elimination</strong>Apply elementary row operations to the augmented matrix. This scales to large systems.</div></div></section>
+<section class="cardx" id="gauss"><h2>4. Gaussian elimination — worked example</h2><p>Solve \(2x+y=7\) and \(x-y=2\).</p><div class="mathbox">\[\left[\begin{array}{cc|c}2&1&7\\1&-1&2\end{array}\right]\xrightarrow{R_1\leftrightarrow R_2}\left[\begin{array}{cc|c}1&-1&2\\2&1&7\end{array}\right]\xrightarrow{R_2-2R_1}\left[\begin{array}{cc|c}1&-1&2\\0&3&3\end{array}\right]\]</div><p>From the second row, \(y=1\). Substituting into the first row gives \(x=3\).</p><p>Elementary row operations preserve the solution set because they replace equations by equivalent linear combinations.</p></section>
+<section class="cardx graph" id="graph"><h2>5. Geometric interpretation</h2><p>In two variables, each linear equation is a line. The solution of the system is their intersection.</p><svg viewBox="0 0 620 320" role="img" aria-label="Two lines intersecting at one point"><line class="axis" x1="70" y1="260" x2="570" y2="260"/><line class="axis" x1="110" y1="35" x2="110" y2="285"/><line class="line1" x1="105" y1="70" x2="520" y2="278"/><line class="line2" x1="95" y1="290" x2="485" y2="30"/><circle class="dot" cx="309" cy="172" r="6"/><text x="322" y="165" fill="#111827">unique solution</text></svg><p style="color:var(--muted)">Parallel distinct lines correspond to no solution; identical lines correspond to infinitely many solutions.</p></section>
+<section class="cardx" id="solver"><h2>6. Interactive 2×2 solver</h2><p>Enter coefficients for \(a_1x+b_1y=c_1\) and \(a_2x+b_2y=c_2\).</p><div class="solver"><div><div class="inputs"><input id="a1" value="2" aria-label="a1"><input id="b1" value="1" aria-label="b1"><input id="c1" value="7" aria-label="c1"><input id="a2" value="1" aria-label="a2"><input id="b2" value="-1" aria-label="b2"><input id="c2" value="2" aria-label="c2"></div><button id="solveBtn">Solve system</button></div><div class="result" id="result">Enter coefficients and solve.</div></div></section>
+<section class="cardx"><h2>7. Common mistakes</h2><ul><li>Applying an operation to only one equation side instead of the whole row.</li><li>Dividing by a pivot without checking whether it is zero.</li><li>Stopping at row-echelon form without back-substitution.</li><li>Assuming every system has a unique solution.</li><li>Confusing an overdetermined system with an inconsistent system — extra equations can still be compatible.</li></ul></section>
+<section class="cardx" id="practice"><h2>8. Practice</h2><ol><li>\(x+y=5,\ x-y=1\)</li><li>\(2x+4y=6,\ x+2y=3\)</li><li>\(x+y=2,\ 2x+2y=5\)</li></ol><details><summary>Solutions</summary><p>1) \((3,2)\). 2) Infinitely many solutions: the equations are equivalent. 3) No solution: the equations contradict each other.</p></details></section>
+</div><aside class="side"><strong>On this page</strong><a href="#meaning">Definition</a><a href="#cases">Solution types</a><a href="#methods">Methods</a><a href="#gauss">Gaussian elimination</a><a href="#graph">Geometry</a><a href="#solver">2×2 solver</a><a href="#practice">Practice</a><hr style="border:0;border-top:1px solid var(--line)"><a href="../gleichungen/lineare-gleichungen.html">← Linear equations</a><a href="../../lineare-algebra/lineare-algebra.html">Linear algebra →</a></aside></div>
+</div></main><div id="footer"></div>
+<script>Promise.all([fetch('/components/header.html?v=20260828-3').then(r=>r.text()).then(h=>header.innerHTML=h),fetch('/components/footer.html?v=20260828-3').then(r=>r.text()).then(h=>footer.innerHTML=h)]).catch(console.error);function solve(){const v=id=>Number(document.getElementById(id).value),a=v('a1'),b=v('b1'),c=v('c1'),d=v('a2'),e=v('b2'),f=v('c2'),D=a*e-d*b,Dx=c*e-f*b,Dy=a*f-d*c,out=document.getElementById('result'),eps=1e-10;if(Math.abs(D)>eps){out.innerHTML='<div><strong style="font-size:1.25rem">Unique solution</strong><br>x = '+(Dx/D).toFixed(6).replace(/\.0+$/,'')+'<br>y = '+(Dy/D).toFixed(6).replace(/\.0+$/,'')+'</div>'}else if(Math.abs(Dx)<eps&&Math.abs(Dy)<eps){out.innerHTML='<div><strong>Infinitely many solutions</strong><br>The equations are dependent.</div>'}else{out.innerHTML='<div><strong>No solution</strong><br>The equations are inconsistent.</div>'}}document.getElementById('solveBtn').addEventListener('click',solve);solve();</script><script defer src="/assets/mobile.js?v=20260828-3"></script></body></html>
