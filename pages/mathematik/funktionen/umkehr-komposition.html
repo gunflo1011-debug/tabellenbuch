@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head><head>
-<meta charset="utf-8"/>
-<title>Umkehr-komposition – Tabellenbuch Mathematik</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-</head></head>
-<body>
-<div id="header"></div>
-<div id="header"></div>
-<main>
-<h1>Umkehr-komposition</h1>
-<p>Formeln &amp; Inhalte folgen.</p>
-</main>
-<div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-]).catch(console.error);
-</script>
-<script defer="" src="../../../assets/mobile.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inverse Functions & Composition — Definitions, Examples & Tests | Tabellenbuch</title>
+<meta name="description" content="Understand function composition and inverse functions: definitions, domain rules, one-to-one condition, finding inverses, graphical symmetry, worked examples and verification.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/funktionen/umkehr-komposition.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260828-2">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}}</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.page{max-width:1120px;margin:auto}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;padding:clamp(2rem,6vw,5rem) 0 2rem}.hero h1{font-size:clamp(2.6rem,7vw,5.1rem);line-height:.96;letter-spacing:-.055em;margin:.5rem 0 1rem}.hero p{font-size:1.15rem;color:var(--muted);max-width:720px}.flow,.card{background:#fff;border:1px solid var(--border);border-radius:24px;box-shadow:0 10px 30px rgba(15,23,42,.05)}.flow{padding:1.4rem}.map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.5rem;text-align:center}.map-box{border:1px solid #dfe5f4;background:#f7f9ff;border-radius:16px;padding:1rem}.arrow{font-size:1.4rem;color:#64748b}.nav{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 2rem}.nav a{padding:.55rem .8rem;border:1px solid var(--border);border-radius:999px;background:#fff;font-weight:700}.card{padding:clamp(1.2rem,3vw,2rem);margin:1rem 0}.card h2{margin-top:0}.formula{font:700 clamp(1.2rem,3vw,1.9rem) Georgia,serif;background:#f6f8ff;border:1px solid #dfe6fb;border-radius:16px;padding:1rem;text-align:center;margin:1rem 0;overflow-x:auto}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.mini{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fbfcff}.example{background:#111827;color:#fff}.example p{color:#d1d5db}.example .formula{background:#192235;border-color:#2e3b55;color:#fff}.callout{border-left:4px solid #315ecf;background:#f4f7ff;padding:1rem;border-radius:0 14px 14px 0}.related{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.related a{display:block;border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff;font-weight:750}.check{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border)}.check:last-child{border-bottom:0}@media(max-width:760px){.hero,.grid,.related{grid-template-columns:1fr}.map{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.check{grid-template-columns:1fr;gap:.2rem}.hero{padding-top:2rem}}
+</style>
+</head><body><div id="header"></div>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="funktionen.html">Functions</a><span>›</span><span>Inverse & composition</span></nav>
+<main class="content"><div class="tb-container page">
+<section class="hero"><div><p class="eyebrow">FUNCTIONS · STRUCTURE</p><h1>Composition and inverse functions</h1><p>Composition chains functions together. An inverse function reverses a function. Together, these ideas explain how multi-step processes are built and undone.</p></div><div class="flow"><div class="map"><div class="map-box"><strong>x</strong><br><small>input</small></div><div class="arrow">→</div><div class="map-box"><strong>f(x)</strong><br><small>first output</small></div><div class="arrow">→</div><div class="map-box"><strong>g(f(x))</strong><br><small>final output</small></div></div></div></section>
+<nav class="nav"><a href="#composition">Composition</a><a href="#domain">Domain</a><a href="#inverse">Inverse</a><a href="#find">Find an inverse</a><a href="#verify">Verify</a><a href="#graph">Graph</a></nav>
+<section class="card" id="composition"><h2>1. Function composition</h2><p>The composition of \(g\) with \(f\) means “apply \(f\) first, then apply \(g\).”</p><div class="formula">\[(g\circ f)(x)=g(f(x))\]</div><div class="callout"><strong>Order matters.</strong> In general, \(g\circ f\neq f\circ g\). Composition is usually not commutative.</div><h3>Example</h3><p>Let \(f(x)=2x+1\) and \(g(x)=x^2\). Then</p><div class="formula">\[(g\circ f)(x)=(2x+1)^2\qquad (f\circ g)(x)=2x^2+1\]</div><p>The results differ because the functions are applied in different orders.</p></section>
+<section class="card" id="domain"><h2>2. Domain of a composition</h2><p>For \((g\circ f)(x)\) to exist, two conditions must hold: \(x\) must belong to the domain of \(f\), and the value \(f(x)\) must belong to the domain of \(g\).</p><div class="formula">\[D_{g\circ f}=\{x\in D_f\mid f(x)\in D_g\}\]</div><p>Example: if \(f(x)=x-3\) and \(g(u)=\sqrt{u}\), then \((g\circ f)(x)=\sqrt{x-3}\), so \(x\ge3\).</p></section>
+<section class="card" id="inverse"><h2>3. What is an inverse function?</h2><p>An inverse reverses the input-output relationship of a function. If \(f(a)=b\), then its inverse satisfies \(f^{-1}(b)=a\).</p><div class="formula">\[f^{-1}\circ f=\operatorname{id}\qquad\text{and}\qquad f\circ f^{-1}=\operatorname{id}\]</div><p>Here \(\operatorname{id}(x)=x\). The notation \(f^{-1}\) means inverse function, <strong>not</strong> \(1/f\).</p><div class="grid"><div class="mini"><h3>When does an inverse exist?</h3><p>A function has an inverse on its full codomain when it is bijective. At minimum, it must be one-to-one on the domain being inverted.</p></div><div class="mini"><h3>Horizontal line test</h3><p>A real graph represents a one-to-one function exactly when every horizontal line intersects it at most once.</p></div></div></section>
+<section class="card example" id="find"><h2>4. Finding an inverse algebraically</h2><p>Find the inverse of \(f(x)=3x-5\).</p><div class="check"><strong>Step 1</strong><span>Write \(y=3x-5\).</span></div><div class="check"><strong>Step 2</strong><span>Swap the roles of input and output: \(x=3y-5\).</span></div><div class="check"><strong>Step 3</strong><span>Solve for \(y\): \(x+5=3y\), hence \(y=(x+5)/3\).</span></div><div class="formula">\[f^{-1}(x)=\frac{x+5}{3}\]</div></section>
+<section class="card" id="verify"><h2>5. Verifying an inverse</h2><p>The strongest algebraic check is composition in both directions.</p><div class="formula">\[f(f^{-1}(x))=3\left(\frac{x+5}{3}\right)-5=x\]</div><div class="formula">\[f^{-1}(f(x))=\frac{(3x-5)+5}{3}=x\]</div><p>Both compositions return the identity, confirming the inverse.</p></section>
+<section class="card" id="graph"><h2>6. Graphical interpretation</h2><p>The graph of \(f^{-1}\) is the reflection of the graph of \(f\) across the line \(y=x\). Swapping every point \((a,b)\) to \((b,a)\) exactly reverses input and output.</p><div class="grid"><div class="mini"><h3>Domain and range swap</h3><p>\(D_{f^{-1}}=R_f\) and \(R_{f^{-1}}=D_f\).</p></div><div class="mini"><h3>Restriction may be necessary</h3><p>For example, \(f(x)=x^2\) is not one-to-one on all real numbers, but restricting to \(x\ge0\) gives inverse \(f^{-1}(x)=\sqrt{x}\).</p></div></div></section>
+<section class="card"><h2>7. Common mistakes</h2><p><strong>Confusing inverse and reciprocal:</strong> \(f^{-1}(x)\neq1/f(x)\). <strong>Ignoring domain restrictions:</strong> an inverse may exist only after restricting the original domain. <strong>Reversing composition order:</strong> \((g\circ f)(x)\) means \(f\) first, then \(g\).</p></section>
+<section class="card"><h2>8. Practice</h2><p>Let \(f(x)=x+4\) and \(g(x)=2x\). Find \((g\circ f)(x)\), \((f\circ g)(x)\), and \(f^{-1}(x)\).</p><details><summary>Solution</summary><p>\((g\circ f)(x)=2x+8\), \((f\circ g)(x)=2x+4\), and \(f^{-1}(x)=x-4\).</p></details></section>
+<section class="card"><h2>Related topics</h2><div class="related"><a href="typen.html">Function fundamentals →</a><a href="transformationen.html">Transformations →</a><a href="../algebra/gleichungen/lineare-gleichungen.html">Linear equations →</a></div></section>
+</div></main><div id="footer"></div><script>Promise.all([fetch('/components/header.html?v=20260828-2').then(r=>r.text()).then(h=>header.innerHTML=h),fetch('/components/footer.html?v=20260828-2').then(r=>r.text()).then(h=>footer.innerHTML=h)]).catch(console.error)</script><script defer src="/assets/mobile.js?v=20260828-2"></script></body></html>
