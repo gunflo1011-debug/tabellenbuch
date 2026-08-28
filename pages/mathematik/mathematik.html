@@ -7,7 +7,7 @@
   <meta name="description" content="Explore algebra, calculus, geometry, probability, statistics, linear algebra and advanced mathematics in a structured free reference.">
   <link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/mathematik.html">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css?v=20260828-2">
 </head>
 <body>
   <div id="header"></div>
@@ -17,15 +17,15 @@
   <main class="content" id="mainContent">
     <div class="tb-container">
       <div class="page-intro">
-        <p class="eyebrow">MATHEMATICS LIBRARY</p>
+        <p class="section-kicker">Mathematics library</p>
         <h1>Explore mathematics.</h1>
-        <p>Browse the subject map from foundational concepts to advanced analysis. Finished topics combine rigorous definitions, formulas, derivations, examples and visual intuition.</p>
+        <p>Browse from fundamental concepts to advanced analysis. Each finished topic is designed around precise definitions, formulas, worked examples and visual intuition.</p>
       </div>
-      <label for="categorySearch" class="eyebrow">FIND A SUBJECT</label>
+      <label for="categorySearch" class="section-kicker">Find a subject</label>
       <input class="category-search" id="categorySearch" data-category-filter placeholder="Search mathematics topics…" type="search" autocomplete="off">
       <div class="categories" id="categoryGrid">
         <a class="card" href="algebra/algebra.html"><h3>Algebra</h3><p>Equations, expressions, polynomials and inequalities.</p></a>
-        <a class="card" href="analysis-reell/analysis-reell.html"><h3>Real Analysis & Calculus</h3><p>Limits, derivatives, integrals, sequences and series.</p></a>
+        <a class="card" href="analysis-reell/analysis-reell.html"><h3>Real Analysis &amp; Calculus</h3><p>Limits, derivatives, integrals, sequences and series.</p></a>
         <a class="card" href="analysis-komplex/analysis-komplex.html"><h3>Complex Analysis</h3><p>Complex numbers, holomorphic functions and Laurent series.</p></a>
         <a class="card" href="zahlen-arithmetik/zahlen-arithmetik.html"><h3>Arithmetic</h3><p>Number systems, divisibility, primes and powers.</p></a>
         <a class="card" href="lineare-algebra/lineare-algebra.html"><h3>Linear Algebra</h3><p>Vectors, matrices, determinants and eigenvalues.</p></a>
@@ -40,21 +40,21 @@
         <a class="card" href="numerik/numerik.html"><h3>Numerical Mathematics</h3><p>Error analysis, interpolation, root finding and integration.</p></a>
         <a class="card" href="optimierung/optimierung.html"><h3>Optimization</h3><p>Linear, integer and nonlinear optimization.</p></a>
         <a class="card" href="funktionalanalysis/funktionalanalysis.html"><h3>Functional Analysis</h3><p>Normed spaces, operators, Fourier analysis and distributions.</p></a>
-        <a class="card" href="mass-integration/mass-integration.html"><h3>Measure & Integration</h3><p>Measure theory, Lᵖ spaces and convergence theorems.</p></a>
+        <a class="card" href="mass-integration/mass-integration.html"><h3>Measure &amp; Integration</h3><p>Measure theory, Lᵖ spaces and convergence theorems.</p></a>
         <a class="card" href="topologie-geo/topologie-geo.html"><h3>Topology</h3><p>Metric spaces, topological spaces and manifolds.</p></a>
         <a class="card" href="zahlentheorie/zahlentheorie.html"><h3>Number Theory</h3><p>Congruences, residues and elliptic curves.</p></a>
-        <a class="card" href="info-code-krypto/info-code-krypto.html"><h3>Information & Coding</h3><p>Information theory, coding and mathematical cryptography.</p></a>
-        <a class="card" href="kategorien-logik/kategorien-logik.html"><h3>Logic & Category Theory</h3><p>Formal logic, model theory and categorical structures.</p></a>
+        <a class="card" href="info-code-krypto/info-code-krypto.html"><h3>Information &amp; Coding</h3><p>Information theory, coding and mathematical cryptography.</p></a>
+        <a class="card" href="kategorien-logik/kategorien-logik.html"><h3>Logic &amp; Category Theory</h3><p>Formal logic, model theory and categorical structures.</p></a>
       </div>
     </div>
   </main>
   <div id="footer"></div>
   <script>
     Promise.all([
-      fetch('/components/header.html').then(r => r.text()).then(h => { document.getElementById('header').innerHTML = h; }),
+      fetch('/components/header.html?v=20260828-2').then(r => r.text()).then(h => { document.getElementById('header').innerHTML = h; }),
       fetch('/components/footer.html').then(r => r.text()).then(h => { document.getElementById('footer').innerHTML = h; })
     ]).catch(console.error);
   </script>
-  <script defer src="/assets/mobile.js"></script>
+  <script defer src="/assets/mobile.js?v=20260828-2"></script>
 </body>
 </html>
