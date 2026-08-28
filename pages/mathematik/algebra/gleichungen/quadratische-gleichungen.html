@@ -1,152 +1,33 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Quadratische Gleichungen – Tabellenbuch.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Quadratische Gleichungen: Normalform, pq-Formel (Beweis), Mitternachtsformel, Diskriminante, Scheitelpunktform, Vieta, Sonderfälle, Beispiele & Übungen."/>
-  <link rel="stylesheet" href="../../../../assets/style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    #header .tb-compact{margin-bottom:.75rem}
-    nav.breadcrumb{margin-top:.25rem}
-    .tb-container{max-width:1100px;margin:0 auto}
-    .card{background:#fff;border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 12px rgba(0,0,0,.06);margin:1rem 0}
-    .muted{color:#6b7280}
-    .local-toolbar a.btn{ text-decoration:none;background:#eef2ff;color:#1e3a8a;padding:.5rem .75rem;border-radius:8px;display:inline-flex;gap:.5rem;align-items:center;font-weight:600 }
-    .local-toolbar a.btn.primary{ background:#1e3a8a;color:#fff }
-    mjx-container:not([display="true"]){display:inline-block;margin:0 .05em}
-    mjx-container[display="true"]{margin:.6rem 0}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quadratic Equations — Formula, Discriminant, Graphs & Solver | Tabellenbuch</title>
+<meta name="description" content="Learn quadratic equations rigorously: standard form, completing the square, quadratic formula, discriminant, factoring, Vieta's formulas, graphs, worked examples and an interactive solver.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260828-2">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.02}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.article{max-width:1100px;margin:auto}.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:1.5rem;align-items:center;padding:clamp(1.5rem,5vw,3rem);border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#fff,#f3f6ff);box-shadow:var(--shadow-sm)}.hero h1{font-size:clamp(2.7rem,7vw,5rem);margin:.4rem 0 1rem}.hero p{color:var(--muted);font-size:1.08rem}.formula-hero{background:#111827;color:#fff;border-radius:24px;padding:1.5rem;text-align:center;box-shadow:0 22px 50px rgba(15,23,42,.18)}.formula-hero .f{font:700 clamp(1.4rem,4vw,2.3rem) Georgia,serif}.formula-hero small{color:#a5b4fc}.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.5rem}.chips a{padding:.55rem .8rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:650;font-size:.88rem}.cardx{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1.2rem,3vw,1.8rem);margin:1rem 0;box-shadow:0 5px 18px rgba(15,23,42,.04)}.cardx h2{font-size:clamp(1.7rem,4vw,2.35rem);margin:0 0 .8rem}.mathbox{padding:1rem;border-radius:14px;background:#f5f7ff;border:1px solid #e0e7ff;overflow:auto}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.case{border:1px solid var(--line);border-radius:15px;padding:1rem;background:#fbfcff}.case strong{display:block;margin-bottom:.35rem}.graph-wrap{display:grid;grid-template-columns:1fr .8fr;gap:1rem;align-items:center}.graph{background:#fbfcff;border:1px solid var(--line);border-radius:18px;padding:1rem}.graph svg{width:100%;height:auto;display:block}.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}.method{border:1px solid var(--line);border-radius:15px;padding:1rem}.solver{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.solver-panel{border:1px solid var(--line);border-radius:16px;padding:1rem;background:#fbfcff}.solver-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}.solver label{font-weight:700;font-size:.88rem}.solver input{width:100%;margin-top:.3rem;padding:.75rem;border:1px solid #cbd5e1;border-radius:10px;background:#fff}.solver button{width:100%;margin-top:1rem;padding:.8rem;border:0;border-radius:11px;background:#111827;color:#fff;font-weight:750}.result{min-height:180px;display:grid;place-items:center;text-align:center;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;padding:1rem}.result strong{font-size:1.25rem}.example{padding:1rem 0;border-bottom:1px solid var(--line)}.example:last-child{border:0}.related{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.related a{border:1px solid var(--line);border-radius:16px;padding:1rem;background:#fff;font-weight:700}.related span{display:block;color:var(--muted);font-weight:400;font-size:.9rem;margin-top:.25rem}@media(max-width:780px){.hero,.graph-wrap,.solver{grid-template-columns:1fr}.three,.method-grid,.related{grid-template-columns:1fr}.solver-fields{grid-template-columns:1fr 1fr 1fr}}
+</style>
 </head>
-<body>
-  <div id="header"></div>
-
-  <nav class="breadcrumb">
-    <a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
-    <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
-    <span>Quadratische Gleichungen</span>
-  </nav>
-
-  <main class="content" id="mainContent">
-    <div class="tb-container">
-      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem">
-        <i class="fa-solid fa-superscript" style="font-size:1.6rem;color:#1e3a8a"></i>
-        <h1 style="margin:0">Quadratische Gleichungen</h1>
-      </div>
-      <p class="muted">
-        Von der Normalform \(ax^2+bx+c=0\) (mit \(a\ne 0\)) zu pq- und Mitternachtsformel,
-        Diskriminante, Scheitelpunktform und Vieta – mit Beweisen, Sonderfällen und Beispielen.
-      </p>
-
-      <div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 1px 1.25rem">
-        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#normalform">Normalform</a>
-        <a class="btn" href="#pq">pq-Formel (Beweis)</a>
-        <a class="btn" href="#mitternacht">Mitternachtsformel</a>
-        <a class="btn" href="#diskriminante">Diskriminante</a>
-        <a class="btn" href="#scheitel">Scheitelpunktform</a>
-        <a class="btn" href="#vieta">Vieta</a>
-        <a class="btn" href="#sonder">Sonderfälle</a>
-        <a class="btn" href="#beispiele">Beispiele</a>
-        <a class="btn" href="#uebungen">Übungen</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
-      </div>
-
-      <section class="card" id="normalform">
-        <h2>1. Normalform</h2>
-        <p>Jede Gleichung \(ax^2+bx+c=0\) mit \(a\ne 0\) kann durch Division durch \(a\) in die <em>pq-Form</em>
-          \(x^2+px+q=0\) überführt werden, mit \(p=\dfrac{b}{a}\), \(q=\dfrac{c}{a}\).</p>
-      </section>
-
-      <section class="card" id="pq">
-        <h2>2. pq-Formel (Beweis durch quadratische Ergänzung)</h2>
-        <p>\(x^2+px+q=0 \iff x^2+px=-q\).</p>
-        <p>Ergänze die Quadratform: \(x^2+px+\Bigl(\tfrac{p}{2}\Bigr)^2=\Bigl(\tfrac{p}{2}\Bigr)^2-q\).</p>
-        <p>\(\left(x+\tfrac{p}{2}\right)^2=\tfrac{p^2}{4}-q \Rightarrow
-           x=-\tfrac{p}{2}\pm\sqrt{\tfrac{p^2}{4}-q}\).</p>
-      </section>
-
-      <section class="card" id="mitternacht">
-        <h2>3. Mitternachtsformel</h2>
-        <p>Für \(ax^2+bx+c=0\) (mit \(a\ne 0\)) erhält man
-          \(x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}\). Sie folgt aus der pq-Formel via \(p=b/a\), \(q=c/a\).</p>
-      </section>
-
-      <section class="card" id="diskriminante">
-        <h2>4. Diskriminante & Fälle</h2>
-        <p>Die Diskriminante \(D=b^2-4ac\) entscheidet die Anzahl reeller Lösungen:</p>
-        <ul>
-          <li>\(D>0\): zwei reelle, verschiedene Lösungen,</li>
-          <li>\(D=0\): eine reelle Doppellösung \(x=-\dfrac{b}{2a}\),</li>
-          <li>\(D<0\): keine reellen (zwei komplex konjugierte) Lösungen.</li>
-        </ul>
-      </section>
-
-      <section class="card" id="scheitel">
-        <h2>5. Scheitelpunktform</h2>
-        <p>\(ax^2+bx+c=a\Bigl(x-\dfrac{-b}{2a}\Bigr)^2+\Bigl(c-\dfrac{b^2}{4a}\Bigr)\).
-           Scheitel \(S\!\left(\dfrac{-b}{2a},\,c-\dfrac{b^2}{4a}\right)\).</p>
-      </section>
-
-      <section class="card" id="vieta">
-        <h2>6. Vieta-Sätze</h2>
-        <p>Hat \(ax^2+bx+c=0\) die Nullstellen \(x_1,x_2\), gilt
-          \(x_1+x_2=-\dfrac{b}{a}\) und \(x_1x_2=\dfrac{c}{a}\).</p>
-      </section>
-
-      <section class="card" id="sonder">
-        <h2>7. Sonderfälle</h2>
-        <ul>
-          <li><strong>Fehlendes \(b\)</strong>: \(ax^2+c=0 \Rightarrow x=\pm\sqrt{-\tfrac{c}{a}}\).</li>
-          <li><strong>Fehlendes \(c\)</strong>: \(ax^2+bx=0 \Rightarrow x(a x+b)=0 \Rightarrow x\in\{0,-\tfrac{b}{a}\}\).</li>
-          <li><strong>Quadratische Gleichungen mit Parameter</strong>: Analyse über \(D(p)\) (Ortskurven, Tangentialfälle).</li>
-        </ul>
-      </section>
-
-      <section class="card" id="beispiele">
-        <h2>8. Beispiele</h2>
-        <h3>(a) pq-Formel</h3>
-        <p>\(x^2-6x+5=0\Rightarrow x=3\pm\sqrt{9-5}=3\pm2\Rightarrow x\in\{1,5\}\).</p>
-        <h3>(b) Mitternachtsformel</h3>
-        <p>\(2x^2+3x-2=0\Rightarrow x=\dfrac{-3\pm\sqrt{9+16}}{4}=\dfrac{-3\pm5}{4}\Rightarrow x\in\{\tfrac12,-2\}\).</p>
-        <h3>(c) \(D=0\)</h3>
-        <p>\(x^2+4x+4=0\Rightarrow (x+2)^2=0\Rightarrow x=-2\) (Doppellösung).</p>
-      </section>
-
-      <section class="card" id="uebungen">
-        <h2>9. Übungen (kurze Lösungen)</h2>
-        <ol>
-          <li>\(x^2+8x+15=0\) → \(\{-3,-5\}\)</li>
-          <li>\(3x^2-6x+3=0\) → \(x=1\) (doppelt)</li>
-          <li>\(x^2+2x+5=0\) → keine reellen (\(-1\pm2i\))</li>
-        </ol>
-      </section>
-
-      <section class="card" id="weiter">
-        <h2>10. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem">
-          <a class="card" href="grundlagen.html"><h3>📘 Grundlagen</h3><p>Definition & Regeln</p></a>
-          <a class="card" href="lineare-gleichungen.html"><h3>➗ Lineare Gleichungen</h3><p>Grad 1</p></a>
-          <a class="card" href="kubische-gleichungen.html"><h3>📐 Kubische</h3><p>Cardano, Fälle</p></a>
-          <a class="card" href="quartische-gleichungen.html"><h3>🧩 Quartische</h3><p>Ferrari, biquadratisch</p></a>
-          <a class="card" href="besondere-gleichungen.html"><h3>✨ Besondere</h3><p>Bruch-, Wurzel-, biquadr.</p></a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <div id="footer"></div>
-  <script>
-    Promise.all([
-      fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el) el.innerHTML=h}),
-      fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el) el.innerHTML=h})
-    ]).catch(console.error);
-  </script>
-  <script defer src="../../../../assets/mobile.js"></script>
-</body>
-</html>
+<body><div id="header"></div>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="../algebra.html">Algebra</a><span>›</span><a href="./">Equations</a><span>›</span><span>Quadratic equations</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><div><p class="eyebrow">ALGEBRA · CORE CONCEPT</p><h1>Quadratic equations</h1><p>A quadratic equation contains a squared unknown. Its algebraic roots are exactly the x-intercepts of a parabola, linking formulas, factorisation and geometry.</p></div><div class="formula-hero"><small>for \(a\neq0\)</small><div class="f">\(ax^2+bx+c=0\)</div><div style="margin:1rem 0;color:#9fb7ff">↓</div><div class="f">\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</div></div></section>
+<nav class="chips" aria-label="On this page"><a href="#definition">Definition</a><a href="#formula">Formula</a><a href="#discriminant">Discriminant</a><a href="#graph">Graph</a><a href="#methods">Methods</a><a href="#examples">Examples</a><a href="#solver">Solver</a><a href="#practice">Practice</a></nav>
+<section class="cardx" id="definition"><h2>1. Standard form</h2><p>A <strong>quadratic equation in one variable</strong> can be written as</p><div class="mathbox">\[ax^2+bx+c=0,\qquad a\neq0\]</div><p>The coefficient \(a\) must be non-zero; otherwise the equation is linear. Dividing by \(a\) gives the monic form \(x^2+px+q=0\), where \(p=b/a\) and \(q=c/a\).</p></section>
+<section class="cardx" id="formula"><h2>2. Deriving the quadratic formula</h2><p>The formula follows from completing the square, not from memorisation alone.</p><div class="mathbox">\[ax^2+bx+c=0\]</div><p>Divide by \(a\):</p><div class="mathbox">\[x^2+\frac ba x=-\frac ca\]</div><p>Add \(\left(\frac{b}{2a}\right)^2\) to both sides:</p><div class="mathbox">\[\left(x+\frac{b}{2a}\right)^2=\frac{b^2-4ac}{4a^2}\]</div><p>Taking square roots and isolating \(x\) yields</p><div class="mathbox">\[\boxed{x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}}\]</div></section>
+<section class="cardx" id="discriminant"><h2>3. The discriminant tells you how many real roots exist</h2><p>Define \(\Delta=b^2-4ac\). Its sign determines the real-root structure.</p><div class="three"><div class="case"><strong>\(\Delta>0\)</strong>Two distinct real roots.</div><div class="case"><strong>\(\Delta=0\)</strong>One repeated real root, \(x=-b/(2a)\).</div><div class="case"><strong>\(\Delta<0\)</strong>No real roots; over \(\mathbb C\), there are two complex-conjugate roots.</div></div></section>
+<section class="cardx" id="graph"><h2>4. Graphical interpretation</h2><div class="graph-wrap"><div><p>The function \(y=ax^2+bx+c\) is a parabola. Solving the quadratic equation asks where this parabola intersects the x-axis.</p><p>The vertex has x-coordinate</p><div class="mathbox">\[x_v=-\frac{b}{2a}\]</div><p>For \(x^2-4x+3=0\), the roots are \(1\) and \(3\), while the vertex is at \((2,-1)\).</p></div><div class="graph"><svg viewBox="0 0 500 320" role="img"><title>Parabola with roots at x equals 1 and 3</title><g stroke="#e5e7eb" stroke-width="1"><line x1="50" y1="70" x2="460" y2="70"/><line x1="50" y1="130" x2="460" y2="130"/><line x1="50" y1="190" x2="460" y2="190"/><line x1="50" y1="250" x2="460" y2="250"/><line x1="100" y1="35" x2="100" y2="285"/><line x1="200" y1="35" x2="200" y2="285"/><line x1="300" y1="35" x2="300" y2="285"/><line x1="400" y1="35" x2="400" y2="285"/></g><line x1="50" y1="190" x2="470" y2="190" stroke="#94a3b8"/><line x1="100" y1="30" x2="100" y2="290" stroke="#94a3b8"/><path d="M120 75 C185 235 315 235 380 75" fill="none" stroke="#315fd3" stroke-width="5" stroke-linecap="round"/><circle cx="180" cy="190" r="6" fill="#16a085"/><circle cx="320" cy="190" r="6" fill="#16a085"/><circle cx="250" cy="225" r="5" fill="#be567d"/><text x="168" y="212" fill="#475569" font-size="14">1</text><text x="314" y="212" fill="#475569" font-size="14">3</text><text x="260" y="246" fill="#be567d" font-size="13">vertex</text></svg></div></div></section>
+<section class="cardx" id="methods"><h2>5. Which solving method should you use?</h2><div class="method-grid"><div class="method"><strong>Factorisation</strong><p>Fastest when the polynomial factors cleanly, e.g. \(x^2-5x+6=(x-2)(x-3)\).</p></div><div class="method"><strong>Quadratic formula</strong><p>Universal for every quadratic equation with \(a\neq0\).</p></div><div class="method"><strong>Completing the square</strong><p>Best for deriving the formula, understanding vertex form, or revealing geometry.</p></div><div class="method"><strong>Square-root method</strong><p>Efficient for equations such as \((x-h)^2=k\).</p></div></div></section>
+<section class="cardx"><h2>6. Vieta's formulas</h2><p>If \(x_1,x_2\) are the roots of \(ax^2+bx+c=0\), then</p><div class="mathbox">\[x_1+x_2=-\frac ba,\qquad x_1x_2=\frac ca\]</div><p>These identities are useful for checking roots, factoring and reasoning about parameters without solving explicitly.</p></section>
+<section class="cardx" id="examples"><h2>7. Worked examples</h2><div class="example"><h3>Factorisation</h3><div class="mathbox">\[x^2-5x+6=0\iff(x-2)(x-3)=0\]</div><p>Therefore \(x=2\) or \(x=3\).</p></div><div class="example"><h3>Quadratic formula</h3><p>For \(2x^2+3x-2=0\), \(a=2,b=3,c=-2\), so \(\Delta=25\).</p><div class="mathbox">\[x=\frac{-3\pm5}{4}\in\left\{\frac12,-2\right\}\]</div></div><div class="example"><h3>No real roots</h3><p>For \(x^2+2x+5=0\), \(\Delta=4-20=-16\). Therefore there are no real roots; over the complex numbers the roots are \(-1\pm2i\).</p></div></section>
+<section class="cardx" id="solver"><h2>8. Interactive quadratic solver</h2><p>Enter coefficients for \(ax^2+bx+c=0\).</p><div class="solver"><div class="solver-panel"><div class="solver-fields"><label>a<input id="qa" type="number" step="any" value="1"></label><label>b<input id="qb" type="number" step="any" value="-4"></label><label>c<input id="qc" type="number" step="any" value="3"></label></div><button id="solveQ">Solve equation</button></div><div class="result" id="qResult"><div><strong>x₁ = 1, x₂ = 3</strong><p>Discriminant Δ = 4</p></div></div></div></section>
+<section class="cardx" id="practice"><h2>9. Practice</h2><ol><li>\(x^2+8x+15=0\)</li><li>\(3x^2-6x+3=0\)</li><li>\(x^2+2x+5=0\)</li><li>\(2x^2-7x+3=0\)</li></ol><details><summary>Show answers</summary><p>1) \(-3,-5\). 2) \(1\) repeated. 3) No real roots; complex roots \(-1\pm2i\). 4) \(3,\frac12\).</p></details></section>
+<section class="cardx"><h2>Continue learning</h2><div class="related"><a href="grundlagen.html">Equation fundamentals<span>Equality, solution sets and valid transformations.</span></a><a href="lineare-gleichungen.html">Linear equations<span>The essential first-degree case.</span></a><a href="kubische-gleichungen.html">Cubic equations<span>Move from degree two to degree three.</span></a></div></section>
+</div></main><div id="footer"></div>
+<script>
+Promise.all([fetch('/components/header.html?v=20260828-2').then(r=>r.text()).then(h=>header.innerHTML=h),fetch('/components/footer.html?v=20260828-2').then(r=>r.text()).then(h=>footer.innerHTML=h)]).catch(console.error);
+(function(){const a=document.getElementById('qa'),b=document.getElementById('qb'),c=document.getElementById('qc'),out=document.getElementById('qResult');document.getElementById('solveQ').addEventListener('click',function(){const A=Number(a.value),B=Number(b.value),C=Number(c.value);if(!Number.isFinite(A)||!Number.isFinite(B)||!Number.isFinite(C)){out.innerHTML='<div><strong>Enter valid numbers.</strong></div>';return}if(A===0){out.innerHTML=B===0?(C===0?'<div><strong>Every real number is a solution.</strong></div>':'<div><strong>No solution.</strong></div>'):`<div><strong>x = ${(-C/B).toLocaleString('en-US',{maximumFractionDigits:8})}</strong><p>This is linear because a = 0.</p></div>`;return}const D=B*B-4*A*C;const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:8});if(D>0){const r=Math.sqrt(D),x1=(-B+r)/(2*A),x2=(-B-r)/(2*A);out.innerHTML=`<div><strong>x₁ = ${fmt(x1)}, x₂ = ${fmt(x2)}</strong><p>Discriminant Δ = ${fmt(D)} · two real roots</p></div>`}else if(D===0){const x=-B/(2*A);out.innerHTML=`<div><strong>x = ${fmt(x)}</strong><p>Discriminant Δ = 0 · repeated real root</p></div>`}else{const re=-B/(2*A),im=Math.sqrt(-D)/Math.abs(2*A);out.innerHTML=`<div><strong>x = ${fmt(re)} ± ${fmt(im)}i</strong><p>Discriminant Δ = ${fmt(D)} · no real roots</p></div>`}})})();</script><script defer src="/assets/mobile.js?v=20260828-2"></script>
+</body></html>

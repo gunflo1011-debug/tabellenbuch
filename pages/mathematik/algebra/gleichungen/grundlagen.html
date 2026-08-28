@@ -1,151 +1,31 @@
-<!DOCTYPE html>
-
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Grundlagen der Gleichungen – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Definition, Äquivalenzumformungen, Lösungsprinzip und allgemeine Begründung – ausführlich und verständlich." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<!-- MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equation Fundamentals — Equality, Solution Sets & Transformations | Tabellenbuch</title>
+<meta name="description" content="Understand equations from first principles: equality, solution sets, equivalent transformations, domains, reversible operations, worked examples and common mistakes.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/grundlagen.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260828-2">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.02}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
-
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
-  </style>
+.article{max-width:1050px;margin:auto}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center;padding:clamp(1.5rem,5vw,3.2rem);border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#fff,#f3f6ff);box-shadow:var(--shadow-sm)}.hero h1{font-size:clamp(2.7rem,7vw,5rem);margin:.4rem 0 1rem}.hero p{color:var(--muted);font-size:1.08rem}.balance{background:#111827;border-radius:22px;padding:1.3rem;min-height:260px;display:grid;place-items:center}.balance svg{width:100%;height:auto}.navchips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.5rem}.navchips a{padding:.55rem .8rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:650;font-size:.88rem}.section-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1.2rem,3vw,1.8rem);margin:1rem 0;box-shadow:0 5px 18px rgba(15,23,42,.04)}.section-card h2{font-size:clamp(1.7rem,4vw,2.35rem);margin:0 0 .8rem}.mathbox{padding:1rem;border-radius:14px;background:#f5f7ff;border:1px solid #e0e7ff;overflow:auto}.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.rule{border:1px solid var(--line);border-radius:15px;padding:1rem;background:#fbfcff}.rule strong{display:block;margin-bottom:.3rem}.good{border-left:4px solid #0f9f7f}.warn{border-left:4px solid #d97706}.steps{counter-reset:s;display:grid;gap:.8rem}.step{display:grid;grid-template-columns:34px 1fr;gap:.8rem}.step:before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:50%;background:#eaf0ff;color:#2448d8;display:grid;place-items:center;font-weight:800}.example{padding:1rem 0;border-bottom:1px solid var(--line)}.example:last-child{border-bottom:0}.related{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.related a{border:1px solid var(--line);border-radius:16px;padding:1rem;background:#fff;font-weight:700}.related span{display:block;color:var(--muted);font-weight:400;font-size:.9rem;margin-top:.25rem}@media(max-width:760px){.hero,.two{grid-template-columns:1fr}.balance{min-height:210px}.related{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div id="header"></div>
-<!-- Breadcrumb -->
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
-    <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
-    <span>Grundlagen</span>
-</nav>
-<main class="content" id="mainContent">
-<div class="tb-container">
-<div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-<i class="fa-solid fa-square-root-variable" style="font-size:1.6rem; color:#1e3a8a;"></i>
-<h1 style="margin:0;">Grundlagen der Gleichungen</h1>
-</div>
-<p class="muted">Definition, Äquivalenzumformungen, Lösungsprinzip und allgemeine Begründung – ausführlich und verständlich.</p>
-<!-- Toolbar -->
-<div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-<a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-<a class="btn" href="#definition">Definition</a><a class="btn" href="#methoden">Methoden</a><a class="btn" href="#beispiele">Beispiele</a><a class="btn" href="#strategie">Schritt‑für‑Schritt</a><a class="btn" href="#herleitung">Herleitung</a><a class="btn" href="#beweis">Beweis</a><a class="btn" href="#fehler">Typische Fehler</a><a class="btn" href="#uebungen">Übungen</a><a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition">
-<h2>1. Definition</h2>
-<p>Eine <strong>Gleichung</strong> ist eine Aussage der Form \(L(x)=R(x)\). Gesucht sind alle Werte von \(x\), die diese Aussage <em>wahr</em> machen (Lösungsmenge).</p>
-<div class="formula">Äquivalente Gleichungen haben <em>dieselbe</em> Lösungsmenge.</div>
-</section>
-<section class="card" id="methoden">
-<h2>2. Äquivalenzumformungen</h2>
-<ul>
-<li>Addieren/Subtrahieren derselben Terme auf beiden Seiten.</li>
-<li>Multiplizieren/Dividieren mit \(\neq 0\).</li>
-<li>Potenzieren/Wurzelziehen <em>mit Rückprüfung</em> (kann Scheinlösungen erzeugen!).</li>
-<li>Substitution (z. B. \(t=x^2\)) – mit Rücksubstitution.</li>
-</ul>
-</section>
-<section class="card" id="beispiele">
-<h2>3. Beispiele</h2>
-<div class="grid-2">
-<div>
-<h3>Lineares Beispiel</h3>
-<p>\(2x+5=11\Rightarrow 2x=6\Rightarrow x=3\).</p>
-</div>
-<div>
-<h3>Mit Wurzel</h3>
-<p>\(\sqrt{x+4}=x\Rightarrow x+4=x^2\Rightarrow x=4\) oder \(x=-1\) (verwerfen, da \(\sqrt{3}\neq-1\)).</p>
-</div>
-</div>
-</section>
-<section class="card" id="strategie">
-<h2>4. Schritt‑für‑Schritt</h2>
-<ol>
-<li>Definitionsmenge klären (Nenner \(\neq0\), Wurzelausdrücke \(\ge0\)).</li>
-<li>Term vereinfachen, gesammelt auf eine Seite bringen.</li>
-<li>Geeignete Methode wählen (linear, quadratisch, Faktorisieren, Substitution).</li>
-<li>Rückprüfung in der <em>Ausgangsgleichung</em>.</li>
-</ol>
-</section>
-<section class="card" id="herleitung">
-<h2>5. Herleitungsidee</h2>
-<p>Warum funktionieren die Schritte? Weil die erlaubten Umformungen <em>Äquivalenz</em> erhalten. Bei nicht umkehrbaren Schritten (Potenzieren) wird durch Prüfung sichergestellt, dass nur echte Lösungen bleiben.</p>
-</section>
-<section class="card" id="beweis">
-<h2>6. Beweis‑Skizze (Regeln)</h2>
-<ul>
-<li>Aus \(u=v\) folgt \(u+k=v+k\) (Additionsgesetz).</li>
-<li>Aus \(u=v\) folgt \(uk=vk\) (Multiplikationsgesetz).</li>
-<li>Für \(k\neq0\): aus \(uk=vk\) folgt wieder \(u=v\) (Division).</li>
-</ul>
-</section>
-<section class="card" id="fehler">
-<h2>7. Typische Fehler</h2>
-<ul>
-<li>Definitionsmenge vergessen → Scheinlösungen zulassen.</li>
-<li>Falsches Verteilen bei Minusklammern, z. B. \(-(a-b)\neq -a-b\).</li>
-<li>Potenzieren ohne Rückprüfung.</li>
-</ul>
-</section>
-<section class="card" id="uebungen">
-<h2>8. Übungen</h2>
-<ol>
-<li>\(3x-7=2x+5\)</li>
-<li>\(\dfrac{2}{x-1}=1\)</li>
-</ol>
-<details class="solution"><summary>Lösungen</summary>
-          1) \(x=12\). 2) DN: \(x\neq1\). \(2=x-1\Rightarrow x=3\).
-        </details>
-</section>
-<section class="card" id="weiter">
-<h2>9. Wohin als Nächstes?</h2>
-<div class="categories" style="margin-top:.75rem;">
-<a class="card" href="grundlagen.html">
-<h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-<p>Definition &amp; Regeln</p>
-</a>
-<a class="card" href="lineare-gleichungen.html">
-<h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-<p>Grad 1 – Basis</p>
-</a>
-<a class="card" href="quadratische-gleichungen.html">
-<h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-<p>Grad 2</p>
-</a>
-<a class="card" href="besondere-gleichungen.html">
-<h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
-<p>Spezialformen</p>
-</a>
-</div>
-</section>
-</div>
-</main>
-<div id="footer"></div>
-<script>
-  Promise.all([
-    fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-    fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-  ]).catch(console.error);
-  </script>
-<script defer="" src="../../../../assets/mobile.js"></script>
-</body>
-</html>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="../algebra.html">Algebra</a><span>›</span><a href="./">Equations</a><span>›</span><span>Fundamentals</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><div><p class="eyebrow">EQUATIONS · FOUNDATIONS</p><h1>Equation fundamentals</h1><p>Before learning formulas, understand what an equation actually says, what a solution is, and which transformations preserve the solution set.</p></div><div class="balance" aria-label="Balance model of equality"><svg viewBox="0 0 420 260" role="img"><title>Equality visualized as a balance</title><line x1="210" y1="55" x2="210" y2="190" stroke="#94a3b8" stroke-width="5"/><line x1="110" y1="95" x2="310" y2="95" stroke="#e2e8f0" stroke-width="5"/><line x1="110" y1="95" x2="80" y2="165" stroke="#94a3b8" stroke-width="3"/><line x1="310" y1="95" x2="340" y2="165" stroke="#94a3b8" stroke-width="3"/><rect x="38" y="165" width="84" height="40" rx="10" fill="#315fd3"/><rect x="298" y="165" width="84" height="40" rx="10" fill="#16a085"/><text x="80" y="191" text-anchor="middle" fill="white" font-size="22" font-family="Georgia">L(x)</text><text x="340" y="191" text-anchor="middle" fill="white" font-size="22" font-family="Georgia">R(x)</text><circle cx="210" cy="95" r="8" fill="#a5b4fc"/></svg></div></section>
+<nav class="navchips" aria-label="On this page"><a href="#definition">Definition</a><a href="#equivalence">Equivalent transformations</a><a href="#domain">Domain</a><a href="#examples">Examples</a><a href="#mistakes">Mistakes</a><a href="#practice">Practice</a></nav>
+<section class="section-card" id="definition"><h2>1. Equation, solution and solution set</h2><p>An <strong>equation</strong> is a statement that two expressions are equal:</p><div class="mathbox">\[L(x)=R(x)\]</div><p>A value \(x_0\) is a <strong>solution</strong> if substituting it makes the statement true. The <strong>solution set</strong> contains every such value.</p><div class="two"><div class="rule good"><strong>Example</strong>\(2x+3=11\) has solution set \(\{4\}\).</div><div class="rule"><strong>Identity</strong>\(2(x+1)=2x+2\) is true for every real \(x\), so its solution set is \(\mathbb R\).</div></div></section>
+<section class="section-card" id="equivalence"><h2>2. Equivalent transformations</h2><p>Two equations are <strong>equivalent</strong> when they have exactly the same solution set. Reliable algebra is built from transformations that preserve equivalence.</p><div class="two"><div class="rule good"><strong>Always reversible</strong>Add or subtract the same expression on both sides. Multiply or divide both sides by the same known non-zero number.</div><div class="rule warn"><strong>Potentially non-reversible</strong>Squaring, taking roots, multiplying by an expression that can be zero, or applying some nonlinear functions can add or remove candidates.</div></div><div class="mathbox" style="margin-top:1rem">\[u=v\iff u+k=v+k\qquad\text{and, for }k\neq0,\qquad u=v\iff ku=kv\]</div></section>
+<section class="section-card" id="domain"><h2>3. Domain comes first</h2><p>The equation only makes sense where every expression is defined. Record restrictions before transforming.</p><div class="two"><div class="rule"><strong>Fractions</strong>For \(\frac{2}{x-1}=1\), require \(x\neq1\).</div><div class="rule"><strong>Real square roots</strong>For \(\sqrt{x-3}=x-5\), require \(x\ge3\), and the right side must be non-negative for any solution.</div></div></section>
+<section class="section-card"><h2>4. A dependable solving workflow</h2><div class="steps"><div class="step"><div><strong>State the domain.</strong><br>Identify denominator, root, logarithm or other restrictions.</div></div><div class="step"><div><strong>Simplify the structure.</strong><br>Expand, collect terms or factor only when it helps.</div></div><div class="step"><div><strong>Choose a method.</strong><br>Linear isolation, factoring, quadratic formula, substitution, numerical methods, and so on.</div></div><div class="step"><div><strong>Track equivalence.</strong><br>If a step is not reversible, treat resulting values as candidates.</div></div><div class="step"><div><strong>Verify in the original equation.</strong><br>This removes extraneous candidates and catches arithmetic errors.</div></div></div></section>
+<section class="section-card" id="examples"><h2>5. Worked examples</h2><div class="example"><h3>Linear equation</h3><div class="mathbox">\[3x-7=2x+5\iff x-7=5\iff x=12\]</div><p>Every step is reversible, so \(12\) is the unique solution.</p></div><div class="example"><h3>Rational equation</h3><p>Domain: \(x\neq1\).</p><div class="mathbox">\[\frac{2}{x-1}=1\iff 2=x-1\iff x=3\]</div><p>The candidate \(3\) lies in the domain and satisfies the original equation.</p></div><div class="example"><h3>Squaring can create an extraneous solution</h3><p>For \(\sqrt{x+4}=x\), the original equation requires \(x\ge0\).</p><div class="mathbox">\[x+4=x^2\iff x^2-x-4=0\]</div><p>The quadratic has two algebraic candidates, but only the non-negative candidate that satisfies the original square-root equation is valid.</p></div></section>
+<section class="section-card" id="mistakes"><h2>6. Common mistakes</h2><div class="two"><div class="rule warn"><strong>Dividing by an unknown expression</strong>Dividing by \(x-2\) may silently discard the case \(x=2\).</div><div class="rule warn"><strong>Forgetting the original domain</strong>A transformed equation can be valid at values where the original expression was undefined.</div><div class="rule warn"><strong>Treating implication as equivalence</strong>From \(x=2\) follows \(x^2=4\), but \(x^2=4\) also permits \(x=-2\).</div><div class="rule warn"><strong>Skipping verification</strong>Checking a result is especially important after non-reversible operations.</div></div></section>
+<section class="section-card" id="practice"><h2>7. Practice</h2><ol><li>Solve \(5x+4=19\).</li><li>Solve \(\frac{6}{x+2}=3\) and state the domain.</li><li>Explain why squaring both sides of an equation may enlarge the solution set.</li></ol><details><summary>Show answers</summary><p>1) \(x=3\). 2) Domain \(x\neq-2\); solution \(x=0\). 3) Squaring is not one-to-one on the reals: opposite numbers have the same square.</p></details></section>
+<section class="section-card"><h2>Continue learning</h2><div class="related"><a href="lineare-gleichungen.html">Linear equations<span>Master first-degree equations and their graphs.</span></a><a href="quadratische-gleichungen.html">Quadratic equations<span>Learn roots, the discriminant and the quadratic formula.</span></a><a href="../gleichungssysteme.html">Systems of equations<span>Solve several equations simultaneously.</span></a></div></section>
+</div></main><div id="footer"></div>
+<script>Promise.all([fetch('/components/header.html?v=20260828-2').then(r=>r.text()).then(h=>header.innerHTML=h),fetch('/components/footer.html?v=20260828-2').then(r=>r.text()).then(h=>footer.innerHTML=h)]).catch(console.error)</script><script defer src="/assets/mobile.js?v=20260828-2"></script>
+</body></html>
