@@ -1,30 +1,41 @@
+(function () {
+  function ready(fn) {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
+  }
 
-// Mobile nav toggle + small UX niceties
-(function(){
-  function ready(fn){/in/.test(document.readyState)?setTimeout(fn,9):fn()}
-  ready(function(){
-    // Toggle nav
+  ready(function () {
     var toggle = document.getElementById('menuToggle');
     var nav = document.getElementById('siteNav');
-    if(toggle && nav){
-      toggle.addEventListener('click', function(){
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
         var open = nav.getAttribute('data-open') === 'true';
         nav.setAttribute('data-open', String(!open));
         toggle.setAttribute('aria-expanded', String(!open));
       });
     }
-    // Ensure all images are lazy if not specified
-    document.querySelectorAll('img:not([loading])').forEach(function(img){
-      img.setAttribute('loading','lazy');
-      img.setAttribute('decoding','async');
+
+    var categorySearch = document.querySelector('[data-category-filter]');
+    if (categorySearch) {
+      categorySearch.addEventListener('input', function () {
+        var query = categorySearch.value.trim().toLowerCase();
+        document.querySelectorAll('#categoryGrid .card').forEach(function (card) {
+          card.hidden = query.length > 0 && !card.textContent.toLowerCase().includes(query);
+        });
+      });
+    }
+
+    document.querySelectorAll('img:not([loading])').forEach(function (img) {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
     });
-    // Wrap tables if needed
-    document.querySelectorAll('table').forEach(function(tbl){
-      if(!tbl.parentElement || !tbl.parentElement.classList.contains('table-responsive')){
-        var wrap = document.createElement('div');
-        wrap.className = 'table-responsive';
-        tbl.parentNode.insertBefore(wrap, tbl);
-        wrap.appendChild(tbl);
+
+    document.querySelectorAll('table').forEach(function (table) {
+      if (!table.parentElement || !table.parentElement.classList.contains('table-responsive')) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
       }
     });
   });
