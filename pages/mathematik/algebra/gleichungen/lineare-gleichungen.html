@@ -1,252 +1,257 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Lineare Gleichungen – Tabellenbuch.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Lineare Gleichungen: Definitionen, Sätze, Beweise, Lösungsstrategien und Gleichungssysteme (Ax=b, Rouché–Capelli) im Stil der Tabellenbuch.org-Seiten."/>
-  <link rel="stylesheet" href="../../../../assets/style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- MathJax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <!-- Seitenlokale Styles NUR für konsistente Darstellung wie bei „Grundlagen“ -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linear Equations — Definition, Graphs, Examples & Solver | Tabellenbuch</title>
+  <meta name="description" content="Learn linear equations rigorously: definition, solution formula, special cases, equivalent transformations, worked examples, graph interpretation, common mistakes, exercises and an interactive solver." />
+  <link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html" />
+  <link rel="stylesheet" href="../../../../assets/style.css" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      chtml: { scale: 1.02 }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    /* gleiche Mini-Utilities wie in grundlagen.html */
-    #header .tb-compact { margin-bottom:.75rem; }
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
-
-    /* FIX: Inline-Math darf NICHT als Block gerendert werden (Ursache für „zerhackte“ Sätze) */
-    mjx-container:not([display="true"]) { display:inline-block; margin:0 .05em; }
-    mjx-container[display="true"]{ margin:.6rem 0; } /* Block-Formeln etwas Luft wie üblich */
+    .article-shell{max-width:1120px;margin:0 auto}
+    .article-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:2rem;align-items:center;padding:clamp(1.4rem,4vw,3rem);border:1px solid var(--border);border-radius:24px;background:linear-gradient(145deg,#fff 0%,#f7f9ff 100%);box-shadow:0 14px 40px rgba(15,23,42,.07)}
+    .eyebrow{font-size:.82rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--primary-2);margin-bottom:.65rem}
+    .hero-copy h1{font-size:clamp(2.2rem,6vw,4.6rem);letter-spacing:-.045em;line-height:.98;margin:0;color:#111827}
+    .hero-copy p{font-size:clamp(1rem,2vw,1.2rem);max-width:720px;color:var(--muted);margin:1rem 0 0}
+    .formula-hero{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;padding:1.2rem;border:1px solid rgba(37,99,235,.16);background:#fff;border-radius:18px;text-align:center;box-shadow:0 10px 26px rgba(37,99,235,.08)}
+    .quick-nav{display:flex;gap:.55rem;flex-wrap:wrap;margin:1rem 0 1.5rem}
+    .quick-nav a{border:1px solid var(--border);background:#fff;border-radius:999px;padding:.55rem .8rem;font-size:.9rem;font-weight:650;color:#334155}
+    .quick-nav a:hover{border-color:#c7d2fe;background:#f8faff;text-decoration:none}
+    .content-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:1.5rem;align-items:start}
+    .article-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:clamp(1.1rem,2.5vw,1.7rem);margin-bottom:1rem;box-shadow:0 5px 18px rgba(15,23,42,.04)}
+    .article-card h2{margin-top:0;color:#111827;letter-spacing:-.02em}
+    .article-card h3{color:#1f2937}
+    .callout{border-left:4px solid var(--primary-2);background:#f8faff;padding:.9rem 1rem;border-radius:0 12px 12px 0;margin:1rem 0}
+    .definition{background:linear-gradient(135deg,#f8faff,#fff)}
+    .math-display{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:.8rem 1rem;margin:1rem 0;overflow-x:auto}
+    .steps{counter-reset:step;display:grid;gap:.7rem;margin:1rem 0}
+    .step{display:grid;grid-template-columns:34px 1fr;gap:.8rem;align-items:start}
+    .step::before{counter-increment:step;content:counter(step);width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#eef2ff;color:#1e3a8a;font-weight:800}
+    .graph-card svg{width:100%;height:auto;display:block}
+    .axis{stroke:#94a3b8;stroke-width:1.4}.gridline{stroke:#e2e8f0;stroke-width:1}.line-a{stroke:#2563eb;stroke-width:3;fill:none}.point{fill:#1e3a8a}
+    .caption{font-size:.9rem;color:var(--muted);margin-top:.65rem}
+    .case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+    .case{border:1px solid var(--border);border-radius:14px;padding:1rem;background:#fbfcff}
+    .case strong{display:block;margin-bottom:.35rem}
+    .solver{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .solver-panel{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fbfcff}
+    .solver label{display:block;font-weight:650;font-size:.9rem;margin:.7rem 0 .3rem}
+    .solver input{width:100%;padding:.72rem .8rem;border:1px solid #cbd5e1;border-radius:10px;background:#fff;font:inherit}
+    .solver button{margin-top:1rem;width:100%;border:0;border-radius:10px;background:#1e3a8a;color:#fff;padding:.78rem 1rem;font:inherit;font-weight:750;cursor:pointer}
+    .solver button:hover{background:#172f73}
+    .solver-result{min-height:160px;display:grid;place-items:center;text-align:center;background:#fff;border:1px dashed #cbd5e1;border-radius:12px;padding:1rem}
+    .result-main{font-size:1.25rem;font-weight:800;color:#111827}
+    .side-card{position:sticky;top:86px;border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+    .side-card h3{margin-top:0;font-size:1rem}
+    .side-card a{display:block;padding:.42rem 0;color:#475569;font-size:.92rem}
+    .mistake{display:grid;grid-template-columns:24px 1fr;gap:.7rem;margin:.75rem 0}.mistake-mark{font-weight:900;color:#b45309}
+    .practice-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--border);border-radius:12px}.practice-table th,.practice-table td{border:0;border-bottom:1px solid var(--border);padding:.75rem}.practice-table tr:last-child td{border-bottom:0}
+    details{border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:#fbfcff;margin-top:.8rem}summary{cursor:pointer;font-weight:750}
+    @media(max-width:900px){.article-hero,.content-grid{grid-template-columns:1fr}.side-card{display:none}.case-grid{grid-template-columns:1fr}.solver{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <!-- Globaler Header (identisch wie bei Grundlagen) -->
   <div id="header"></div>
-
-  <!-- Breadcrumbs RELATIV wie bei Grundlagen -->
-  <nav class="breadcrumb">
-    <a href="../../../..">Startseite</a> ›
-    <a href="../../mathematik.html">Mathematik</a> ›
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../../..">Home</a> ›
+    <a href="../../mathematik.html">Mathematics</a> ›
     <a href="../algebra.html">Algebra</a> ›
-    <a href="../gleichungen.html">Gleichungen</a> ›
-    <span>Lineare Gleichungen</span>
+    <a href="../gleichungen.html">Equations</a> ›
+    <span>Linear equations</span>
   </nav>
 
-  <main class="content" id="mainContent">
-    <div class="tb-container">
-
-      <!-- H1 im gleichen Aufbau wie Grundlagen -->
-      <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.25rem;">
-        <i class="fa-solid fa-slash" style="font-size:1.6rem; color:#1e3a8a;"></i>
-        <h1 style="margin:0;">Lineare Gleichungen</h1>
-      </div>
-      <p class="muted">
-        Von der einvariablen Gleichung \(ax=b\) bis zum Gleichungssystem \(Ax=b\):
-        Äquivalenzumformungen, Eindeutigkeit, Gauß-Elimination und Rang-Kriterium (Rouché–Capelli)
-        mit sauberen Herleitungen und Beispielen.
-      </p>
-
-      <!-- Lokale Toolbar wie bei Grundlagen -->
-      <div class="local-toolbar" style="display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 1px 1.25rem;">
-        <a class="btn primary" href="../gleichungen.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht „Gleichungen“</a>
-        <a class="btn" href="#definition">Definition</a>
-        <a class="btn" href="#faelle">Fälle</a>
-        <a class="btn" href="#beweis">Beweis</a>
-        <a class="btn" href="#beispiel-einvariabel">Beispiele</a>
-        <a class="btn" href="#vorsicht">Sorgfalt</a>
-        <a class="btn" href="#lgs">LGS &amp; Rang</a>
-        <a class="btn" href="#methoden">Methoden</a>
-        <a class="btn" href="#uebungen">Übungen</a>
-        <a class="btn" href="#weiter">Wohin als Nächstes?</a>
-      </div>
-
-      <!-- Inhalt in Karten wie bei Grundlagen -->
-      <section class="card" id="definition">
-        <h2>1. Definition</h2>
-        <p>
-          Eine <strong>lineare Gleichung</strong> in einer Unbekannten \(x\) über einem Körper \(K\)
-          (in der Schule i.&nbsp;d.&nbsp;R. \(K=\mathbb{R}\)) hat die Form \(a\,x=b\) mit \(a,b\in K\).
-          In \(n\) Unbekannten lautet die allgemeine Form \(a_1x_1+\dots+a_nx_n=b\).
-        </p>
-        <p>
-          <strong>Äquivalenzumformungen</strong> lassen die Lösungsmenge unverändert. Zulässig sind u.&nbsp;a.:
-        </p>
-        <ul>
-          <li>Addition/Subtraktion derselben Terme auf beiden Seiten,</li>
-          <li>Multiplikation/Division mit \(a\neq 0\),</li>
-          <li>Terme zusammenfassen, Klammern auflösen, ausmultiplizieren.</li>
-        </ul>
-      </section>
-
-      <section class="card" id="faelle">
-        <h2>2. Lösungsformel und Fallunterscheidung</h2>
-        <ol>
-          <li>Für \(a\neq 0\) besitzt \(ax=b\) genau die Lösung \(x=\dfrac{b}{a}\).</li>
-          <li>Für \(a=0,\, b\neq 0\): keine Lösung (Widerspruch \(0=b\)).</li>
-          <li>Für \(a=0,\, b=0\): jede Zahl \(x\in K\) ist Lösung (Identität).</li>
-        </ol>
-      </section>
-
-      <section class="card" id="beweis">
-        <h2>3. Beweis (Eindeutigkeit bei \(a\neq 0\))</h2>
-        <p>
-          Seien \(x_1,x_2\) Lösungen von \(ax=b\) mit \(a\neq 0\).
-          Dann gilt \(a x_1=b=a x_2\). Subtraktion liefert \(a(x_1-x_2)=0\).
-          Da Körper nullteilerfrei und \(a\neq 0\), folgt \(x_1-x_2=0\), also \(x_1=x_2\).
-          Die Existenz ergibt sich aus \(x=b/a\).
-        </p>
-      </section>
-
-      <section class="card" id="beispiel-einvariabel">
-        <h2>4. Beispiel (einvariabel)</h2>
-        <p><strong>Aufgabe:</strong> \(7x-3=2x+12\)</p>
-        <p>
-          \[
-            \begin{aligned}
-              7x-3 &= 2x+12 \\
-              5x-3 &= 12 \quad (\text{Subtrahiere }2x)\\
-              5x &= 15 \quad (\text{Addiere }3)\\
-              x &= 3 \quad (\text{Dividiere durch }5).
-            \end{aligned}
-          \]
-        </p>
-      </section>
-
-      <section class="card" id="vorsicht">
-        <h2>5. Sorgfalt bei Umformungen</h2>
-        <ul>
-          <li>Nie durch \(0\) teilen.</li>
-          <li>Nichtbijektive Schritte (z.&nbsp;B. Quadrieren) erzeugen Scheinlösungen → am Ende Probe.</li>
-          <li>Definitionsbereiche beachten (Nenner \(\neq 0\), Wurzeln/Logarithmen im zulässigen Bereich).</li>
-        </ul>
-        <p><strong>Beispiel:</strong> \(\sqrt{2x+3}=x-1\).</p>
-        <p>
-          \[
-            \begin{aligned}
-              2x+3 &= (x-1)^2 = x^2 - 2x + 1 \\
-              0 &= x^2 - 4x - 2 \\
-              x &= 2 \pm \sqrt{6}.
-            \end{aligned}
-          \]
-          Nur \(x=2+\sqrt{6}\) erfüllt die Ausgangsgleichung; \(x=2-\sqrt{6}\) ist Scheinlösung.
-        </p>
-      </section>
-
-      <section class="card" id="lgs">
-        <h2>6. Lineare Gleichungssysteme (LGS)</h2>
-        <p>
-          Ein LGS mit \(m\) Gleichungen in \(n\) Unbekannten wird als Matrixgleichung geschrieben:
-          \(A x = b\) mit \(A\in K^{m\times n}\), \(x\in K^n\), \(b\in K^m\).
-        </p>
-        <h3>Rang und Lösbarkeit (Rouché–Capelli)</h3>
-        <ul>
-          <li><strong>Lösbar</strong> genau dann, wenn \(\operatorname{rg}(A)=\operatorname{rg}(A|b)\).</li>
-          <li><strong>Eindeutig</strong> lösbar, wenn zusätzlich \(\operatorname{rg}(A)=n\) (volle Spaltenrangzahl).</li>
-          <li><strong>Unendlich viele Lösungen</strong>, wenn \(\operatorname{rg}(A)=\operatorname{rg}(A|b)<n\) (Freiheitsgrade).</li>
-        </ul>
-      </section>
-
-      <section class="card" id="methoden">
-        <h2>7. Methodenüberblick</h2>
-        <ol>
-          <li>Einsetzungsverfahren (Variable isolieren, einsetzen)</li>
-          <li>Additions-/Eliminationsverfahren (geeignete Linearkombinationen)</li>
-          <li>Gleichsetzungsverfahren (bei zwei Gleichungen)</li>
-          <li>Gaußsches Eliminationsverfahren (systematisch, matrixbasiert)</li>
-        </ol>
-
-        <h3>Beispiel (2×2, Determinante)</h3>
-        <p>
-          \[
-            \begin{cases}
-              a_1 x + b_1 y = c_1\\
-              a_2 x + b_2 y = c_2
-            \end{cases}
-            \qquad
-            \Delta = a_1 b_2 - a_2 b_1.
-          \]
-          Ist \(\Delta\neq 0\), dann
-          \[
-            x=\frac{c_1 b_2 - c_2 b_1}{\Delta},\qquad
-            y=\frac{a_1 c_2 - a_2 c_1}{\Delta}.
-          \]
-        </p>
-
-        <h3>Beispiel (Additionsverfahren)</h3>
-        <p>
-          \[
-            \begin{cases}
-              3x + 2y = 4\\
-              5x - 2y = 6
-            \end{cases}
-          \]
-          Addiere die Gleichungen:
-          \[
-            8x=10 \Rightarrow x=\tfrac{5}{4},\qquad
-            3\cdot\tfrac{5}{4}+2y=4 \Rightarrow y=\tfrac{1}{8}.
-          \]
-        </p>
-      </section>
-
-      <section class="card" id="uebungen">
-        <h2>8. Übungen</h2>
-        <ol>
-          <li>\(9x-4=2x+17\)</li>
-          <li>\(\begin{cases}4x+y=1\\ 2x-3y=11\end{cases}\)</li>
-          <li>\(\begin{cases}x+2y-z=0\\2x+4y-2z=0\end{cases}\)</li>
-        </ol>
-        <details class="solution"><summary>Lösungen</summary>
-          1) \(x=3\).<br/>
-          2) Einsetzen: \(x=1,\,y=-3\).<br/>
-          3) Rang \(=1\), \(n=3\) ⇒ \((x,y,z)=(-2t+s,\;t,\;s)\).
-        </details>
-      </section>
-
-      <section class="card" id="weiter">
-        <h2>9. Wohin als Nächstes?</h2>
-        <div class="categories" style="margin-top:.75rem;">
-          <a class="card" href="grundlagen.html">
-            <h3><i class="fa-solid fa-book-open"></i> Grundlagen der Gleichungen</h3>
-            <p>Definition &amp; Regeln</p>
-          </a>
-          <a class="card" href="lineare-gleichungen.html">
-            <h3><i class="fa-solid fa-slash"></i> Lineare Gleichungen</h3>
-            <p>Grad 1 – Basis</p>
-          </a>
-          <a class="card" href="quadratische-gleichungen.html">
-            <h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3>
-            <p>Grad 2</p>
-          </a>
-          <a class="card" href="besondere-gleichungen.html">
-            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3>
-            <p>Spezialformen</p>
-          </a>
+  <main class="content">
+    <div class="article-shell">
+      <section class="article-hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Algebra · Core concept</div>
+          <h1>Linear equations</h1>
+          <p>A linear equation is one of the simplest mathematical models of an unknown quantity. Learn exactly what it means, why the solution rule works, how to interpret it graphically, and how to solve equations reliably.</p>
+        </div>
+        <div class="formula-hero" aria-label="Linear equation formula">
+          \(ax+b=0\)<br />
+          <span style="font-size:.55em;color:#64748b;font-weight:600">for \(a\neq0\):</span><br />
+          \(x=-\frac{b}{a}\)
         </div>
       </section>
 
+      <nav class="quick-nav" aria-label="On this page">
+        <a href="#definition">Definition</a><a href="#solution">Solution rule</a><a href="#graph">Graph</a><a href="#examples">Examples</a><a href="#solver">Solver</a><a href="#mistakes">Common mistakes</a><a href="#practice">Practice</a>
+      </nav>
+
+      <div class="content-grid">
+        <div>
+          <section class="article-card definition" id="definition">
+            <h2>1. Definition</h2>
+            <p>A <strong>linear equation in one variable</strong> is an equation that can be written as</p>
+            <div class="math-display">\[ax+b=0\]</div>
+            <p>where \(a\) and \(b\) are constants and \(x\) is the unknown. The equation is genuinely linear when \(a\neq0\). The word <em>linear</em> means that the variable appears only to the first power: there is no \(x^2\), \(\sqrt{x}\), \(1/x\), or other nonlinear dependence on \(x\).</p>
+            <div class="callout"><strong>Equivalent form.</strong> You will also often see \(ax=b\). It is the same idea, because any equation \(ax+c=d\) can be rearranged into \(ax+(c-d)=0\).</div>
+          </section>
+
+          <section class="article-card" id="solution">
+            <h2>2. Why the solution formula works</h2>
+            <p>Starting from \(ax+b=0\), use operations that preserve equality.</p>
+            <div class="steps">
+              <div class="step"><div><strong>Subtract \(b\) from both sides.</strong><div class="math-display">\[ax=-b\]</div></div></div>
+              <div class="step"><div><strong>Divide both sides by \(a\).</strong> This is allowed only because \(a\neq0\).<div class="math-display">\[x=-\frac{b}{a}\]</div></div></div>
+            </div>
+            <p>This solution is unique. If both \(x_1\) and \(x_2\) satisfy \(ax+b=0\), then \(ax_1=ax_2\). Since \(a\neq0\), division by \(a\) gives \(x_1=x_2\).</p>
+          </section>
+
+          <section class="article-card">
+            <h2>3. Special cases</h2>
+            <div class="case-grid">
+              <div class="case"><strong>\(a\neq0\)</strong>Exactly one solution: \(x=-b/a\).</div>
+              <div class="case"><strong>\(a=0,\ b\neq0\)</strong>No solution, because the equation becomes \(b=0\), which is false.</div>
+              <div class="case"><strong>\(a=0,\ b=0\)</strong>Every real number is a solution, because the equation becomes \(0=0\).</div>
+            </div>
+          </section>
+
+          <section class="article-card graph-card" id="graph">
+            <h2>4. Graphical interpretation</h2>
+            <p>The equation \(ax+b=0\) asks: <strong>where does the line \(y=ax+b\) cross the x-axis?</strong> The x-coordinate of that intercept is the solution.</p>
+            <svg viewBox="0 0 620 310" role="img" aria-labelledby="graphTitle graphDesc">
+              <title id="graphTitle">Graph of y equals 2x minus 4</title>
+              <desc id="graphDesc">A straight line crosses the x-axis at x equals 2, illustrating the solution of 2x minus 4 equals zero.</desc>
+              <line class="gridline" x1="70" y1="55" x2="570" y2="55"/><line class="gridline" x1="70" y1="105" x2="570" y2="105"/><line class="gridline" x1="70" y1="155" x2="570" y2="155"/><line class="gridline" x1="70" y1="205" x2="570" y2="205"/><line class="gridline" x1="70" y1="255" x2="570" y2="255"/>
+              <line class="gridline" x1="120" y1="35" x2="120" y2="275"/><line class="gridline" x1="220" y1="35" x2="220" y2="275"/><line class="gridline" x1="320" y1="35" x2="320" y2="275"/><line class="gridline" x1="420" y1="35" x2="420" y2="275"/><line class="gridline" x1="520" y1="35" x2="520" y2="275"/>
+              <line class="axis" x1="70" y1="205" x2="580" y2="205"/><line class="axis" x1="120" y1="25" x2="120" y2="280"/>
+              <path class="line-a" d="M120 255 L520 55"/>
+              <circle class="point" cx="220" cy="205" r="5"/>
+              <text x="229" y="194" font-size="14" fill="#1e3a8a">x = 2</text>
+              <text x="486" y="45" font-size="14" fill="#2563eb">y = 2x − 4</text>
+              <text x="585" y="210" font-size="13" fill="#64748b">x</text><text x="108" y="20" font-size="13" fill="#64748b">y</text>
+            </svg>
+            <p class="caption">For \(2x-4=0\), the line \(y=2x-4\) intersects the x-axis at \(x=2\). Algebra and geometry describe the same result.</p>
+          </section>
+
+          <section class="article-card" id="examples">
+            <h2>5. Worked examples</h2>
+            <h3>Example A — variables on one side</h3>
+            <p>Solve \(5x-15=0\).</p>
+            <div class="math-display">\[5x-15=0\quad\Rightarrow\quad5x=15\quad\Rightarrow\quad x=3\]</div>
+
+            <h3>Example B — variables on both sides</h3>
+            <p>Solve \(7x-3=2x+12\).</p>
+            <div class="math-display">\[
+              \begin{aligned}
+              7x-3&=2x+12\\
+              5x-3&=12\\
+              5x&=15\\
+              x&=3
+              \end{aligned}
+            \]</div>
+            <p>Checking the result: left side \(=7\cdot3-3=18\), right side \(=2\cdot3+12=18\). Both sides agree.</p>
+
+            <h3>Example C — fractions</h3>
+            <p>Solve \(\frac{x}{3}+2=5\).</p>
+            <div class="math-display">\[\frac{x}{3}=3\quad\Rightarrow\quad x=9\]</div>
+            <p>A useful strategy is to remove denominators early by multiplying every term by a common denominator.</p>
+          </section>
+
+          <section class="article-card" id="solver">
+            <h2>6. Interactive linear equation solver</h2>
+            <p>Enter coefficients for \(ax+b=0\). The solver handles the unique-solution and degenerate cases.</p>
+            <div class="solver">
+              <div class="solver-panel">
+                <label for="coefA">Coefficient a</label>
+                <input id="coefA" type="number" step="any" value="2" inputmode="decimal" />
+                <label for="coefB">Constant b</label>
+                <input id="coefB" type="number" step="any" value="-4" inputmode="decimal" />
+                <button type="button" id="solveButton">Solve equation</button>
+              </div>
+              <div class="solver-result" id="solverResult" aria-live="polite"></div>
+            </div>
+          </section>
+
+          <section class="article-card" id="mistakes">
+            <h2>7. Common mistakes</h2>
+            <div class="mistake"><div class="mistake-mark">!</div><div><strong>Changing only one side.</strong> Any addition, subtraction, multiplication or division used as an equivalence transformation must be applied to both sides.</div></div>
+            <div class="mistake"><div class="mistake-mark">!</div><div><strong>Dividing by zero.</strong> The step \(x=-b/a\) requires \(a\neq0\). Always treat \(a=0\) separately.</div></div>
+            <div class="mistake"><div class="mistake-mark">!</div><div><strong>Sign errors.</strong> From \(ax+b=0\), subtracting \(b\) gives \(ax=-b\), not \(ax=b\).</div></div>
+            <div class="mistake"><div class="mistake-mark">!</div><div><strong>Expanding unnecessarily.</strong> Simplify strategically. The goal is to isolate the variable while keeping the algebra easy to verify.</div></div>
+          </section>
+
+          <section class="article-card" id="practice">
+            <h2>8. Practice</h2>
+            <table class="practice-table">
+              <thead><tr><th>Problem</th><th>Skill</th></tr></thead>
+              <tbody>
+                <tr><td>\(9x-4=2x+17\)</td><td>Collect variable terms</td></tr>
+                <tr><td>\(3(x-2)=12\)</td><td>Distribute or divide first</td></tr>
+                <tr><td>\(\frac{x}{4}-3=2\)</td><td>Fractions</td></tr>
+                <tr><td>\(0x+5=0\)</td><td>Recognize no-solution case</td></tr>
+              </tbody>
+            </table>
+            <details><summary>Show answers</summary><p>1) \(x=3\) &nbsp; 2) \(x=6\) &nbsp; 3) \(x=20\) &nbsp; 4) no solution.</p></details>
+          </section>
+
+          <section class="article-card">
+            <h2>9. Related topics</h2>
+            <div class="categories">
+              <a class="card" href="grundlagen.html"><h3>Equation fundamentals</h3><p>Equality, transformations and solution sets.</p></a>
+              <a class="card" href="quadratische-gleichungen.html"><h3>Quadratic equations</h3><p>What changes when the highest power is two?</p></a>
+              <a class="card" href="../gleichungssysteme.html"><h3>Systems of equations</h3><p>Solve several linear equations simultaneously.</p></a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-card" aria-label="Article navigation">
+          <h3>On this page</h3>
+          <a href="#definition">1. Definition</a><a href="#solution">2. Solution rule</a><a href="#graph">4. Graphical interpretation</a><a href="#examples">5. Worked examples</a><a href="#solver">6. Interactive solver</a><a href="#mistakes">7. Common mistakes</a><a href="#practice">8. Practice</a>
+          <hr style="border:0;border-top:1px solid var(--border);margin:.8rem 0" />
+          <div style="font-size:.82rem;color:#64748b">Level</div><strong>Foundational algebra</strong>
+        </aside>
+      </div>
     </div>
   </main>
 
-  <!-- Globaler Footer wie bei Grundlagen + mobiles JS -->
   <div id="footer"></div>
   <script>
     Promise.all([
-      fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-      fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
+      fetch('/components/header.html').then(r => r.text()).then(h => { const el=document.getElementById('header'); if(el) el.innerHTML=h; }),
+      fetch('/components/footer.html').then(r => r.text()).then(h => { const el=document.getElementById('footer'); if(el) el.innerHTML=h; })
     ]).catch(console.error);
+
+    function cleanNumber(value){
+      if (Math.abs(value) < 1e-12) return 0;
+      return Number(value.toPrecision(12));
+    }
+    function formatNumber(value){
+      return cleanNumber(value).toLocaleString('en-US',{maximumFractionDigits:10});
+    }
+    function solveLinear(){
+      const a=Number(document.getElementById('coefA').value);
+      const b=Number(document.getElementById('coefB').value);
+      const out=document.getElementById('solverResult');
+      if(!Number.isFinite(a)||!Number.isFinite(b)){
+        out.innerHTML='<div><div class="result-main">Enter two valid numbers.</div><p class="muted">Both coefficients must be finite numerical values.</p></div>';
+        return;
+      }
+      const eps=1e-12;
+      if(Math.abs(a)<eps && Math.abs(b)<eps){
+        out.innerHTML='<div><div class="result-main">Infinitely many solutions</div><p class="muted">The equation reduces to 0 = 0, which is true for every real x.</p></div>';
+        return;
+      }
+      if(Math.abs(a)<eps){
+        out.innerHTML='<div><div class="result-main">No solution</div><p class="muted">The equation reduces to '+formatNumber(b)+' = 0, a contradiction.</p></div>';
+        return;
+      }
+      const x=-b/a;
+      out.innerHTML='<div><div class="result-main">x = '+formatNumber(x)+'</div><p class="muted">Using x = −b/a with a = '+formatNumber(a)+' and b = '+formatNumber(b)+'.</p></div>';
+    }
+    document.getElementById('solveButton').addEventListener('click',solveLinear);
+    document.getElementById('coefA').addEventListener('keydown',e=>{if(e.key==='Enter')solveLinear()});
+    document.getElementById('coefB').addEventListener('keydown',e=>{if(e.key==='Enter')solveLinear()});
+    solveLinear();
   </script>
   <script defer src="../../../../assets/mobile.js"></script>
 </body>
