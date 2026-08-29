@@ -16,10 +16,10 @@ CORE_PAGES = [
     Path("pages/mathematik/funktionen/extrema-uebersicht.html"),
     Path("pages/mathematik/analysis-reell/analysis-reell.html"),
     Path("pages/mathematik/analysis-reell/grenzwerte-stetigkeit.html"),
-    Path("pages/mathematik/analysis-reell/ableitungen.html"),
-    Path("pages/mathematik/analysis-reell/integrale.html"),
+    Path("pages/mathematik/analysis-reell/differential.html"),
+    Path("pages/mathematik/analysis-reell/integral.html"),
     Path("pages/mathematik/analysis-reell/folgen-reihen.html"),
-    Path("pages/mathematik/analysis-reell/mehrdimensional.html"),
+    Path("pages/mathematik/analysis-reell/mehrdim.html"),
     Path("pages/mathematik/analysis-reell/vektorsatz.html"),
 ]
 
