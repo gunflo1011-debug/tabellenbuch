@@ -12,6 +12,9 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PAGES = [
     Path("pages/mathematik/algebra/algebra.html"),
+    Path("pages/mathematik/algebra/gleichungen/grundlagen.html"),
+    Path("pages/mathematik/algebra/gleichungen/lineare-gleichungen.html"),
+    Path("pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html"),
     Path("pages/mathematik/funktionen/funktionen.html"),
     Path("pages/mathematik/funktionen/typen.html"),
     Path("pages/mathematik/funktionen/transformationen.html"),
