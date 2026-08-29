@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 from html.parser import HTMLParser
 from pathlib import Path
+import re
+import subprocess
 import sys
 from urllib.parse import urlparse
 
@@ -75,11 +78,11 @@ def local_target(page: Path, href: str) -> Path | None:
     return target
 
 
-def check(page: Path) -> list[str]:
+def check(page: Path, *, require_english: bool) -> list[str]:
     full = ROOT / page
     errors: list[str] = []
     if not full.exists():
-        return [f"missing core page: {page}"]
+        return [f"missing page: {page}"]
     text = full.read_text(encoding="utf-8")
     parser = PageParser()
     parser.feed(text)
@@ -93,8 +96,12 @@ def check(page: Path) -> list[str]:
         errors.append(f"{page}: missing canonical link")
     if not parser.has_viewport:
         errors.append(f"{page}: missing viewport meta")
-    if parser.html_lang != "en":
+    if require_english and parser.html_lang != "en":
         errors.append(f"{page}: html lang should be 'en', found {parser.html_lang!r}")
+    elif not require_english and not re.fullmatch(
+        r"[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*", parser.html_lang or ""
+    ):
+        errors.append(f"{page}: missing or invalid html lang: {parser.html_lang!r}")
     duplicates = sorted({x for x in parser.ids if parser.ids.count(x) > 1})
     if duplicates:
         errors.append(f"{page}: duplicate ids: {', '.join(duplicates)}")
@@ -112,14 +119,55 @@ def check(page: Path) -> list[str]:
     return errors
 
 
+def changed_html_pages(base: str) -> set[Path]:
+    if not base or set(base) == {"0"}:
+        base = "HEAD^"
+    result = subprocess.run(
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "--diff-filter=ACMR",
+            f"{base}...HEAD",
+            "--",
+            "*.html",
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return {
+        Path(name)
+        for name in result.stdout.splitlines()
+        if name and Path(name).parts[0] != "components" and (ROOT / name).is_file()
+    }
+
+
 def main() -> int:
-    errors = [error for page in CORE_PAGES for error in check(page)]
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--changed-since",
+        help="also validate every HTML document changed since this Git commit",
+    )
+    args = parser.parse_args()
+    core_pages = set(CORE_PAGES)
+    changed_pages = changed_html_pages(args.changed_since) if args.changed_since else set()
+    pages = sorted(core_pages | changed_pages)
+    errors = [
+        error
+        for page in pages
+        for error in check(page, require_english=page in core_pages)
+    ]
     if errors:
-        print("Core page quality checks failed:")
+        print("HTML page quality checks failed:")
         for error in errors:
             print(f"- {error}")
         return 1
-    print(f"Core page quality checks passed for {len(CORE_PAGES)} pages.")
+    print(
+        f"HTML page quality checks passed for {len(pages)} pages "
+        f"({len(core_pages)} core, {len(changed_pages)} changed)."
+    )
     return 0
 
 if __name__ == "__main__":
