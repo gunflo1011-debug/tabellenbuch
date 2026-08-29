@@ -18,6 +18,7 @@ CORE_PAGES = [
     Path("pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html"),
     Path("pages/mathematik/algebra/gleichungssysteme/gleichungssysteme.html"),
     Path("pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html"),
+    Path("pages/mathematik/algebra/gleichungssysteme/nichtlineare-systeme.html"),
     Path("pages/mathematik/funktionen/funktionen.html"),
     Path("pages/mathematik/funktionen/typen.html"),
     Path("pages/mathematik/funktionen/transformationen.html"),
