@@ -1,27 +1,40 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head><head>
-<meta charset="utf-8"/>
-<title>Dgl – Tabellenbuch Mathematik</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-</head></head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Differential Equations — ODEs, Systems & PDEs | Tabellenbuch</title>
+<meta name="description" content="Learn differential equations through a structured path from first-order ODEs to systems, PDEs, transforms and special functions, with methods, examples and applications.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/dgl/dgl.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260829-3">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.01}}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.article{max-width:1120px;margin:auto}.hero{padding:clamp(2.2rem,7vw,5rem) 0 2rem;display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.94;letter-spacing:-.055em;margin:.45rem 0 1rem}.hero p{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--muted)}.visual,.card,.path-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm)}.visual{padding:1rem}.visual svg{width:100%;height:auto}.card{padding:clamp(1.2rem,3vw,1.8rem);margin-bottom:1rem}.card h2{margin-top:0;font-size:clamp(1.55rem,3vw,2.15rem)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.path-card{padding:1.2rem;display:flex;flex-direction:column;gap:.45rem}.path-card h3{margin:.15rem 0;font-size:1.15rem}.path-card p{margin:0;color:var(--muted)}.path-card a{margin-top:auto;padding-top:.5rem;font-weight:750}.badge{display:inline-flex;align-items:center;width:max-content;border-radius:999px;background:var(--primary-soft);color:var(--primary);padding:.35rem .6rem;font-size:.8rem;font-weight:800}.formula{padding:1rem;border-radius:14px;background:#f7f9ff;border:1px solid #e0e7ff;overflow-x:auto}.steps{display:grid;gap:.7rem}.step{display:grid;grid-template-columns:38px 1fr;gap:.8rem;align-items:start}.step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eef4ff;color:var(--primary)}.callout{border-left:4px solid var(--primary);background:#f7f9ff;padding:.95rem 1rem;border-radius:0 12px 12px 0}.related{display:flex;gap:.65rem;flex-wrap:wrap}.related a{border:1px solid var(--line);border-radius:999px;padding:.55rem .8rem;background:#fff;font-weight:650}@media(max-width:820px){.hero,.grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
 <div id="header"></div>
-<div id="header"></div>
-<main>
-<h1>Dgl</h1>
-<p>Formeln &amp; Inhalte folgen.</p>
-</main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><span>Differential Equations</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero">
+<div><p class="eyebrow">MATHEMATICS · CHANGE THROUGH LAWS</p><h1>Differential Equations</h1><p>Differential equations describe how a quantity changes rather than only what its value is. They are the mathematical language behind growth, motion, circuits, diffusion, waves, populations and control systems.</p></div>
+<div class="visual"><svg viewBox="0 0 520 330" role="img" aria-label="Slope field with solution curve"><g stroke="#e7ebf2" stroke-width="1"><path d="M40 55H480M40 105H480M40 155H480M40 205H480M40 255H480M90 35V295M150 35V295M210 35V295M270 35V295M330 35V295M390 35V295M450 35V295"/></g><g stroke="#9fb0cb" stroke-width="2"><path d="M70 245l24-10M130 225l24-13M190 198l24-16M250 168l24-18M310 136l24-18M370 105l24-16M430 80l24-13M70 190l24-4M130 180l24-6M190 165l24-8M250 145l24-10M310 122l24-11M370 98l24-11M430 76l24-10M70 135l24 4M130 138l24 2M190 137l24 0M250 132l24-2M310 122l24-4M370 106l24-6M430 84l24-8"/></g><path d="M55 255 C130 245 170 218 215 180 C270 132 330 92 465 62" fill="none" stroke="#315fd3" stroke-width="4"/><circle cx="214" cy="181" r="6" fill="#0f9f87"/><text x="232" y="178" font-size="15" fill="#0f172a">solution y(x)</text></svg></div>
+</section>
+<section class="card"><h2>What is a differential equation?</h2><p>A differential equation relates an unknown function to one or more of its derivatives. A first-order ordinary differential equation (ODE), for example, can be written as</p><div class="formula">\[y'=f(x,y).\]</div><p>The equation tells us the local rate of change. A <strong>solution</strong> is a function whose derivatives satisfy the equation on a stated interval. An initial condition such as \(y(x_0)=y_0\) selects a particular solution from a family.</p><div class="callout"><strong>Core idea:</strong> solving a differential equation means recovering a function from information about how it changes.</div></section>
+<section class="card"><h2>Recommended learning path</h2><div class="grid">
+<article class="path-card"><span class="badge">START HERE</span><h3>Ordinary Differential Equations</h3><p>First-order equations, separable models, linear ODEs, equilibrium solutions and second-order equations.</p><a href="ode.html">Learn ODEs →</a></article>
+<article class="path-card"><span class="badge">NEXT</span><h3>Systems of ODEs</h3><p>Vector form, phase portraits, eigenvalues, stability and coupled dynamical systems.</p><a href="ode-systeme.html">Explore ODE systems →</a></article>
+<article class="path-card"><span class="badge">PDE</span><h3>PDE Classification</h3><p>Elliptic, parabolic and hyperbolic partial differential equations and what the classification means.</p><a href="pde-klass.html">Classify PDEs →</a></article>
+<article class="path-card"><span class="badge">METHODS</span><h3>PDE Methods</h3><p>Separation of variables, Fourier methods and boundary or initial conditions.</p><a href="pde-methoden.html">Study PDE methods →</a></article>
+<article class="path-card"><span class="badge">MODELS</span><h3>Standard PDEs</h3><p>Heat, wave and Laplace equations as foundational models of diffusion, propagation and equilibrium.</p><a href="pde-standard.html">See standard PDEs →</a></article>
+<article class="path-card"><span class="badge">TOOLS</span><h3>Transforms & Special Functions</h3><p>Laplace/Fourier transforms plus functions such as Bessel and Legendre functions that arise naturally in differential equations.</p><a href="transformationen.html">Explore transforms →</a></article>
+</div></section>
+<section class="card"><h2>How to read a differential equation</h2><div class="steps"><div class="step"><b>1</b><div><strong>Identify the unknown.</strong><p>Is the unknown a scalar function \(y(x)\), a vector \(\mathbf{x}(t)\), or a field \(u(x,t)\)?</p></div></div><div class="step"><b>2</b><div><strong>Determine the order.</strong><p>The highest derivative present determines the order. For example, \(y''+4y=0\) is second order.</p></div></div><div class="step"><b>3</b><div><strong>Check linearity.</strong><p>A linear ODE has the unknown function and its derivatives only to the first power and not multiplied together.</p></div></div><div class="step"><b>4</b><div><strong>Include the data.</strong><p>Initial or boundary conditions are part of the mathematical problem, not an optional afterthought.</p></div></div></div></section>
+<section class="card"><h2>Three model equations worth recognizing</h2><div class="grid"><div><h3>Exponential growth/decay</h3><div class="formula">\[y'=ky\]</div><p>Solution: \(y=Ce^{kx}\). This appears in population growth, radioactive decay and continuous compounding.</p></div><div><h3>Harmonic oscillator</h3><div class="formula">\[y''+\omega^2y=0\]</div><p>Solutions are sinusoidal and model ideal springs, oscillations and wave modes.</p></div><div><h3>Heat equation</h3><div class="formula">\[u_t=\alpha u_{xx}\]</div><p>A canonical parabolic PDE describing diffusion and smoothing over time.</p></div><div><h3>Wave equation</h3><div class="formula">\[u_{tt}=c^2u_{xx}\]</div><p>A canonical hyperbolic PDE describing propagation at finite speed.</p></div></div></section>
+<section class="card"><h2>Connection to Calculus and Linear Algebra</h2><p>Differential equations sit at the intersection of several subjects. Derivatives provide the local change laws, integrals recover accumulated change, and linear algebra becomes essential for coupled systems and stability.</p><div class="related"><a href="/pages/mathematik/analysis-reell/differential.html">Derivatives</a><a href="/pages/mathematik/analysis-reell/integral.html">Integrals</a><a href="/pages/mathematik/lineare-algebra/lineare-algebra.html">Linear Algebra</a><a href="ode.html">Start with ODEs →</a></div></section>
+</div></main>
 <div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-]).catch(console.error);
-</script>
-<script defer="" src="../../../assets/mobile.js"></script>
-</body>
-</html>
+<script>Promise.all([fetch('/components/header.html').then(r=>r.text()).then(h=>{const e=document.getElementById('header');if(e)e.innerHTML=h}),fetch('/components/footer.html').then(r=>r.text()).then(h=>{const e=document.getElementById('footer');if(e)e.innerHTML=h})]).catch(console.error)</script>
+<script defer src="/assets/mobile.js"></script>
+</body></html>
