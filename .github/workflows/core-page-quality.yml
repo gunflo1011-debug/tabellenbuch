@@ -20,7 +20,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate modern core pages
-        run: python scripts/check_core_pages.py
+      - name: Validate core and changed HTML pages
+        run: >-
+          python scripts/check_core_pages.py
+          --changed-since "${{ github.event.pull_request.base.sha || github.event.before }}"
       - name: Validate canonical sitemap
         run: python scripts/build_sitemap.py --check
