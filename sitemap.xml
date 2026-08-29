@@ -2,31 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tabellenbuch.org/</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/404.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/components/</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/components/footer.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/components/header.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/datenschutz.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2025-09-20</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/impressum.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2025-09-20</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/mathematik.html</loc>
@@ -46,10 +30,6 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/elektrotechnik/datenschutz.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/pages/elektrotechnik/elektrotechnik.html</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
@@ -82,11 +62,7 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/algebra.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/algebra/algebra.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/algebraische-geometrie/algebraische-geometrie.html</loc>
@@ -109,12 +85,8 @@
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/besondere-gleichungen.html</loc>
@@ -126,7 +98,7 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/grundlagen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/kubische-gleichungen.html</loc>
@@ -134,27 +106,23 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungen/quartische-gleichungen.html</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme/gleichungssysteme.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme/nichtlineare-systeme.html</loc>
@@ -309,10 +277,6 @@
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
@@ -329,10 +293,6 @@
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/betragsungleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/bruchungleichungen.html</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
@@ -342,10 +302,6 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/graphische-loesung.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/grundlagen-ungleichungen.html</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
@@ -378,14 +334,6 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/systeme-von-ungleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/ungleichungen.html</loc>
-    <lastmod>2025-09-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tabellenbuch.org/pages/mathematik/algebra/ungleichungen/ungleichungssysteme.html</loc>
     <lastmod>2025-09-21</lastmod>
   </url>
   <url>
@@ -422,35 +370,35 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/analysis-reell.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/differential.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/folgen-reihen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/grenzwerte-stetigkeit.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/integral.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/mehrdim.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/analysis-reell/vektorsatz.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/dgl/dgl.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/dgl/ode-systeme.html</loc>
@@ -458,7 +406,7 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/dgl/ode.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/dgl/pde-klass.html</loc>
@@ -526,23 +474,23 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/funktionen/extrema-uebersicht.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/funktionen/funktionen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/funktionen/transformationen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/funktionen/typen.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/funktionen/umkehr-komposition.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/geometrie/affin.html</loc>
@@ -670,7 +618,7 @@
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/mathematik.html</loc>
-    <lastmod>2025-09-21</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>https://tabellenbuch.org/pages/mathematik/mathematik/mathematik.html</loc>
@@ -879,5 +827,9 @@
   <url>
     <loc>https://tabellenbuch.org/pages/physik/physik.html</loc>
     <lastmod>2025-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://tabellenbuch.org/pages/tools.html</loc>
+    <lastmod>2026-08-29</lastmod>
   </url>
 </urlset>
