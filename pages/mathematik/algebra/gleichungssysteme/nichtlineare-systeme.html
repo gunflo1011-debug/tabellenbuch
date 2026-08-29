@@ -1,69 +1,27 @@
-<!DOCTYPE html>
-<html lang="de"><head>
-<meta charset="utf-8"/><title>Nichtlineare Systeme – Tabellenbuch.org</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Strategien zur Lösung." name="description"/>
-<link href="../../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nonlinear Systems — Substitution, Solutions & Newton's Method | Tabellenbuch</title>
+<meta name="description" content="Learn nonlinear systems of equations: what makes a system nonlinear, substitution and elimination, solution checking, a worked line-parabola example, and when numerical methods are needed.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/algebra/gleichungssysteme/nichtlineare-systeme.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260828-3">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.02}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
-    /* Header kompakt wie auf den anderen Seiten */
-    #header .tb-compact { margin-bottom:.75rem; }
-
-    nav.breadcrumb{ margin-top:.25rem; }
-    .tb-container{ max-width:1100px; margin:0 auto; }
-    .card{ background:#fff; border-radius:12px; padding:1rem 1.25rem; box-shadow:0 2px 12px rgba(0,0,0,.06); margin:1rem 0; }
-    .muted{ color:#6b7280; }
-
-    .local-toolbar a.btn{
-      text-decoration:none; background:#eef2ff; color:#1e3a8a;
-      padding:.5rem .75rem; border-radius:8px; display:inline-flex; gap:.5rem;
-      align-items:center; font-weight:600;
-    }
-    .local-toolbar a.btn.primary{ background:#1e3a8a; color:#fff; }
-  </style>
-</head><body>
+.article{max-width:1040px;margin:auto}.hero{padding:clamp(1.5rem,5vw,2.8rem);background:linear-gradient(145deg,#fff,#f6f8ff);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-sm)}.hero h1{font-size:clamp(2.5rem,7vw,4.6rem);margin:.4rem 0 1rem}.hero p{color:var(--muted);font-size:1.08rem}.quick{display:flex;gap:.55rem;flex-wrap:wrap;margin:1rem 0 1.5rem}.quick a{padding:.55rem .8rem;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:700}.cardx{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1.1rem,3vw,1.7rem);margin-bottom:1rem}.cardx h2{margin-top:0}.mathbox{background:#f6f8fc;border:1px solid #e4e9f2;border-radius:14px;padding:.9rem;overflow:auto}.methodgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.method{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fbfcff}.method strong{display:block;margin-bottom:.35rem}@media(max-width:760px){.methodgrid{grid-template-columns:1fr}}
+</style></head><body>
 <div id="header"></div>
-<nav class="breadcrumb">
-<a href="../../../..">Startseite</a> ›
-  <a href="../../mathematik.html">Mathematik</a> ›
-  <a href="../algebra.html">Algebra</a> ›
-  <span>Nichtlineare Systeme</span>
-</nav>
-<main class="content" id="mainContent"><div class="tb-container">
-<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.25rem;">
-<i class="fa-solid fa-shapes" style="font-size:1.6rem;color:#1e3a8a"></i><h1 style="margin:0;">Nichtlineare Systeme</h1>
-</div>
-<p class="muted">Strategien zur Lösung.</p>
-<div class="local-toolbar" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0 1.25rem;">
-<a class="btn primary" href="gleichungssysteme.html"><i class="fa-solid fa-arrow-left"></i> Zur Übersicht</a>
-<a class="btn" href="#definition">Definition</a>
-<a class="btn" href="#methoden">Methoden</a>
-<a class="btn" href="#beispiele">Beispiele</a>
-<a class="btn" href="#strategie">Schritt‑für‑Schritt</a>
-<a class="btn" href="#herleitung">Herleitung</a>
-<a class="btn" href="#beweis">Beweis</a>
-<a class="btn" href="#fehler">Typische Fehler</a>
-<a class="btn" href="#uebungen">Übungen</a>
-<a class="btn" href="#weiter">Wohin als Nächstes?</a>
-</div>
-<section class="card" id="definition"><h2>1. Definition</h2><p>Mindestens eine Gleichung nichtlinear.</p></section>
-<section class="card" id="methoden"><h2>2. Methoden</h2><ul><li>Substitution, Eliminieren.</li><li>Numerik (Fixpunkt/Newton, Überblick).</li></ul></section>
-<section class="card" id="beispiele"><h2>3. Beispiele</h2><p>Gerade &amp; Parabel im Schnitt.</p></section>
-<section class="card" id="strategie"><h2>4. Schritt‑für‑Schritt</h2><ol><li>Variable isolieren.</li><li>Einsetzen &amp; reduzieren.</li></ol></section>
-<section class="card" id="herleitung"><h2>5. Herleitung</h2><p>Rückführung auf bekannte Gleichungstypen.</p></section>
-<section class="card" id="beweis"><h2>6. Beweis</h2><p>Äquivalenzumformungen + Probe.</p></section>
-<section class="card" id="fehler"><h2>7. Typische Fehler</h2><ul><li>Scheinlösungen nicht geprüft.</li></ul></section>
-<section class="card" id="uebungen"><h2>8. Übungen</h2><ol><li>\(\begin{cases}x+y=5\\x^2+y^2=13\end{cases}\)</li></ol><details class="solution"><summary>Skizze</summary>Substitution.</details></section>
-<section class="card" id="weiter"><h2>9. Wohin als Nächstes?</h2><div class="categories" style="margin-top:.75rem;"><a class="card" href="../gleichungen/quadratische-gleichungen.html"><h3><i class="fa-solid fa-superscript"></i> Quadratische Gleichungen</h3><p>pq/mitternacht</p></a>
-<a class="card" href="../gleichungen/besondere-gleichungen.html"><h3><i class="fa-solid fa-wand-magic-sparkles"></i> Besondere Gleichungen</h3><p>Wurzel/Bruch</p></a></div></section>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="../algebra.html">Algebra</a><span>›</span><a href="gleichungssysteme.html">Systems</a><span>›</span><span>Nonlinear systems</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><p class="eyebrow">ALGEBRA · SYSTEMS</p><h1>Nonlinear systems</h1><p>A system is nonlinear when at least one equation is nonlinear in its unknowns. Solutions are the points that satisfy every equation simultaneously.</p></section>
+<nav class="quick" aria-label="On this page"><a href="#meaning">Meaning</a><a href="#methods">Methods</a><a href="#example">Worked example</a><a href="#numerical">Numerical methods</a><a href="#mistakes">Common mistakes</a><a href="#practice">Practice</a></nav>
+<section class="cardx" id="meaning"><h2>1. What is a nonlinear system?</h2><p>Examples include systems containing powers such as \(x^2\), products such as \(xy\), roots, exponentials or trigonometric terms. Geometrically, solving a system means finding the common intersection points of its equations.</p><div class="mathbox">\[\begin{cases}x+y=5\\x^2+y^2=13\end{cases}\]</div><p>The first equation is linear, while the second describes a circle, so the system as a whole is nonlinear. Depending on the equations, a nonlinear system can have no solution, one solution, several isolated solutions, or infinitely many solutions.</p></section>
+<section class="cardx" id="methods"><h2>2. Main solving methods</h2><div class="methodgrid"><div class="method"><strong>Substitution</strong>Isolate a variable in one equation and substitute it into another. This is often the cleanest method for small systems.</div><div class="method"><strong>Elimination</strong>Combine equations to remove a variable or a repeated nonlinear term, then solve the reduced equation.</div><div class="method"><strong>Numerical iteration</strong>When algebraic reduction is impractical, approximate a solution with a method such as Newton's method and verify the residual.</div></div></section>
+<section class="cardx" id="example"><h2>3. Worked example: line and circle</h2><p>Solve</p><div class="mathbox">\[\begin{cases}x+y=5\\x^2+y^2=13.\end{cases}\]</div><p>From the first equation, \(y=5-x\). Substitute into the second:</p><div class="mathbox">\[x^2+(5-x)^2=13\\2x^2-10x+12=0\\x^2-5x+6=0\\(x-2)(x-3)=0.\]</div><p>Thus \(x=2\) or \(x=3\). Back-substitution gives the two solutions \((2,3)\) and \((3,2)\). Checking either pair in both original equations confirms it exactly.</p></section>
+<section class="cardx" id="numerical"><h2>4. When numerical methods are useful</h2><p>For a vector equation \(F(\mathbf{x})=\mathbf{0}\), Newton's method linearizes the system near the current guess \(\mathbf{x}_k\). If the Jacobian \(J_F(\mathbf{x}_k)\) is invertible, solve</p><div class="mathbox">\[J_F(\mathbf{x}_k)\,\Delta\mathbf{x}=-F(\mathbf{x}_k),\qquad \mathbf{x}_{k+1}=\mathbf{x}_k+\Delta\mathbf{x}.\]</div><p>This is a local method: convergence depends on the starting point and the behavior of the Jacobian. A numerical answer should therefore be checked by evaluating the residuals in the original equations.</p></section>
+<section class="cardx" id="mistakes"><h2>5. Common mistakes</h2><ul><li>Stopping after substitution without back-substituting into every original equation.</li><li>Forgetting domain restrictions introduced by denominators, roots or logarithms.</li><li>Treating squaring as an equivalence transformation; it can introduce extraneous solutions.</li><li>Assuming a numerical solver found every solution rather than one solution near its starting guess.</li></ul></section>
+<section class="cardx" id="practice"><h2>6. Practice</h2><ol><li>\(\begin{cases}x+y=4\\xy=3\end{cases}\)</li><li>\(\begin{cases}y=x^2\\y=2x+3\end{cases}\)</li></ol><details><summary>Solutions</summary><p>1) \((1,3)\) and \((3,1)\). 2) \((-1,1)\) and \((3,9)\).</p></details></section>
+<section class="cardx"><h2>7. Continue learning</h2><p><a href="lineare-systeme.html">Compare with systems of linear equations →</a></p><p><a href="../gleichungen/quadratische-gleichungen.html">Review quadratic equations →</a></p></section>
 </div></main>
 <div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r=>r.text()).then(h=>{const el=document.getElementById("header");if(el)el.innerHTML=h;}),
-  fetch("/components/footer.html").then(r=>r.text()).then(h=>{const el=document.getElementById("footer");if(el)el.innerHTML=h;})
-]).catch(console.error);
-</script><script defer="" src="../../../../assets/mobile.js"></script>
+<script>Promise.all([fetch('/components/header.html?v=20260828-3').then(r=>r.text()).then(h=>{const el=document.getElementById('header');if(el)el.innerHTML=h}),fetch('/components/footer.html?v=20260828-3').then(r=>r.text()).then(h=>{const el=document.getElementById('footer');if(el)el.innerHTML=h})]).catch(console.error);</script><script defer src="/assets/mobile.js?v=20260828-3"></script>
 </body></html>
