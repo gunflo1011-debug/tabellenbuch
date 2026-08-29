@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Mathematics Tools — Tabellenbuch</title>
+  <meta name="description" content="Use free interactive mathematics tools for equations, derivatives, integrals, extrema, series, gradients and vector fields — each connected to a rigorous explanation.">
+  <link rel="canonical" href="https://tabellenbuch.org/pages/tools.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css?v=20260829-3">
+</head>
+<body>
+  <div id="header"></div>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><span>Tools</span></nav>
+  <main class="content" id="mainContent">
+    <div class="tb-container">
+      <div class="page-intro">
+        <p class="section-kicker">Interactive mathematics</p>
+        <h1>Learn by trying it.</h1>
+        <p>These tools are built into the reference itself. Calculate, experiment and then jump straight into the mathematics behind the result.</p>
+      </div>
+
+      <section aria-labelledby="algebra-tools">
+        <div class="section-intro"><p class="section-kicker">Algebra</p><h2 id="algebra-tools">Solve and explore equations.</h2></div>
+        <div class="categories">
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/lineare-gleichungen.html#solver"><h3>Linear equation solver</h3><p>Solve equations of the form ax + b = 0 and understand the special cases.</p></a>
+          <a class="card" href="/pages/mathematik/algebra/gleichungen/quadratische-gleichungen.html#solver"><h3>Quadratic equation solver</h3><p>Find real or complex roots and inspect the discriminant of ax² + bx + c = 0.</p></a>
+          <a class="card" href="/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html#tool"><h3>2×2 linear-system solver</h3><p>Solve two simultaneous linear equations and connect the result to matrix form and geometry.</p></a>
+        </div>
+      </section>
+
+      <section aria-labelledby="calculus-tools">
+        <div class="section-intro"><p class="section-kicker">Calculus</p><h2 id="calculus-tools">See change, accumulation and convergence.</h2></div>
+        <div class="categories">
+          <a class="card" href="/pages/mathematik/analysis-reell/differential.html#tool"><h3>Derivative &amp; tangent tool</h3><p>Differentiate a cubic polynomial, evaluate the slope at x₀ and generate the tangent line.</p></a>
+          <a class="card" href="/pages/mathematik/funktionen/extrema-uebersicht.html#tool"><h3>Extrema analyzer</h3><p>Inspect critical points of cubic functions and connect first and second derivatives to graph shape.</p></a>
+          <a class="card" href="/pages/mathematik/analysis-reell/integral.html#tool"><h3>Integral &amp; Riemann-sum tool</h3><p>Compute a definite polynomial integral and compare it with a midpoint-rectangle approximation.</p></a>
+          <a class="card" href="/pages/mathematik/analysis-reell/folgen-reihen.html#tool"><h3>Partial-sum explorer</h3><p>Watch geometric, p-series and alternating harmonic partial sums approach — or fail to approach — a limit.</p></a>
+        </div>
+      </section>
+
+      <section aria-labelledby="advanced-tools">
+        <div class="section-intro"><p class="section-kicker">Multivariable &amp; vector calculus</p><h2 id="advanced-tools">Explore mathematics in more dimensions.</h2></div>
+        <div class="categories">
+          <a class="card" href="/pages/mathematik/analysis-reell/mehrdim.html#tool"><h3>Gradient analyzer</h3><p>Evaluate a quadratic surface gradient, its magnitude and the direction of steepest ascent.</p></a>
+          <a class="card" href="/pages/mathematik/analysis-reell/vektorsatz.html#tool"><h3>Vector-field diagnostic</h3><p>Explore divergence and curl for a linear two-dimensional vector field.</p></a>
+        </div>
+      </section>
+
+      <section class="quality-band" aria-labelledby="why-tools">
+        <div class="quality-band__intro"><p class="section-kicker">More than calculators</p><h2 id="why-tools">Every result has mathematics behind it.</h2></div>
+        <div class="quality-grid">
+          <article><span>01</span><h3>Try</h3><p>Change inputs and build intuition from immediate feedback.</p></article>
+          <article><span>02</span><h3>Understand</h3><p>Each tool lives beside definitions, derivations and worked examples.</p></article>
+          <article><span>03</span><h3>Check</h3><p>Use the tool to verify hand calculations without replacing the reasoning.</p></article>
+          <article><span>04</span><h3>Continue</h3><p>Follow the surrounding learning path instead of ending at a numerical answer.</p></article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script>
+    Promise.all([
+      fetch('/components/header.html?v=20260829-3').then(r => r.text()).then(h => { const el = document.getElementById('header'); if (el) el.innerHTML = h; }),
+      fetch('/components/footer.html').then(r => r.text()).then(h => { const el = document.getElementById('footer'); if (el) el.innerHTML = h; })
+    ]).catch(console.error);
+  </script>
+  <script defer src="/assets/mobile.js?v=20260828-2"></script>
+</body>
+</html>
