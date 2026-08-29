@@ -30,6 +30,7 @@ CORE_PAGES = [
     Path("pages/mathematik/analysis-reell/folgen-reihen.html"),
     Path("pages/mathematik/analysis-reell/mehrdim.html"),
     Path("pages/mathematik/analysis-reell/vektorsatz.html"),
+    Path("pages/mathematik/dgl/dgl.html"),
     Path("pages/mathematik/dgl/ode.html"),
 ]
 
