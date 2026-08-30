@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_PAGES = [
+    Path("index.html"),
     Path("pages/mathematik/mathematik.html"),
     Path("pages/mathematik/algebra/algebra.html"),
     Path("pages/mathematik/algebra/gleichungen/index.html"),
