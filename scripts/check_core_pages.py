@@ -34,6 +34,7 @@ CORE_PAGES = [
     Path("pages/mathematik/analysis-reell/vektorsatz.html"),
     Path("pages/mathematik/dgl/dgl.html"),
     Path("pages/mathematik/dgl/ode.html"),
+    Path("pages/mathematik/dgl/ode-systeme.html"),
     Path("pages/mathematik/lineare-algebra/lineare-algebra.html"),
 ]
 
@@ -83,17 +84,28 @@ def local_target(page: Path, href: str) -> Path | None:
     if raw.startswith("/"):
         target = ROOT / raw.lstrip("/")
     else:
-        target = (ROOT / page.parent / raw).resolve()
-    if str(target).endswith("/"):
+        target = ROOT / page.parent / raw
+    if target.is_dir():
         target = target / "index.html"
-    return target
+    return target.resolve()
 
 
-def check(page: Path, *, require_english: bool) -> list[str]:
-    full = ROOT / page
+def changed_html(base_ref: str) -> list[Path]:
+    result = subprocess.run(
+        ["git", "diff", "--name-only", f"{base_ref}...HEAD", "--", "*.html"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return [Path(line) for line in result.stdout.splitlines() if line.strip()]
+
+
+def validate(page: Path) -> list[str]:
     errors: list[str] = []
+    full = ROOT / page
     if not full.exists():
-        return [f"missing page: {page}"]
+        return [f"{page}: missing"]
     text = full.read_text(encoding="utf-8")
     parser = PageParser()
     parser.feed(text)
@@ -107,79 +119,54 @@ def check(page: Path, *, require_english: bool) -> list[str]:
         errors.append(f"{page}: missing canonical link")
     if not parser.has_viewport:
         errors.append(f"{page}: missing viewport meta")
-    if require_english and parser.html_lang != "en":
-        errors.append(f"{page}: html lang should be 'en', found {parser.html_lang!r}")
-    elif not require_english and not re.fullmatch(
-        r"[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*", parser.html_lang or ""
-    ):
-        errors.append(f"{page}: missing or invalid html lang: {parser.html_lang!r}")
-    duplicates = sorted({x for x in parser.ids if parser.ids.count(x) > 1})
+    if parser.html_lang != "en":
+        errors.append(f"{page}: html lang must be 'en', found {parser.html_lang!r}")
+    duplicates = sorted({value for value in parser.ids if parser.ids.count(value) > 1})
     if duplicates:
         errors.append(f"{page}: duplicate ids: {', '.join(duplicates)}")
     for href in parser.hrefs:
         target = local_target(page, href)
         if target is not None and not target.exists():
-            try:
-                shown = target.relative_to(ROOT)
-            except ValueError:
-                shown = target
-            errors.append(f"{page}: broken local link {href!r} -> {shown}")
-    for placeholder in ("Formeln & Inhalte folgen", "Content follows", "TODO"):
-        if placeholder in text:
-            errors.append(f"{page}: placeholder text remains: {placeholder!r}")
+            errors.append(f"{page}: broken local link {href}")
+    placeholders = [
+        r"formeln\s*&(?:amp;)?\s*inhalte\s+folgen",
+        r"content\s+coming\s+soon",
+        r"todo\b",
+        r"placeholder\b",
+    ]
+    lower = text.lower()
+    for pattern in placeholders:
+        if re.search(pattern, lower):
+            errors.append(f"{page}: placeholder content matched {pattern!r}")
     return errors
-
-
-def changed_html_pages(base: str) -> set[Path]:
-    if not base or set(base) == {"0"}:
-        base = "HEAD^"
-    result = subprocess.run(
-        [
-            "git",
-            "diff",
-            "--name-only",
-            "--diff-filter=ACMR",
-            f"{base}...HEAD",
-            "--",
-            "*.html",
-        ],
-        cwd=ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return {
-        Path(name)
-        for name in result.stdout.splitlines()
-        if name and Path(name).parts[0] != "components" and (ROOT / name).is_file()
-    }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--changed-since",
-        help="also validate every HTML document changed since this Git commit",
-    )
+    parser.add_argument("--base-ref", default="")
     args = parser.parse_args()
-    core_pages = set(CORE_PAGES)
-    changed_pages = changed_html_pages(args.changed_since) if args.changed_since else set()
-    pages = sorted(core_pages | changed_pages)
-    errors = [
-        error
-        for page in pages
-        for error in check(page, require_english=page in core_pages)
-    ]
+    pages = list(CORE_PAGES)
+    changed: list[Path] = []
+    if args.base_ref:
+        changed = changed_html(args.base_ref)
+        pages.extend(changed)
+    seen: set[Path] = set()
+    ordered = []
+    for page in pages:
+        if page not in seen:
+            seen.add(page)
+            ordered.append(page)
+    errors = []
+    for page in ordered:
+        errors.extend(validate(page))
     if errors:
-        print("HTML page quality checks failed:")
+        print("Core page quality checks failed:", file=sys.stderr)
         for error in errors:
-            print(f"- {error}")
+            print(f"- {error}", file=sys.stderr)
         return 1
-    print(
-        f"HTML page quality checks passed for {len(pages)} pages "
-        f"({len(core_pages)} core, {len(changed_pages)} changed)."
-    )
+    print(f"HTML page quality checks passed for {len(ordered)} pages ({len(CORE_PAGES)} core, {len(changed)} changed).")
     return 0
 
+
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
