@@ -34,6 +34,7 @@ CORE_PAGES = [
     Path("pages/mathematik/analysis-reell/vektorsatz.html"),
     Path("pages/mathematik/dgl/dgl.html"),
     Path("pages/mathematik/dgl/ode.html"),
+    Path("pages/mathematik/dgl/ode-systeme.html"),
     Path("pages/mathematik/lineare-algebra/lineare-algebra.html"),
 ]
 
