@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head><head>
-<meta charset="utf-8"/>
-<title>Lineare-algebra – Tabellenbuch Mathematik</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-</head></head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linear Algebra — Vectors, Matrices & Eigenvalues | Tabellenbuch</title>
+<meta name="description" content="A compact linear algebra reference covering vectors, matrices, linear maps, systems of equations, determinants, eigenvalues and eigenvectors with key formulas and interpretation.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/lineare-algebra/lineare-algebra.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260829-3">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.01}}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.article{max-width:1080px;margin:auto}.hero{padding:clamp(2.2rem,7vw,5rem) 0 2rem}.hero h1{font-size:clamp(3rem,8vw,5.6rem);line-height:.95;letter-spacing:-.05em;margin:.45rem 0 1rem}.hero p{max-width:760px;font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted)}.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);padding:clamp(1.2rem,3vw,1.8rem);margin-bottom:1rem}.card h2{margin-top:0;font-size:clamp(1.55rem,3vw,2.1rem)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.formula{padding:1rem;border-radius:14px;background:#f7f9ff;border:1px solid #e0e7ff;overflow-x:auto}.callout{border-left:4px solid var(--primary);background:#f7f9ff;padding:.95rem 1rem;border-radius:0 12px 12px 0}.steps{display:grid;gap:.85rem}.step{display:grid;grid-template-columns:38px 1fr;gap:.8rem;align-items:start}.step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eef4ff;color:var(--primary)}.related{display:flex;gap:.65rem;flex-wrap:wrap}.related a{border:1px solid var(--line);border-radius:999px;padding:.55rem .8rem;background:#fff;font-weight:650}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
 <div id="header"></div>
-<div id="header"></div>
-<main>
-<h1>Lineare-algebra</h1>
-<p>Formeln &amp; Inhalte folgen.</p>
-</main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><span>Linear Algebra</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><p class="eyebrow">MATHEMATICS · STRUCTURE AND TRANSFORMATION</p><h1>Linear Algebra</h1><p>Linear algebra studies vectors, matrices and linear transformations. It is the language used to solve coupled linear equations, describe geometry in many dimensions and analyze how linear systems stretch, rotate or preserve directions.</p></section>
+<section class="card"><h2>Vectors and matrices</h2><div class="grid"><div><p>A vector in \(\mathbb{R}^n\) is an ordered list of \(n\) numbers. Vector addition and scalar multiplication are performed componentwise.</p><div class="formula">\[\mathbf{x}=\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}.\]</div></div><div><p>An \(m\times n\) matrix represents a linear map from \(\mathbb{R}^n\) to \(\mathbb{R}^m\). Matrix-vector multiplication forms each output component as a linear combination of the input components.</p><div class="formula">\[A\mathbf{x}=\mathbf{b}.\]</div></div></div></section>
+<section class="card"><h2>Linear maps</h2><p>A map \(T\) is linear when it preserves vector addition and scalar multiplication:</p><div class="formula">\[T(\mathbf{u}+\mathbf{v})=T(\mathbf{u})+T(\mathbf{v}),\qquad T(c\mathbf{u})=cT(\mathbf{u}).\]</div><p>Once a basis is chosen, every linear map between finite-dimensional vector spaces can be represented by a matrix.</p></section>
+<section class="card"><h2>Systems of linear equations</h2><p>A system of linear equations can be written compactly as \(A\mathbf{x}=\mathbf{b}\). Row operations preserve the solution set and lead to row-echelon form, which reveals whether the system has no solution, one solution or infinitely many solutions.</p><div class="callout"><strong>Key criterion:</strong> a square matrix \(A\) has a unique solution for every \(\mathbf{b}\) exactly when \(A\) is invertible.</div><div class="related"><a href="/pages/mathematik/algebra/gleichungssysteme/lineare-systeme.html">Linear systems reference →</a></div></section>
+<section class="card"><h2>Determinant and invertibility</h2><p>For a square matrix, the determinant is a scalar that measures oriented volume scaling. For a \(2\times2\) matrix,</p><div class="formula">\[\det\begin{bmatrix}a&b\\c&d\end{bmatrix}=ad-bc.\]</div><p>A square matrix is invertible if and only if its determinant is nonzero. In that case, \(A\mathbf{x}=\mathbf{b}\) has the unique solution \(\mathbf{x}=A^{-1}\mathbf{b}\).</p></section>
+<section class="card"><h2>Eigenvalues and eigenvectors</h2><p>A nonzero vector \(\mathbf{v}\) is an eigenvector of \(A\) when applying \(A\) changes only its scale, not its direction:</p><div class="formula">\[A\mathbf{v}=\lambda\mathbf{v}.\]</div><p>The scalar \(\lambda\) is the corresponding eigenvalue. Eigenvalues are found from the characteristic equation</p><div class="formula">\[\det(A-\lambda I)=0.\]</div><p>Eigenvectors reveal invariant directions and are central to stability analysis, differential equations, data analysis and repeated matrix transformations.</p></section>
+<section class="card"><h2>A practical workflow</h2><div class="steps"><div class="step"><b>1</b><div><strong>Choose the representation.</strong><p>Write the problem using vectors and a matrix whenever the relationships are linear.</p></div></div><div class="step"><b>2</b><div><strong>Check dimensions.</strong><p>For \(A\mathbf{x}\), the number of columns of \(A\) must equal the number of components of \(\mathbf{x}\).</p></div></div><div class="step"><b>3</b><div><strong>Test structure.</strong><p>For square matrices, rank, determinant and eigenvalues answer different questions about solvability and transformation behavior.</p></div></div><div class="step"><b>4</b><div><strong>Interpret the result.</strong><p>Do not stop at a matrix calculation: translate the solution, null space or eigenvector back into the original problem.</p></div></div></div></section>
+<section class="card"><h2>Connections</h2><p>Linear algebra connects directly to systems of equations, multivariable calculus and differential equations.</p><div class="related"><a href="/pages/mathematik/algebra/gleichungssysteme/gleichungssysteme.html">Equation systems</a><a href="/pages/mathematik/analysis-reell/mehrdim.html">Multivariable calculus</a><a href="/pages/mathematik/dgl/dgl.html">Differential equations</a></div></section>
+</div></main>
 <div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-]).catch(console.error);
-</script>
-<script defer="" src="../../../assets/mobile.js"></script>
+<script>Promise.all([fetch('/components/header.html').then(r=>r.text()).then(h=>{const e=document.getElementById('header');if(e)e.innerHTML=h}),fetch('/components/footer.html').then(r=>r.text()).then(h=>{const e=document.getElementById('footer');if(e)e.innerHTML=h})]).catch(console.error)</script>
+<script defer src="/assets/mobile.js"></script>
 </body>
 </html>
