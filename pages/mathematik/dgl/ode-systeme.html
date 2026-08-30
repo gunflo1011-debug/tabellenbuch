@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head><head>
-<meta charset="utf-8"/>
-<title>Ode-systeme – Tabellenbuch Mathematik</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-</head></head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Systems of ODEs — Matrix Form, Eigenvalues & Stability | Tabellenbuch</title>
+<meta name="description" content="Learn systems of ordinary differential equations in vector form, solve linear constant-coefficient systems with eigenvalues and matrix exponentials, and read stability from phase portraits.">
+<link rel="canonical" href="https://tabellenbuch.org/pages/mathematik/dgl/ode-systeme.html">
+<link rel="stylesheet" href="/assets/style.css?v=20260829-3">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.01}}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.article{max-width:1000px;margin:auto}.hero{padding:clamp(2.2rem,7vw,4.5rem) 0 2rem}.hero h1{font-size:clamp(2.8rem,7vw,5.3rem);line-height:.96;letter-spacing:-.05em;margin:.45rem 0 1rem}.hero p{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);max-width:760px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);padding:clamp(1.2rem,3vw,1.8rem);margin-bottom:1rem}.card h2{margin-top:0;font-size:clamp(1.5rem,3vw,2rem)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.formula{padding:1rem;border-radius:14px;background:#f7f9ff;border:1px solid #e0e7ff;overflow-x:auto}.callout{border-left:4px solid var(--primary);background:#f7f9ff;padding:.95rem 1rem;border-radius:0 12px 12px 0}.related{display:flex;gap:.65rem;flex-wrap:wrap}.related a{border:1px solid var(--line);border-radius:999px;padding:.55rem .8rem;background:#fff;font-weight:650}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
 <div id="header"></div>
-<div id="header"></div>
-<main>
-<h1>Ode-systeme</h1>
-<p>Formeln &amp; Inhalte folgen.</p>
-</main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/pages/mathematik/mathematik.html">Mathematics</a><span>›</span><a href="dgl.html">Differential Equations</a><span>›</span><span>Systems of ODEs</span></nav>
+<main class="content"><div class="tb-container article">
+<section class="hero"><p class="eyebrow">DIFFERENTIAL EQUATIONS · COUPLED DYNAMICS</p><h1>Systems of ODEs</h1><p>When several quantities evolve together, a single differential equation is not enough. Systems of ODEs collect the variables into a vector and expose the structure of coupled dynamics through matrices, eigenvalues and phase portraits.</p></section>
+<section class="card"><h2>Vector form</h2><p>A first-order system for \(n\) dependent variables is written compactly as</p><div class="formula">\[\mathbf{x}'(t)=\mathbf{f}(t,\mathbf{x}(t)).\]</div><p>For a linear constant-coefficient system this becomes</p><div class="formula">\[\mathbf{x}'(t)=A\mathbf{x}(t),\qquad \mathbf{x}(0)=\mathbf{x}_0.\]</div><p>Here \(A\) is an \(n\times n\) matrix. The solution can be written with the matrix exponential as \(\mathbf{x}(t)=e^{tA}\mathbf{x}_0\).</p></section>
+<section class="card"><h2>Eigenvalues turn coupling into modes</h2><p>If \(A\mathbf{v}=\lambda\mathbf{v}\), then \(\mathbf{x}(t)=e^{\lambda t}\mathbf{v}\) is a solution of \(\mathbf{x}'=A\mathbf{x}\). When \(A\) has enough linearly independent eigenvectors, general solutions are linear combinations of these modes.</p><div class="formula">\[\mathbf{x}(t)=c_1e^{\lambda_1 t}\mathbf{v}_1+\cdots+c_ne^{\lambda_n t}\mathbf{v}_n.\]</div><div class="callout"><strong>Interpretation:</strong> the real parts of the eigenvalues control exponential growth or decay; imaginary parts produce oscillation.</div></section>
+<section class="card"><h2>Stability and phase portraits</h2><div class="grid"><div><h3>Asymptotically stable</h3><p>If every eigenvalue of a constant matrix \(A\) has negative real part, all solutions of \(\mathbf{x}'=A\mathbf{x}\) tend to the origin as \(t\to\infty\).</p></div><div><h3>Unstable</h3><p>If at least one eigenvalue has positive real part, some solutions grow away from the origin.</p></div><div><h3>Saddle</h3><p>For a real \(2\times2\) system, eigenvalues with opposite signs produce a saddle: one eigendirection contracts while another expands.</p></div><div><h3>Spiral behavior</h3><p>A complex-conjugate pair creates rotation in the phase plane; the sign of the common real part determines inward or outward spiraling.</p></div></div><p>A phase portrait plots solution trajectories in state space. It often reveals equilibrium type and long-term behavior without requiring a closed-form solution.</p></section>
+<section class="card"><h2>Worked 2×2 example</h2><p>Consider</p><div class="formula">\[\mathbf{x}'=\begin{pmatrix}2&1\\1&2\end{pmatrix}\mathbf{x}.\]</div><p>The characteristic equation is \(\det(A-\lambda I)=(2-\lambda)^2-1=0\), so \(\lambda_1=3\) and \(\lambda_2=1\). Corresponding eigenvectors can be chosen as \((1,1)^T\) and \((1,-1)^T\). Therefore</p><div class="formula">\[\mathbf{x}(t)=c_1e^{3t}\begin{pmatrix}1\\1\end{pmatrix}+c_2e^t\begin{pmatrix}1\\-1\end{pmatrix}.\]</div><p>Both eigenvalues are positive, so every nonzero modal component grows exponentially and the origin is unstable.</p></section>
+<section class="card"><h2>Nonlinear systems</h2><p>For an autonomous nonlinear system \(\mathbf{x}'=\mathbf{f}(\mathbf{x})\), an equilibrium \(\mathbf{x}_*\) satisfies \(\mathbf{f}(\mathbf{x}_*)=0\). Near that point, the Jacobian matrix \(J=D\mathbf{f}(\mathbf{x}_*)\) provides the linearized system. When the equilibrium is hyperbolic, the eigenvalues of \(J\) determine the local qualitative behavior.</p></section>
+<section class="card"><h2>Next steps</h2><div class="related"><a href="ode.html">Single ODEs</a><a href="/pages/mathematik/lineare-algebra/lineare-algebra.html">Linear Algebra</a><a href="/pages/mathematik/lineare-algebra/eigen.html">Eigenvalues</a><a href="dgl.html">Differential Equations hub</a></div></section>
+</div></main>
 <div id="footer"></div>
-<script>
-Promise.all([
-  fetch("/components/header.html").then(r => r.text()).then(h => { const el = document.getElementById("header"); if(el) el.innerHTML = h; }),
-  fetch("/components/footer.html").then(r => r.text()).then(h => { const el = document.getElementById("footer"); if(el) el.innerHTML = h; })
-]).catch(console.error);
-</script>
-<script defer="" src="../../../assets/mobile.js"></script>
-</body>
-</html>
+<script>Promise.all([fetch('/components/header.html').then(r=>r.text()).then(h=>{const e=document.getElementById('header');if(e)e.innerHTML=h}),fetch('/components/footer.html').then(r=>r.text()).then(h=>{const e=document.getElementById('footer');if(e)e.innerHTML=h})]).catch(console.error)</script>
+<script defer src="/assets/mobile.js"></script>
+</body></html>
